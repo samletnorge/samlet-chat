@@ -1,14 +1,14 @@
-# Commento++
+# samlet-chat
 
 ### 💬 Try it out and deploy your own
 [LIVE DEMO](https://demo.souradip.com/chat.html)
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/souramoo/commentoplusplus) 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/samletnorge/samlet-chat) 
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/hame0C)
 
 ### ❓ About
-Commento++ is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
+samlet-chat is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
 
 ### ⚡ Features
 - Markdown support
@@ -23,10 +23,10 @@ Commento++ is a free, open source, fast & lightweight comments box that you can 
 - Email notifications.
 
 ### 🤝 Support
-Please [(donate)](https://paypal.me/souramoo) if you find my work helpful (this will always remain free and open source)!
+Please [(donate)](https://paypal.me/samletnorge) if you find my work helpful (this will always remain free and open source)!
 
 ### 📷 Screenshots
-![Commento++ in action](https://i.imgur.com/x4IA22n.gif)
+![samlet-chat in action](https://i.imgur.com/x4IA22n.gif)
 
 ### 🤔 How is this different from Disqus, Facebook Comments, and the rest?
 
@@ -42,7 +42,7 @@ To start you just need to launch an instance.
 
 The button below will work for a Heroku account:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/souramoo/commentoplusplus)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/samletnorge/samlet-chat)
 
 The button below will work for a free Railway account:
 
@@ -52,7 +52,7 @@ Otherwise, most of the below is the same as documented at https://docs.commento.
 
 If you want to self-host, you will need a PostgreSQL server handy and then:
 1) Use this repo's Dockerfile if you're into that kind of thing
-2) Download the plug and play pre-compiled version from the [releases](https://github.com/souramoo/commentoplusplus/releases)
+2) Download the plug and play pre-compiled version from the [releases](https://github.com/samletnorge/samlet-chat/releases)
 3) To build yourself, you can clone this repo (you will require `nodejs`, `yarn`, `golang` installed) and run `make prod` and you will generate `./build/prod/commento`
 
 
@@ -84,7 +84,7 @@ A new feature added recently, with better edge-case handling of domain names, et
 
 This feature however will open up your commento instance to abuse if it is shared between a lot of people (e.g. people registering `e%` to register *every domain beginning with e*...)
 
-As most of commento++ instances are serving one user only, I have assumed you will be sensible about this and enabled wildcard domain support by default. 
+As most of samlet-chat instances are serving one user only, I have assumed you will be sensible about this and enabled wildcard domain support by default. 
 
 If you want the old behaviour, you can disable this with an environment variable:
 
@@ -115,7 +115,7 @@ Make sure that you have enabled the automatic spam detection in the dashboard.
 
 #### Disabling SMTP Host verification check
 
-Commento++ allows configuration of the tlsConfig for both SMTPS as well as StartTLS for email sending.
+samlet-chat allows configuration of the tlsConfig for both SMTPS as well as StartTLS for email sending.
 For context, this is required for the [https://cloudron.io/](Cloudron) app package.
 
 To skip SMTP hostname verification, use:
@@ -165,7 +165,7 @@ location / {
 Or if you'd rather not do that, disable websockets in favour of HTTP polling by adding `data-no-websockets="true"` to the commento <script> tag (or `data-no-livereload="true"`` to only load comments on page load, see below!)
 
 ### SSL Support
-Commento++ supports native SSL without use of an nginx proxy. Three properties are required for Native SSL:
+samlet-chat supports native SSL without use of an nginx proxy. Three properties are required for Native SSL:
 
 - COMMENTO_SSL
 - COMMENTO_SSL_CERT
@@ -219,7 +219,7 @@ I've sent in merge requests for a lot of the above but I don't know when they'll
 
 ### How to use this in a SPA (Single Page Application)
 
-Commento++ runs a bit of code on page load to initialize the widget. This widget can be customized by using data attributes on the script tag. When using commento++ in a SPA you might want to change the pageId for the widget when navigating to a new blog post without a browser page load. Below you'll find an example for an Commento++ component in React:
+samlet-chat runs a bit of code on page load to initialize the widget. This widget can be customized by using data attributes on the script tag. When using samlet-chat in a SPA you might want to change the pageId for the widget when navigating to a new blog post without a browser page load. Below you'll find an example for an samlet-chat component in React:
 
 ```js
 import React, { useEffect } from 'react'
@@ -256,7 +256,7 @@ const Commento = ({ pageId }) => {
 export default Commento
 ```
 
-Commento initializes itself and extends the `window.commento` object. When you have an HTML element with the id `commento` this will live on the `window.commento` namespace. Replacing the HTML element (as SPAs do) the `window.commento` is reset to the new element, losing all extended functionality provided by the commento++ script. Make sure to provide a `data-id-root` other than `commento` for this to work, see `commento-box` in the example above. 
+Commento initializes itself and extends the `window.commento` object. When you have an HTML element with the id `commento` this will live on the `window.commento` namespace. Replacing the HTML element (as SPAs do) the `window.commento` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `commento` for this to work, see `commento-box` in the example above. 
 
 The `window.commento.reInit` function can be called with the following updated options (all optional):
 

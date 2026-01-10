@@ -445,11 +445,11 @@
     classAdd(a, "logo");
     classAdd(text, "logo-text");
 
-    attrSet(a, "href", "https://github.com/souramoo/commentoplusplus");
+    attrSet(a, "href", "https://github.com/samletnorge/samlet-chat");
     attrSet(a, "target", "_blank");
     attrSet(a, "rel", "noreferrer");
 
-    text.innerText = "Commento++";
+    text.innerText = "samlet-chat";
 
     append(a, text);
     append(aContainer, a);

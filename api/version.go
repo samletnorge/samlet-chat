@@ -20,7 +20,7 @@ func versionCheckStart() error {
 		latestSeen := ""
 
 		for {
-			resp, err := http.Get("https://api.github.com/repos/souramoo/commentoplusplus/releases/latest")
+			resp, err := http.Get("https://api.github.com/repos/samletnorge/samlet-chat/releases/latest")
 			if err != nil {
 				errorCount++
 				// print the error only once; we don't want to spam the logs with this
