@@ -1,0 +1,13 @@
+pages:
+  stage: deploy
+  image: node:10.4
+  script:
+    - npm install -g gitbook-cli
+    - gitbook install
+    - gitbook build
+    - mv _book public
+  only:
+    - master
+  artifacts:
+    paths:
+      - public

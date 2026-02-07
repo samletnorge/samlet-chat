@@ -1,0 +1,204 @@
+ @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Ubuntu+Mono:400,700');
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: none;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+code, code span {
+  font-family: 'Ubuntu Mono', monospace !important;
+  font-size: 15px !important;
+  letter-spacing: 0px;
+}
+
+code.bold {
+  font-weight: 700;
+  color: #444444;
+}
+
+pre.gray {
+  color: #909090;
+}
+
+.book-summary {
+  width: 350px;
+}
+
+.navigation {
+  display: none;
+}
+
+#book-search-input {
+  margin-bottom: 30px;
+}
+
+.markdown-section * {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.page-inner {
+  max-width: 700px;
+}
+
+.book-summary ul.summary li a:hover {
+  text-decoration: none;
+}
+
+.markdown-section hr {
+  height: 1px;
+}
+
+.chapter {
+  font-size: 15px;
+}
+
+.book-summary ul.summary li ul {
+  padding-left: 15px;
+}
+
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+  margin-left: -200px;
+  padding-left: 215px;
+}
+
+.book-summary ul.summary li.active>a {
+  color: #1e2127;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.05);
+  border-right: 2px solid #1e2127;
+}
+
+.gitbook-link {
+  display: none !important;
+  opacity: 0;
+}
+
+.divider {
+  display: none !important;
+  opacity: 0;
+}
+
+h1>a {
+  display: none;
+}
+
+.book-header .btn {
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+  .book-header .btn {
+    display: block;
+  }
+}
+
+.markdown-section code {
+  background-color: #fdf6e3 !important;
+  padding: 2px;
+  margin: -2px;
+  border-radius: 3px;
+  background: none;
+  font-family: 'Ubuntu Mono', monospace !important;
+  font-size: 15px;
+}
+
+.hints-container p {
+  margin: 0px 0px;
+}
+
+.markdown-section code::after, .markdown-section code::before {
+  letter-spacing: 0;
+  content: "";
+}
+
+.markdown-section .setting-right {
+  float: right;
+  color: #f08c00;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 0px 4px 0px 4px;
+}
+
+.markdown-section .setting-title {
+  background: none;
+  color: #1c7ed6;
+  font-family: 'Ubuntu Mono', monospace !important;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.markdown-section .setting-possible::before,
+.markdown-section .setting-example::before {
+  content: "Example:";
+  margin-right: 6px;
+  display: inline;
+  color: #37b24d;
+  font-weight: 700;
+  font-family: 'Ubuntu Mono', monospace !important;
+  position: absolute;
+  left: 0px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.markdown-section .setting-possible::before {
+  content: "Allowed:";
+  color: #e64980;
+}
+
+.markdown-section .setting-possible,
+.markdown-section .setting-example {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: none;
+  margin-top: 0px;
+  font-family: 'Ubuntu Mono', monospace !important;
+  color: #666666;
+  font-size: 14px;
+  position: relative;
+  padding-left: 70px;
+}
+
+.red {
+  color: #ffe3e3 !important;
+  background: #fa5252;
+}
+
+.markdown-section .setting-example code {
+  color: #1c7ed6;
+  font-family: 'Ubuntu Mono', monospace !important;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.markdown-section .sha {
+  font-family: 'Ubuntu Mono', monospace !important;
+  font-size: 10px;
+  margin-top: -13px;
+  color: #777777;
+}
+
+.markdown-section .sha::before {
+  font-family: 'Source Sans Pro', serif !important;
+  content: "SHA256: ";
+  font-size: 10px;
+  font-weight: 700;
+  color: #777777;
+}
+
+summary:before {
+  display: inline;
+  float: left;
+  content: "[Expand]";
+  color: #4183c4;
+  margin-right: 8px;
+}
