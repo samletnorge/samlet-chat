@@ -69,5 +69,3 @@ run-dev.sh
 index.html
 
 # End of https://www.gitignore.io/api/vim,osx
-_book
-node_modules
