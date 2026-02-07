@@ -1,11 +1,7 @@
 # samlet-chat
 
 ### 💬 Try it out and deploy your own
-[LIVE DEMO](https://demo.souradip.com/chat.html)
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/samletnorge/samlet-chat) 
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/hame0C)
+[LIVE DEMO](https://samlet-chat.valiantlynx.com/login)
 
 ### ❓ About
 samlet-chat is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
@@ -22,8 +18,6 @@ samlet-chat is a free, open source, fast & lightweight comments box that you can
 - Hot-reloading of comments
 - Email notifications.
 
-### 🤝 Support
-Please [(donate)](https://paypal.me/samletnorge) if you find my work helpful (this will always remain free and open source)!
 
 ### 📷 Screenshots
 ![samlet-chat in action](https://i.imgur.com/x4IA22n.gif)
@@ -39,16 +33,6 @@ Please [(donate)](https://paypal.me/samletnorge) if you find my work helpful (th
 ### Get started
 
 To start you just need to launch an instance.
-
-The button below will work for a Heroku account:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/samletnorge/samlet-chat)
-
-The button below will work for a free Railway account:
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/hame0C)
-
-Otherwise, most of the below is the same as documented at https://docs.commento.io
 
 If you want to self-host, you will need a PostgreSQL server handy and then:
 1) Use this repo's Dockerfile if you're into that kind of thing
