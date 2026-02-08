@@ -15,7 +15,7 @@ func smtpDomainExport(to string, toName string, domain string, exportHex string)
 	var body bytes.Buffer
 	templates["domain-export"].Execute(&body, &domainExportPlugs{Origin: os.Getenv("ORIGIN"), ExportHex: exportHex})
 
-	err := smtpSendMail(to, toName, "", "Commento Data Export", body.String())
+	err := smtpSendMail(to, toName, "", "samlet-chat Data Export", body.String())
 	if err != nil {
 		logger.Errorf("cannot send data export email: %v", err)
 		return errorCannotSendEmail

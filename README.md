@@ -89,7 +89,7 @@ COMMENTO_PERSPECTIVE_KEY:
 To create a new Perspective API key follow the instructions at https://developers.perspectiveapi.com/s/docs-get-started
 
 COMMENTO_PERSPECTIVE_LIMIT:
-The limit defines the minimum value for the Perspective probability summary score. Everything above the value will be flagged in Commentoplus. (Default 0.5)
+The limit defines the minimum value for the Perspective probability summary score. Everything above the value will be flagged in samlet-chat. (Default 0.5)
 
 COMMENTO_PERSPECTIVE_LANGUAGE:
 Configure the language to your requirements. (Default: en)
@@ -163,10 +163,10 @@ If `COMMENTO_SSL=true` then `COMMENTO_SSL_CERT` and `COMMENTO_SSL_KEY` must be s
 
 You can add the following to samlet-chat's script tag:
 
-- `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses Commento's default theme.
-- `data-auto-init="false"` - Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load Commento. By default, this is true.
-- `data-id-root="notsamlet-chat"` - By default, Commento looks for a `<div>` with `id="samlet-chat"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
-- `data-no-fonts="true"` - By default, Commento uses the Source Sans Pro font to present a good design out-of-the-box. If you'd like to disable this so that Commento never loads the font files, you can set this to true. By default, this is true.
+- `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses samlet-chat's default theme.
+- `data-auto-init="false"` - samlet-chat automatically initialises itself when the page is loaded. If you prefer to load samlet-chat dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load samlet-chat. By default, this is true.
+- `data-id-root="notsamlet-chat"` - By default, samlet-chat looks for a `<div>` with `id="samlet-chat"`. If you want to load samlet-chat in a different element, you can set this attribute to the ID of that element.
+- `data-no-fonts="true"` - By default, samlet-chat uses the Source Sans Pro font to present a good design out-of-the-box. If you'd like to disable this so that samlet-chat never loads the font files, you can set this to true. By default, this is true.
 - `data-hide-deleted` - By default, deleted comments with undeleted replies are shown with a "[deleted]" tag. If you'd like to disable this, setting this to true will hide deleted comments even if there are legitimate replies underneath. Deleted comments without any undeleted comments underneath are hidden irrespective of the value of this function. By default, this is false.
 - `data-no-websockets="true"` - Disables websocket functionality in favour of HTTP polling to have the same live reload functionality in a situation where websockets aren't allowed (e.g. a reverse proxy)
 - `data-no-livereload="true"` - Disabled all hot reload functionality (this supercedes the above flag) - all comments are loaded once and only once on page load.
@@ -176,7 +176,7 @@ e.g. Usage example:
 <script defer src="https://chat.mookerj.ee/js/samlet-chat.js" data-no-websockets="true"></script>
 ```
 
-### How is this different to the original Commento?
+### How is this different to the original samlet-chat?
 This fork implements new features such as:
 - AI integration support
 - Auto chat translation like in game chat
@@ -190,7 +190,7 @@ samlet-chat runs a bit of code on page load to initialize the widget. This widge
 ```js
 import React, { useEffect } from 'react'
 
-const Commento = ({ pageId }) => {
+const Chat = ({ pageId }) => {
   useEffect(() => {
     if (typeof window !== 'undefined' && !window.chat) {
       // init empty object so samlet-chat.js script extends this with global functions
@@ -219,10 +219,10 @@ const Commento = ({ pageId }) => {
   return <div id="samlet-chat-box" />
 }
 
-export default Commento
+export default Chat
 ```
 
-Commento initializes itself and extends the `window.chat` object. When you have an HTML element with the id `samlet-chat` this will live on the `window.chat` namespace. Replacing the HTML element (as SPAs do) the `window.chat` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `samlet-chat` for this to work, see `samlet-chat-box` in the example above. 
+samlet-chat initializes itself and extends the `window.chat` object. When you have an HTML element with the id `samlet-chat` this will live on the `window.chat` namespace. Replacing the HTML element (as SPAs do) the `window.chat` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `samlet-chat` for this to work, see `samlet-chat-box` in the example above. 
 
 The `window.chat.reInit` function can be called with the following updated options (all optional):
 

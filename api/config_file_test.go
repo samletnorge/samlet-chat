@@ -28,7 +28,7 @@ func TestConfigFileLoadBasics(t *testing.T) {
 	}()
 
 	contents := `
-		# Commento port
+		# samlet-chat port
 		COMMENTO_PORT=8000
 		COMMENTO_GZIP_STATIC=true
 	`

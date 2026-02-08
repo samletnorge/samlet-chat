@@ -24,7 +24,7 @@
       {
         "id": "installation",
         "text": "Installation Guide",
-        "meaning": "Install Commento with HTML",
+        "meaning": "Install samlet-chat with HTML",
         "selected": false,
         "open": global.installationOpen,
       },

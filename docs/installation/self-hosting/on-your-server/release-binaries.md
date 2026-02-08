@@ -6,9 +6,9 @@ Installing using release binaries can be done in two ways &ndash; using your ope
 
 ##### Using Your Package Manager
 
-With this approach, your package manager will take care of downloading and installing Commento's files on your system. The Commento binary will be installed to a standard path, so launching Commento is as simple as executing `samlet-chat` from a shell. Read the [next section](#launching-samlet-chat) on launching Commento to learn more about setting up some non-optional environment variables.
+With this approach, your package manager will take care of downloading and installing samlet-chat's files on your system. The samlet-chat binary will be installed to a standard path, so launching samlet-chat is as simple as executing `samlet-chat` from a shell. Read the [next section](#launching-samlet-chat) on launching samlet-chat to learn more about setting up some non-optional environment variables.
 
-Unfortunately, Commento is not currently available on some distributions; in the event this applies to you, use the [second method](#using-release-binary-archives). If you would like to help package and maintain the package for your favourite distribution, please feel free to do so. Here are the documented installation steps for some distributions.
+Unfortunately, samlet-chat is not currently available on some distributions; in the event this applies to you, use the [second method](#using-release-binary-archives). If you would like to help package and maintain the package for your favourite distribution, please feel free to do so. Here are the documented installation steps for some distributions.
 
 
 ##### Using Release Binary Archives
@@ -20,9 +20,9 @@ $ wget https://samlet-chat-release.s3.amazonaws.com/samlet-chat-linux-amd64-v1.4
 $ tar xvf samlet-chat-linux-amd64-v1.4.0.tar.gz -C /path/to/installation/
 ```
 
-To launch Commento, you need to execute the binary available at `/path/to/installation/samlet-chat`. Read the next section on how to set up some non-optional environment variables.
+To launch samlet-chat, you need to execute the binary available at `/path/to/installation/samlet-chat`. Read the next section on how to set up some non-optional environment variables.
 
-#### Launching Commento
+#### Launching samlet-chat
 
 {% include "launching-samlet-chat-pre.md" %}
 

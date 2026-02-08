@@ -138,7 +138,7 @@ func domainImportDisqus(domain string, url string) (int, error) {
 		}
 	}
 
-	// For each Disqus post, create a Commento comment. Attempt to convert the
+	// For each Disqus post, create a samlet-chat comment. Attempt to convert the
 	// HTML to markdown.
 	numImported := 0
 	disqusIdMap := map[string]string{}

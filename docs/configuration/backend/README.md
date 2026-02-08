@@ -2,23 +2,23 @@
 
 #### Introduction
 
-Commento's backend is configured by a set of environment variables. If you're executing the binary from the command line, you can set environment variables:
+samlet-chat's backend is configured by a set of environment variables. If you're executing the binary from the command line, you can set environment variables:
 
 ```bash
 $ export COMMENTO_ORIGIN=http://samlet-chat.example.com  # no whitespace around =
 $ ./samlet-chat
 ```
 
-If you're running Commento with Docker Compose, you can do this with the `environment:` keyword as shown [here](/installation/self-hosting/on-your-server/docker.md#with-docker-compose). If you prefer plain Docker, the `-e` flag sets environment variables, as shown [here](/installation/self-hosting/on-your-server/docker.md#with-vanilla-docker).
+If you're running samlet-chat with Docker Compose, you can do this with the `environment:` keyword as shown [here](/installation/self-hosting/on-your-server/docker.md#with-docker-compose). If you prefer plain Docker, the `-e` flag sets environment variables, as shown [here](/installation/self-hosting/on-your-server/docker.md#with-vanilla-docker).
 
-You can also configure Commento using a configuration file specified with `COMMENTO_CONFIG_FILE`. You can find specifications for this file in the [section on configuration files](#configuration-file).
+You can also configure samlet-chat using a configuration file specified with `COMMENTO_CONFIG_FILE`. You can find specifications for this file in the [section on configuration files](#configuration-file).
 
 #### Confiuration settings
 
 <div class="setting-right red">Required</div>
 <div class="setting-title">COMMENTO_ORIGIN</div>
 
-This should be set to the subdomain or the IP address hosting Commento. All API requests will go to this server. This may include subdirectories if Commento is hosted behind a reverse proxy, for example. Include the protocol in the value to use HTTP/HTTPS.
+This should be set to the subdomain or the IP address hosting samlet-chat. All API requests will go to this server. This may include subdirectories if samlet-chat is hosted behind a reverse proxy, for example. Include the protocol in the value to use HTTP/HTTPS.
 
 <div class="setting-example">COMMENTO_ORIGIN=http://samlet-chat.example.com</div>
 
@@ -36,7 +36,7 @@ A PostgreSQL server URI, including the database name.
 <div class="setting-right">Optional</div>
 <div class="setting-title">COMMENTO_CONFIG_FILE</div>
 
-A configuration file for Commento. See the [section on the configuration file](#configuration-file) for more details. Useful to store secrets and credentials. No config file will be loaded by default, if left unspecified.
+A configuration file for samlet-chat. See the [section on the configuration file](#configuration-file) for more details. Useful to store secrets and credentials. No config file will be loaded by default, if left unspecified.
 
 <div class="setting-example">COMMENTO_CONFIG_FILE=/etc/samlet-chat.env</div>
 
@@ -45,7 +45,7 @@ A configuration file for Commento. See the [section on the configuration file](#
 <div class="setting-right">Optional</div>
 <div class="setting-title">COMMENTO_BIND_ADDRESS</div>
 
-The address to bind the Commento server to. Useful if the server has multiple network interfaces. If not specified, this value defaults to `COMMENTO_ORIGIN`.
+The address to bind the samlet-chat server to. Useful if the server has multiple network interfaces. If not specified, this value defaults to `COMMENTO_ORIGIN`.
 
 <div class="setting-example">COMMENTO_BIND_ADDRESS=172.0.0.17</div>
 
@@ -54,14 +54,14 @@ The address to bind the Commento server to. Useful if the server has multiple ne
 <div class="setting-right">Optional</div>
 <div class="setting-title">COMMENTO_PORT</div>
 
-The port to bind the Commento server to. Defaults to 8080.
+The port to bind the samlet-chat server to. Defaults to 8080.
 
 <div class="setting-possible">0 - 65535</div>
 
 {% hint style='tip' %}
 **When in Docker**
 
-You don't need to set `COMMENTO_BIND_ADDRESS` and `COMMENTO_PORT` if you're running Commento in Docker. Instead, set the external bind address and port with Docker's `-p` flag.
+You don't need to set `COMMENTO_BIND_ADDRESS` and `COMMENTO_PORT` if you're running samlet-chat in Docker. Instead, set the external bind address and port with Docker's `-p` flag.
 {% endhint %}
 
 ---
@@ -69,7 +69,7 @@ You don't need to set `COMMENTO_BIND_ADDRESS` and `COMMENTO_PORT` if you're runn
 <div class="setting-right">Optional</div>
 <div class="setting-title">COMMENTO_CDN_PREFIX</div>
 
-Useful if you'd like to use a CDN with Commento (like AWS Cloudfront, for example) for faster delivery of static assets. You must set the CDN's origin value as `COMMENTO_ORIGIN`. If not specified, a CDN is not used.
+Useful if you'd like to use a CDN with samlet-chat (like AWS Cloudfront, for example) for faster delivery of static assets. You must set the CDN's origin value as `COMMENTO_ORIGIN`. If not specified, a CDN is not used.
 
 <div class="setting-example">COMMENTO_CDN_PREFIX=http://d111111abcdef8.cloudfront.net</div>
 
@@ -78,7 +78,7 @@ Useful if you'd like to use a CDN with Commento (like AWS Cloudfront, for exampl
 <div class="setting-right">Optional</div>
 <div class="setting-title">COMMENTO_FORBID_NEW_OWNERS</div>
 
-Used to disable new dashboard registrations. Useful if you are the only person using Commento on your server. Does not impact the creation of accounts for your readers. Defaults to false.
+Used to disable new dashboard registrations. Useful if you are the only person using samlet-chat on your server. Does not impact the creation of accounts for your readers. Defaults to false.
 
 <div class="setting-possible">true, false</div>
 
@@ -182,7 +182,7 @@ COMMENTO_TWITTER_SECRET=9j60WfN3LG6GAMbU5LCch1HQ6tT4ytiOzO95rM3DVD5dXHFT
 
 #### Configuration file
 
-With the `COMMENTO_CONFIG_FILE` environment variable, you can specify a configuration file. You can use this file to store secrets and credentials without exposing them in the `./samlet-chat` invocation command. For example, a Docker secret can be created and mounted inside the container's filesystem, and Commento can read from this file.
+With the `COMMENTO_CONFIG_FILE` environment variable, you can specify a configuration file. You can use this file to store secrets and credentials without exposing them in the `./samlet-chat` invocation command. For example, a Docker secret can be created and mounted inside the container's filesystem, and samlet-chat can read from this file.
 
 {% hint style='info' %}
 **Precedence**
@@ -220,7 +220,7 @@ COMMENTO_GOOGLE_KEY=204475040454-chmuz29vz2xldxnlcmnvbnrlbn.apps.googleuserconte
 COMMENTO_GOOGLE_SECRET=09HTEVfU0VDUkVUPTh4
 ```
 
-Say we store this file in `/etc/samlet-chat.env`. Then, we can include this file when running Commento:
+Say we store this file in `/etc/samlet-chat.env`. Then, we can include this file when running samlet-chat:
 
 ```
 $ export COMMENTO_CONFIG_FILE=/etc/samlet-chat.env

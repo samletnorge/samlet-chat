@@ -4,7 +4,7 @@
 
 [Docker](https://docker.com) is a production service management tool. Before proceeding forward with this tutorial, [install Docker](https://docs.docker.com/install/) for your platform.
 
-[Docker Compose](https://docs.docker.com/compose) is supplementary tool that works with Docker to orchestrate containers and services. To install Docker Compose, [follow the official documentation](https://docs.docker.com/compose/install/) for your platform. Note that Docker Compose is entirely optional; you can run Commento containerised with just vanilla Docker.
+[Docker Compose](https://docs.docker.com/compose) is supplementary tool that works with Docker to orchestrate containers and services. To install Docker Compose, [follow the official documentation](https://docs.docker.com/compose/install/) for your platform. Note that Docker Compose is entirely optional; you can run samlet-chat containerised with just vanilla Docker.
 
 #### With Vanilla Docker
 
@@ -30,7 +30,7 @@ Again, remember to change `COMMENTO_ORIGIN` and `COMMENTO_POSTGRES` to appropria
 
 With Docker Compose it's easy to orchestrate multiple services with a single configuration file. And with a single `docker-compose up` command, you can start everything, including a PostgreSQL server. If you don't have a running PostgreSQL server around, this is recommend.
 
-An example and reference `docker-compose.yml` for Commento is given below. The [latest version](https://github.com/samletnorge/samlet-chat/blob/master/docker-compose.yml) of the configuration file can always be found in the source repository (change `SET_VERSION` below appropriately).
+An example and reference `docker-compose.yml` for samlet-chat is given below. The [latest version](https://github.com/samletnorge/samlet-chat/blob/master/docker-compose.yml) of the configuration file can always be found in the source repository (change `SET_VERSION` below appropriately).
 
 ```yaml
 services:
@@ -57,9 +57,9 @@ volumes:
   postgres_data_volume:
 ```
 
-Remember to change `COMMENTO_ORIGIN` to the domain where you want to host Commento (if you're locally testing out, `localhost` is fine). If you want Commento exposed on a port other than `80`, change `80:8080`.
+Remember to change `COMMENTO_ORIGIN` to the domain where you want to host samlet-chat (if you're locally testing out, `localhost` is fine). If you want samlet-chat exposed on a port other than `80`, change `80:8080`.
 
-The above configuration pulls and sets up Commento and PostgreSQL in two separate containers with a persistent database volume. Save the `docker-compose.yml` file somewhere and run the following command to start the services.
+The above configuration pulls and sets up samlet-chat and PostgreSQL in two separate containers with a persistent database volume. Save the `docker-compose.yml` file somewhere and run the following command to start the services.
 
 ```bash
 $ docker-compose -f /path/to/docker-compose.yml up

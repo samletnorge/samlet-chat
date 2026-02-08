@@ -15,7 +15,7 @@ Install
 [`dep`](https://www.archlinux.org/packages/community/x86_64/dep/),
 [`yarn`](https://www.archlinux.org/packages/community/any/yarn/), and
 [`postgresql`](https://www.archlinux.org/packages/extra/x86_64/postgresql/)
-with `pacman`. The first five are build dependencies that are required to compile Commento from source. PostgreSQL is optional if you have already have a database server that you can access.
+with `pacman`. The first five are build dependencies that are required to compile samlet-chat from source. PostgreSQL is optional if you have already have a database server that you can access.
 
 ##### Ubuntu
 

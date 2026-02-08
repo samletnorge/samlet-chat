@@ -34,7 +34,7 @@
     });
   }
 
-  global.importCommento = function() {
+  global.importsamlet-chat = function() {
     var url = $("#samlet-chat-url").val();
     var data = global.dashboard.$data;
 

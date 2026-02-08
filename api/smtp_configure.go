@@ -24,7 +24,7 @@ func smtpConfigure() error {
 	}
 
 	if username == "" || password == "" {
-		logger.Warningf("no SMTP username/password set, Commento will assume they aren't required")
+		logger.Warningf("no SMTP username/password set, samlet-chat will assume they aren't required")
 	}
 	smtpConfigured = true
 	return nil

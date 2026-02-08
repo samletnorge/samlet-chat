@@ -9,7 +9,7 @@ import (
 )
 
 func versionPrint() error {
-	logger.Infof("starting Commento %s", version)
+	logger.Infof("starting samlet-chat %s", version)
 	return nil
 }
 

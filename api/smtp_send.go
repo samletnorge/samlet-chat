@@ -33,7 +33,7 @@ func smtpSendMail(toAddress string, toName string, contentType string, subject s
 		return err
 	}
 
-	fromAddress := stdmail.Address{"Commento", os.Getenv("SMTP_FROM_ADDRESS")}
+	fromAddress := stdmail.Address{"samlet-chat", os.Getenv("SMTP_FROM_ADDRESS")}
 	to := stdmail.Address{toName, toAddress}
 	email := mail.NewMSG()
 	email.SetFrom(fromAddress.String())
