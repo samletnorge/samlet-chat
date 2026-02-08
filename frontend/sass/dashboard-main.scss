@@ -96,12 +96,6 @@ body {
       border-radius: 6px;
       background: $bg-primary;
       transition: all 0.2s ease;
-    }
-
-    .action-button:hover {
-      border-color: $neutral-300;
-      background: $neutral-50;
-    }
 
       .left {
         padding: 8px 16px;
@@ -122,6 +116,11 @@ body {
         float: right;
         margin: auto;
       }
+    }
+
+    .action-button:hover {
+      border-color: $neutral-300;
+      background: $neutral-50;
     }
   }
 }

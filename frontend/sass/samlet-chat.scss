@@ -1,4 +1,5 @@
 @import "source-sans.scss";
+@import "colors-main.scss";
 
 .samlet-chat-root-min-height {
   min-height: 430px;
@@ -18,7 +19,6 @@
     text-rendering: optimizeLegibility;
   }
 
-  @import "colors-main.scss";
   @import "samlet-chat-common.scss";
   @import "samlet-chat-logged.scss";     // Logged in as <name>
   @import "samlet-chat-mod-tools.scss";  // Moderator tools and buttons

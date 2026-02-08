@@ -19,6 +19,16 @@ samlet-chat is a free, open source, fast & lightweight comments box that you can
 - Email notifications.
 
 
+### 🎨 Design System
+
+The frontend uses a modern, professional design system inspired by shadcn/ui and Vercel. See the design resources:
+
+- **[Design System Documentation](./frontend/DESIGN_SYSTEM.md)** - Complete guides, color palette reference, and usage examples
+- **[Color Palette Reference](./frontend/COLOR_PALETTE.html)** - Interactive visual color reference (open in browser)
+
+The system features the brand gold color (#FFD700) as primary with semantic colors for success, warning, destructive, and info states.
+
+
 ### 📷 Screenshots
 ![samlet-chat in action](https://i.imgur.com/x4IA22n.gif)
 
