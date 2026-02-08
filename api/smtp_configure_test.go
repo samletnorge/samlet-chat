@@ -17,8 +17,8 @@ func TestSmtpConfigureBasics(t *testing.T) {
 
 	os.Setenv("SMTP_USERNAME", "test@example.com")
 	os.Setenv("SMTP_PASSWORD", "hunter2")
-	os.Setenv("SMTP_HOST", "smtp.commento.io")
-	os.Setenv("SMTP_FROM_ADDRESS", "no-reply@commento.io")
+	os.Setenv("SMTP_HOST", "smtp.samlet-chat.valiantlynx.com")
+	os.Setenv("SMTP_FROM_ADDRESS", "no-reply@samlet-chat.valiantlynx.com")
 
 	if err := smtpConfigure(); err != nil {
 		t.Errorf("unexpected error when configuring SMTP: %v", err)
@@ -32,7 +32,7 @@ func TestSmtpConfigureEmptyHost(t *testing.T) {
 
 	os.Setenv("SMTP_USERNAME", "test@example.com")
 	os.Setenv("SMTP_PASSWORD", "hunter2")
-	os.Setenv("SMTP_FROM_ADDRESS", "no-reply@commento.io")
+	os.Setenv("SMTP_FROM_ADDRESS", "no-reply@samlet-chat.valiantlynx.com")
 
 	if err := smtpConfigure(); err != nil {
 		t.Errorf("unexpected error when configuring SMTP: %v", err)
@@ -51,7 +51,7 @@ func TestSmtpConfigureEmptyAddress(t *testing.T) {
 
 	os.Setenv("SMTP_USERNAME", "test@example.com")
 	os.Setenv("SMTP_PASSWORD", "hunter2")
-	os.Setenv("SMTP_HOST", "smtp.commento.io")
+	os.Setenv("SMTP_HOST", "smtp.samlet-chat.valiantlynx.com")
 	os.Setenv("SMTP_PORT", "25")
 
 	if err := smtpConfigure(); err == nil {

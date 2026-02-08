@@ -63,7 +63,7 @@ func dropTables() error {
 
 func setupTestDatabase() error {
 	if os.Getenv("COMMENTO_POSTGRES") != "" {
-		// set it manually because we need to use commento_test, not commento, by mistake
+		// set it manually because we need to use commento_test, not samlet-chat, by mistake
 		os.Setenv("POSTGRES", os.Getenv("COMMENTO_POSTGRES"))
 	} else {
 		os.Setenv("POSTGRES", "postgres://postgres:postgres@localhost/commento_test?sslmode=disable")

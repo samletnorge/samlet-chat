@@ -12,7 +12,7 @@ func commenterNew(email string, name string, link string, photo string, provider
 		return "", errorMissingField
 	}
 
-	if provider == "commento" && password == "" {
+	if provider == "samlet-chat" && password == "" {
 		return "", errorMissingField
 	}
 
@@ -79,13 +79,13 @@ func commenterNewHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// TODO: add gravatar?
-	// TODO: email confirmation if provider = commento?
-	// TODO: email confirmation if provider = commento?
+	// TODO: email confirmation if provider = samlet-chat?
+	// TODO: email confirmation if provider = samlet-chat?
 	if *x.Website == "" {
 		*x.Website = "undefined"
 	}
 
-	if _, err := commenterNew(*x.Email, *x.Name, *x.Website, "undefined", "commento", *x.Password); err != nil {
+	if _, err := commenterNew(*x.Email, *x.Name, *x.Website, "undefined", "samlet-chat", *x.Password); err != nil {
 		bodyMarshal(w, response{"success": false, "message": err.Error()})
 		return
 	}

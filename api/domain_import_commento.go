@@ -59,7 +59,7 @@ func domainImportCommento(domain string, url string) (int, error) {
 	// commenterHex (old hex, new hex)
 	commenterHex := map[string]string{"anonymous": "anonymous"}
 	for _, commenter := range data.Commenters {
-		c, err := commenterGetByEmail("commento", commenter.Email)
+		c, err := commenterGetByEmail("samlet-chat", commenter.Email)
 		if err != nil && err != errorNoSuchCommenter {
 			logger.Errorf("cannot get commenter by email: %v", err)
 			return 0, errorInternal
@@ -77,7 +77,7 @@ func domainImportCommento(domain string, url string) (int, error) {
 		}
 
 		commenterHex[commenter.CommenterHex], err = commenterNew(commenter.Email,
-			commenter.Name, commenter.Link, commenter.Photo, "commento", randomPassword)
+			commenter.Name, commenter.Link, commenter.Photo, "samlet-chat", randomPassword)
 		if err != nil {
 			return 0, err
 		}

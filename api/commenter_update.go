@@ -64,7 +64,7 @@ func commenterUpdateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if c.Provider != "commento" {
+	if c.Provider != "samlet-chat" {
 		bodyMarshal(w, response{"success": false, "message": errorCannotUpdateOauthProfile.Error()})
 		return
 	}

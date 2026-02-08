@@ -1,6 +1,6 @@
 ### Configuration
 
-Commento is quite configurable. You're free to inject custom styling CSS, JavaScript, display comment counts, and so on. The frontend documentation here will assumes you're using the [cloud service](https://commento.io). However, most instructions should be virtually identical for the self-hosted version:
+Commento is quite configurable. You're free to inject custom styling CSS, JavaScript, display comment counts, and so on. The frontend documentation here will assumes you're using the [cloud service](https://samlet-chat.valiantlynx.com). However, most instructions should be virtually identical for the self-hosted version:
 
  - [**Frontend**](frontend/README.md): custom CSS styling to change appearance, display comment count links, configure when Commento is loaded, and more.
 

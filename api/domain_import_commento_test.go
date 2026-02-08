@@ -67,7 +67,7 @@ func TestImportCommento(t *testing.T) {
 				Name:         "John Doe",
 				Link:         "https://john.doe",
 				Photo:        "undefined",
-				Provider:     "commento",
+				Provider:     "samlet-chat",
 				JoinDate:     timeParse(t, "2020-01-27T14:17:59.298737Z"),
 				IsModerator:  false,
 			},
@@ -85,7 +85,7 @@ func TestImportCommento(t *testing.T) {
 	}()
 	port := listener.Addr().(*net.TCPAddr).Port
 
-	// Launch http server serving commento json gzipped data
+	// Launch http server serving samlet-chat json gzipped data
 	go func() {
 		http.Serve(listener, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			gzipper := gzip.NewWriter(w)

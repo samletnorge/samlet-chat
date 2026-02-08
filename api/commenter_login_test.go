@@ -12,7 +12,7 @@ func TestCommenterLoginBasics(t *testing.T) {
 		return
 	}
 
-	commenterNew("test@example.com", "Test", "undefined", "undefined", "commento", "hunter2")
+	commenterNew("test@example.com", "Test", "undefined", "undefined", "samlet-chat", "hunter2")
 
 	if _, err := commenterLogin("test@example.com", "hunter2"); err != nil {
 		t.Errorf("unexpected error when logging in: %v", err)

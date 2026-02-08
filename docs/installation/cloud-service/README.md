@@ -1,8 +1,8 @@
 ### Installing Commento Using the Cloud Service
 
-If you prefer to use the [cloud service](https://commento.io) instead of self-hosting an instance on your own server, follow these instructions to embed Commento on your website.
+If you prefer to use the [cloud service](https://samlet-chat.valiantlynx.com) instead of self-hosting an instance on your own server, follow these instructions to embed Commento on your website.
 
-**Step 1** First, go ahead and [create a Commento.io account](https://commento.io/signup).
+**Step 1** First, go ahead and [create a Commento.io account](https://samlet-chat.valiantlynx.com/signup).
 
 **Step 2** Once you log in, you will be able to register your website:
 
@@ -11,9 +11,9 @@ If you prefer to use the [cloud service](https://commento.io) instead of self-ho
 **Step 3** Use the universal HTML snippet to embed Commento. You can do this by pasting the following HTML snippet after each blog post, for example.
 
 ```html
-<div id="commento"></div>
+<div id="samlet-chat"></div>
 <script defer
-  src="https://cdn.commento.io/js/commento.js">
+  src="https://raw.githubusercontent.com/samletnorge/samlet-chat/refs/heads/master/frontend/js/samlet-chat.js">
 </script>
 ```
 

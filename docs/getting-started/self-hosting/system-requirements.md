@@ -24,12 +24,12 @@ Commento has been verified to be working on the following distributions: Arch Li
 
 ###### *BSD
 
-No data available yet. Please consider editing [this document](https://gitlab.com/commento/docs) with your discoveries.
+No data available yet. Please consider editing [this document](https://github.com/samletnorge/samlet-chat/tree/master/docs) with your discoveries.
 
 ###### macOS
 
-No data available yet. Please consider editing [this document](https://gitlab.com/commento/docs) with your discoveries.
+No data available yet. Please consider editing [this document](https://github.com/samletnorge/samlet-chat/tree/master/docs) with your discoveries.
 
 ###### Windows
 
-No data available yet. Please consider editing [this document](https://gitlab.com/commento/docs) with your discoveries.
+No data available yet. Please consider editing [this document](https://github.com/samletnorge/samlet-chat/tree/master/docs) with your discoveries.

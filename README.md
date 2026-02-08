@@ -37,19 +37,19 @@ To start you just need to launch an instance.
 If you want to self-host, you will need a PostgreSQL server handy and then:
 1) Use this repo's Dockerfile if you're into that kind of thing
 2) Download the plug and play pre-compiled version from the [releases](https://github.com/samletnorge/samlet-chat/releases)
-3) To build yourself, you can clone this repo (you will require `nodejs`, `yarn`, `golang` installed) and run `make prod` and you will generate `./build/prod/commento`
+3) To build yourself, you can clone this repo (you will require `nodejs`, `yarn`, `golang` installed) and run `make prod` and you will generate `./build/prod/samlet-chat`
 
 
 To launch, you should configure the following environment variables below:
 ```
-$ export COMMENTO_ORIGIN=http://commento.example.com:8080
+$ export COMMENTO_ORIGIN=http://samlet-chat.example.com:8080
 $ export COMMENTO_PORT=8080
 $ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/commento?sslmode=disable
 $ export COMMENTO_CDN_PREFIX=$COMMENTO_ORIGIN
 
 ```
 
-And then you can run the `commento` binary.
+And then you can run the `samlet-chat` binary.
 
 #### Logging and graphing page views
 
@@ -66,7 +66,7 @@ to turn this feature on.
 #### Wildcard domain support
 A new feature added recently, with better edge-case handling of domain names, etc.
 
-This feature however will open up your commento instance to abuse if it is shared between a lot of people (e.g. people registering `e%` to register *every domain beginning with e*...)
+This feature however will open up your samlet-chat instance to abuse if it is shared between a lot of people (e.g. people registering `e%` to register *every domain beginning with e*...)
 
 As most of samlet-chat instances are serving one user only, I have assumed you will be sensible about this and enabled wildcard domain support by default. 
 
@@ -121,24 +121,24 @@ Alternatively you can use the pre-build images from:
 - https://gitlab.com/caroga/commentoplusplus-docker
 - https://hub.docker.com/r/caroga/commentoplusplus
 
-Instructions for configuring the docker image can be found [here](https://docs.commento.io/installation/self-hosting/on-your-server/docker.html). Are you missing a version? Please contact @caroga [here](https://gitlab.com/caroga/commentoplusplus-docker).
+Instructions for configuring the docker image can be found [here](https://docs.samlet-chat.valiantlynx.com/installation/self-hosting/on-your-server/docker.html). Are you missing a version? Please contact @caroga [here](https://gitlab.com/caroga/commentoplusplus-docker).
 
 
 ### Finally
 
-Once you have created an account in your commento instance, it should give you instructions on how to embed this into your site! It should be as simple as:
+Once you have created an account in your samlet-chat instance, it should give you instructions on how to embed this into your site! It should be as simple as:
 
 ```
-<script defer src="https://(server url)/js/commento.js"></script>
-<div id="commento"></div>
+<script defer src="https://(server url)/js/samlet-chat.js"></script>
+<div id="samlet-chat"></div>
 ```
 
 ### If you're running this behind nginx/another reverse proxy
-Remember to either forward the websockets through to commento in your nginx config, e.g.:
+Remember to either forward the websockets through to samlet-chat in your nginx config, e.g.:
 
 ```
 location / {
-    proxy_pass http://commento;
+    proxy_pass http://samlet-chat;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "Upgrade";
@@ -146,7 +146,7 @@ location / {
 }
 ```
 
-Or if you'd rather not do that, disable websockets in favour of HTTP polling by adding `data-no-websockets="true"` to the commento <script> tag (or `data-no-livereload="true"`` to only load comments on page load, see below!)
+Or if you'd rather not do that, disable websockets in favour of HTTP polling by adding `data-no-websockets="true"` to the samlet-chat <script> tag (or `data-no-livereload="true"`` to only load comments on page load, see below!)
 
 ### SSL Support
 samlet-chat supports native SSL without use of an nginx proxy. Three properties are required for Native SSL:
@@ -159,13 +159,13 @@ samlet-chat supports native SSL without use of an nginx proxy. Three properties 
 
 If `COMMENTO_SSL=true` then `COMMENTO_SSL_CERT` and `COMMENTO_SSL_KEY` must be set to the path to a valid SSL Certificate and Key pair.
 
-### More options to configure commento's frontend
+### More options to configure samlet-chat's frontend
 
-You can add the following to commento's script tag:
+You can add the following to samlet-chat's script tag:
 
 - `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses Commento's default theme.
-- `data-auto-init="false"` - Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.commento.main()` when you want to load Commento. By default, this is true.
-- `data-id-root="notcommento"` - By default, Commento looks for a `<div>` with `id="commento"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
+- `data-auto-init="false"` - Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.samlet-chat.main()` when you want to load Commento. By default, this is true.
+- `data-id-root="notcommento"` - By default, Commento looks for a `<div>` with `id="samlet-chat"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
 - `data-no-fonts="true"` - By default, Commento uses the Source Sans Pro font to present a good design out-of-the-box. If you'd like to disable this so that Commento never loads the font files, you can set this to true. By default, this is true.
 - `data-hide-deleted` - By default, deleted comments with undeleted replies are shown with a "[deleted]" tag. If you'd like to disable this, setting this to true will hide deleted comments even if there are legitimate replies underneath. Deleted comments without any undeleted comments underneath are hidden irrespective of the value of this function. By default, this is false.
 - `data-no-websockets="true"` - Disables websocket functionality in favour of HTTP polling to have the same live reload functionality in a situation where websockets aren't allowed (e.g. a reverse proxy)
@@ -173,33 +173,15 @@ You can add the following to commento's script tag:
 
 e.g. Usage example:
 ```
-<script defer src="https://chat.mookerj.ee/js/commento.js" data-no-websockets="true"></script>
+<script defer src="https://chat.mookerj.ee/js/samlet-chat.js" data-no-websockets="true"></script>
 ```
 
 ### How is this different to the original Commento?
-Original source is from @adtac at https://gitlab.com/commento/commento/ - this fork is largely a result of me getting carried away fixing a lot of bugs but the original maintainer seemingly disappearing!
-
-(Inconclusive) list of changes from upstream:
-- [NEW FEATURE: Auto refreshing comments with WebSockets for push updates](https://gitlab.com/commento/commento/-/merge_requests/168)
-- NEW FEATURE: Window title updates when there's new activity
-- NEW FEATURE: Permalinks, and a subtle yellow highlight animation for new comments when they come in live
-- NEW FEATURE: Smooth scrolling
-- NEW FEATURE: Hide +/- if no children
-- NEW FEATURE: Errors now slide down from the top rather than the ugly error system before
-- [NEW FEATURE: Guests can leave their name](https://gitlab.com/commento/commento/-/merge_requests/169)
-- [FIXED: Twitter profile photo bug](https://gitlab.com/commento/commento/-/merge_requests/159)
-- [FIXED: Duplicate comment bug on login](https://gitlab.com/commento/commento/-/merge_requests/160)
-- [FIXED: Add target="_blank" to all external links, while also adding "noopener" to prevent XSS](https://gitlab.com/commento/commento/-/merge_requests/161)
-- [FIXED: Allow anchor links onto same page](https://gitlab.com/commento/commento/-/merge_requests/162)
-- [NEW FEATURE: Comment moderation dashboard, to approve/delete comments across your entire domain from one place](https://gitlab.com/commento/commento/-/merge_requests/163)
-- [NEW FEATURE: MathJax support hook, will plug in to any MathJax library included on the same page commento is on](https://gitlab.com/commento/commento/-/merge_requests/164)
-- [NEW FEATURE: Press enter to log in after entering your password](https://gitlab.com/commento/commento/-/merge_requests/167)
-- [FIXED: Deleted comments not returned in array](https://gitlab.com/commento/commento/-/merge_requests/170)
-- [NEW FEATURE: Reinit widget functionality for Single Page Applications](https://gitlab.com/commento/commento/-/merge_requests/182)
-- NEW FEATURE: Wildcards possible in domain name (so can serve %.example.com)
-- NEW FEATURE: Support of the Perspective API for spam detection (https://www.perspectiveapi.com/)
-
-I've sent in merge requests for a lot of the above but I don't know when they'll be accepted, so here's a ready to use version with all batteries included to help out fellow bloggers!
+This fork implements new features such as:
+- AI integration support
+- Auto chat translation like in game chat
+- Internationalization support
+- Revamped UI
 
 ### How to use this in a SPA (Single Page Application)
 
@@ -210,39 +192,39 @@ import React, { useEffect } from 'react'
 
 const Commento = ({ pageId }) => {
   useEffect(() => {
-    if (typeof window !== 'undefined' && !window.commento) {
-      // init empty object so commento.js script extends this with global functions
-      window.commento = {}
+    if (typeof window !== 'undefined' && !window.samlet-chat) {
+      // init empty object so samlet-chat.js script extends this with global functions
+      window.samlet-chat = {}
       const script = document.createElement('script')
-      // Replace this with the url to your commento instance's commento.js script
-      script.src = `http://localhost:8080/js/commento.js`
+      // Replace this with the url to your samlet-chat instance's samlet-chat.js script
+      script.src = `http://localhost:8080/js/samlet-chat.js`
       script.defer = true
       // Set default attributes for first load
       script.setAttribute('data-auto-init', false)
       script.setAttribute('data-page-id', pageId)
-      script.setAttribute('data-id-root', 'commento-box')
+      script.setAttribute('data-id-root', 'samlet-chat-box')
       script.onload = () => {
-        // Tell commento.js to load the widget
-        window.commento.main()
+        // Tell samlet-chat.js to load the widget
+        window.samlet-chat.main()
       }
       document.getElementsByTagName('head')[0].appendChild(script)
-    } else if (typeof window !== 'undefined' && window.commento) {
-      // In-case the commento.js script has already been loaded reInit the widget with a new pageId
-      window.commento.reInit({
+    } else if (typeof window !== 'undefined' && window.samlet-chat) {
+      // In-case the samlet-chat.js script has already been loaded reInit the widget with a new pageId
+      window.samlet-chat.reInit({
         pageId: pageId,
       })
     }
   }, [])
 
-  return <div id="commento-box" />
+  return <div id="samlet-chat-box" />
 }
 
 export default Commento
 ```
 
-Commento initializes itself and extends the `window.commento` object. When you have an HTML element with the id `commento` this will live on the `window.commento` namespace. Replacing the HTML element (as SPAs do) the `window.commento` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `commento` for this to work, see `commento-box` in the example above. 
+Commento initializes itself and extends the `window.samlet-chat` object. When you have an HTML element with the id `samlet-chat` this will live on the `window.samlet-chat` namespace. Replacing the HTML element (as SPAs do) the `window.samlet-chat` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `samlet-chat` for this to work, see `samlet-chat-box` in the example above. 
 
-The `window.commento.reInit` function can be called with the following updated options (all optional):
+The `window.samlet-chat.reInit` function can be called with the following updated options (all optional):
 
 ```js
 {

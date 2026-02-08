@@ -1,4 +1,4 @@
-module gitlab.com/commento/commento/api
+module github.com/samletnorge/samlet-chat/tree/master/api
 
 go 1.15
 

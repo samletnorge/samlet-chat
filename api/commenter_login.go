@@ -1,9 +1,10 @@
 package main
 
 import (
-	"golang.org/x/crypto/bcrypt"
 	"net/http"
 	"time"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 func commenterLogin(email string, password string) (string, error) {
@@ -14,7 +15,7 @@ func commenterLogin(email string, password string) (string, error) {
 	statement := `
 		SELECT commenterHex, passwordHash
 		FROM commenters
-		WHERE email = $1 AND provider = 'commento' AND deleted=false;
+		WHERE email = $1 AND provider = 'samlet-chat' AND deleted=false;
 	`
 	row := db.QueryRow(statement, email)
 

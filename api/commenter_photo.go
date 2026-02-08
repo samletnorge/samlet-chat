@@ -39,7 +39,7 @@ func commenterPhotoHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 
-	if c.Provider != "commento" { // Custom URL avatars need to be resized.
+	if c.Provider != "samlet-chat" { // Custom URL avatars need to be resized.
 		io.Copy(w, resp.Body)
 		return
 	}

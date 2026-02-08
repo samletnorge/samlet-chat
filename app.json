@@ -1,10 +1,10 @@
 {
-  "name": "Commento",
+  "name": "samlet-chat",
   "description": "A fast, privacy-focused commenting platform.",
-  "repository": "https://gitlab.com/commento/commento",
-  "logo": "https://cdn.commento.io/images/logo.svg",
-  "website": "https://commento.io",
-  "keywords": ["goalang", "commento", "privacy"],
+  "repository": "https://github.com/samletnorge/samlet-chat",
+  "logo": "https://github.com/samletnorge/samlet-chat/raw/master/frontend/images/logo.svg",
+  "website": "https://samlet.chat.valiantlynx.com",
+  "keywords": ["goalang", "samlet-chat", "privacy"],
   "stack": "container",
   "addons": [
     {
@@ -49,7 +49,7 @@
       "value": "false"
     },
     "COMMENTO_ENABLE_WILDCARDS": {
-      "description": "Allows use of wildcards in domain names in the admin dashboard, defaults to true. Set to false to disable (e.g. if you share your commento instance with more than one admin/allow new registrations)",
+      "description": "Allows use of wildcards in domain names in the admin dashboard, defaults to true. Set to false to disable (e.g. if you share your samlet-chat instance with more than one admin/allow new registrations)",
       "required": false,
       "value": "true"
     },

@@ -7,7 +7,7 @@ import (
 )
 
 func TestConfigParseBasics(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://commento.io")
+	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -76,7 +76,7 @@ func TestConfigParseNoOrigin(t *testing.T) {
 }
 
 func TestConfigParseStatic(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://commento.io")
+	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -108,7 +108,7 @@ func TestConfigParseStatic(t *testing.T) {
 }
 
 func TestConfigParseStaticDNE(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://commento.io")
+	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
 	os.Setenv("COMMENTO_STATIC", "/does/not/exist/surely/")
 
 	if err := configParse(); err == nil {
@@ -118,7 +118,7 @@ func TestConfigParseStaticDNE(t *testing.T) {
 }
 
 func TestConfigParseStaticNotADirectory(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://commento.io")
+	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
 	os.Setenv("COMMENTO_STATIC", os.Args[0])
 
 	if err := configParse(); err != errorNotADirectory {
@@ -128,7 +128,7 @@ func TestConfigParseStaticNotADirectory(t *testing.T) {
 }
 
 func TestConfigOriginTrailingSlash(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://commento.io/")
+	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com/")
 	os.Setenv("COMMENTO_STATIC", "")
 
 	if err := configParse(); err != nil {
@@ -136,14 +136,14 @@ func TestConfigOriginTrailingSlash(t *testing.T) {
 		return
 	}
 
-	if os.Getenv("ORIGIN") != "https://commento.io" {
-		t.Errorf("expected ORIGIN=https://commento.io got ORIGIN=%s", os.Getenv("ORIGIN"))
+	if os.Getenv("ORIGIN") != "https://samlet-chat.valiantlynx.com" {
+		t.Errorf("expected ORIGIN=https://samlet-chat.valiantlynx.com got ORIGIN=%s", os.Getenv("ORIGIN"))
 		return
 	}
 }
 
 func TestConfigMaxConnections(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://commento.io")
+	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
 	os.Setenv("COMMENTO_STATIC", "")
 
 	os.Setenv("COMMENTO_MAX_IDLE_PG_CONNECTIONS", "100")

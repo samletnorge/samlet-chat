@@ -14,12 +14,12 @@ A HMAC shared secret key will be generated and you will be prompted to enter a r
 
 Integrating Commento's SSO protocol with your website requires some backend work.
 
-Let's say you have Commento embedded in your blog `blog.example.com`. When the user tries to log in with SSO, Commento will redirect users to the redirect URL you set in the dashboard. For the rest of this document, we'll assume this is set to `http://example.com/sso/commento`. There can only be one redirect endpoint for each domain.
+Let's say you have Commento embedded in your blog `blog.example.com`. When the user tries to log in with SSO, Commento will redirect users to the redirect URL you set in the dashboard. For the rest of this document, we'll assume this is set to `http://example.com/sso/samlet-chat`. There can only be one redirect endpoint for each domain.
 
 You will receive incoming traffic in the following format:
 
 ```
-http://example.com/sso/commento?token=TOKEN&hmac=HMAC
+http://example.com/sso/samlet-chat?token=TOKEN&hmac=HMAC
 ```
 
 `TOKEN` and `HMAC` are hexadecimal representations of size 32 bytes (64 hex characters). We'll denote the shared HMAC secret key by `KEY`.
@@ -49,7 +49,7 @@ After the user authentication, you must generate a JSON payload in the following
 Using the shared secret key, you must generate the HMAC-SHA256 for the JSON payload described above. Following this, hex-encode the payload and the HMAC; let's call the hex-encoded strings `PAYLOAD` and `HMAC`, respectively. Redirect the user to Commento's SSO callback:
 
 ```
-http://commento.io/api/oauth/sso/callback?payload=PAYLOAD&hmac=HMAC
+http://samlet-chat.valiantlynx.com/api/oauth/sso/callback?payload=PAYLOAD&hmac=HMAC
 ```
 
 Commento will verify the HMAC-SHA256 to authenticate the callback and log the corresponding user in. A new Commento account will be automatically created if this is the first time the user is logging in this way.
@@ -80,7 +80,7 @@ def handle-GET:
   hmac = hex-encode(hmac-sha256(payload-json, secret-key))
   payload-hex = hex-encode(payload-json)
 
-  302-redirect("https://commento.io/api/oauth/sso/callback?payload=" + payload-hex + "&hmac=" + hmac)
+  302-redirect("https://samlet-chat.valiantlynx.com/api/oauth/sso/callback?payload=" + payload-hex + "&hmac=" + hmac)
 ```
 
 #### Security Checklist

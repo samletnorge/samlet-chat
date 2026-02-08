@@ -4,4 +4,4 @@
 export COMMENTO_PORT=$PORT
 export COMMENTO_POSTGRES=$DATABASE_URL
 
-./commento
+./samlet-chat

@@ -35,7 +35,7 @@ func forgot(email string, entity string) error {
 		hex = o.OwnerHex
 		name = o.Name
 	} else {
-		c, err := commenterGetByEmail("commento", email)
+		c, err := commenterGetByEmail("samlet-chat", email)
 		if err != nil {
 			if err == errorNoSuchEmail {
 				// TODO: use a more random time instead.

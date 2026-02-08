@@ -9,8 +9,8 @@ FROM golang:${GOLANG_VERSION}-alpine AS api-build
 RUN apk add --no-cache bash dep make git curl g++
 
 ARG RELEASE
-COPY ./api /go/src/commento/api/
-WORKDIR /go/src/commento/api
+COPY ./api /go/src/samlet-chat/api/
+WORKDIR /go/src/samlet-chat/api
 RUN make ${RELEASE} -j$(($(nproc) + 1))
 
 
@@ -19,8 +19,8 @@ FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS frontend-build
 RUN apk add --no-cache bash make python2 g++
 
 ARG RELEASE
-COPY ./frontend /commento/frontend
-WORKDIR /commento/frontend/
+COPY ./frontend /samlet-chat/frontend
+WORKDIR /samlet-chat/frontend/
 RUN make ${RELEASE} -j$(($(nproc) + 1))
 
 
@@ -29,12 +29,12 @@ FROM alpine:${ALPINE_VERSION} AS templates-db-build
 RUN apk add --no-cache bash make
 
 ARG RELEASE
-COPY ./templates /commento/templates
-WORKDIR /commento/templates
+COPY ./templates /samlet-chat/templates
+WORKDIR /samlet-chat/templates
 RUN make ${RELEASE} -j$(($(nproc) + 1))
 
-COPY ./db /commento/db
-WORKDIR /commento/db
+COPY ./db /samlet-chat/db
+WORKDIR /samlet-chat/db
 RUN make ${RELEASE} -j$(($(nproc) + 1))
 
 
@@ -43,18 +43,18 @@ FROM gcr.io/distroless/static-debian11
 
 ARG RELEASE
 
-COPY --from=api-build /go/src/commento/api/build/${RELEASE}/commento /commento/commento
-COPY --from=frontend-build /commento/frontend/build/${RELEASE}/js /commento/js
-COPY --from=frontend-build /commento/frontend/build/${RELEASE}/css /commento/css
-COPY --from=frontend-build /commento/frontend/build/${RELEASE}/images /commento/images
-COPY --from=frontend-build /commento/frontend/build/${RELEASE}/fonts /commento/fonts
-COPY --from=frontend-build /commento/frontend/build/${RELEASE}/i18n /commento/i18n
-COPY --from=frontend-build /commento/frontend/build/${RELEASE}/*.html /commento/
-COPY --from=templates-db-build /commento/templates/build/${RELEASE}/templates /commento/templates/
-COPY --from=templates-db-build /commento/db/build/${RELEASE}/db /commento/db/
+COPY --from=api-build /go/src/samlet-chat/api/build/${RELEASE}/samlet-chat /samlet-chat/samlet-chat
+COPY --from=frontend-build /samlet-chat/frontend/build/${RELEASE}/js /samlet-chat/js
+COPY --from=frontend-build /samlet-chat/frontend/build/${RELEASE}/css /samlet-chat/css
+COPY --from=frontend-build /samlet-chat/frontend/build/${RELEASE}/images /samlet-chat/images
+COPY --from=frontend-build /samlet-chat/frontend/build/${RELEASE}/fonts /samlet-chat/fonts
+COPY --from=frontend-build /samlet-chat/frontend/build/${RELEASE}/i18n /samlet-chat/i18n
+COPY --from=frontend-build /samlet-chat/frontend/build/${RELEASE}/*.html /samlet-chat/
+COPY --from=templates-db-build /samlet-chat/templates/build/${RELEASE}/templates /samlet-chat/templates/
+COPY --from=templates-db-build /samlet-chat/db/build/${RELEASE}/db /samlet-chat/db/
 
 EXPOSE 8080
-WORKDIR /commento/
+WORKDIR /samlet-chat/
 ENV COMMENTO_BIND_ADDRESS="0.0.0.0"
 USER nobody
-ENTRYPOINT ["/commento/commento"]
+ENTRYPOINT ["/samlet-chat/samlet-chat"]

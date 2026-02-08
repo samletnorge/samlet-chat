@@ -3,11 +3,12 @@ package main
 import (
 	"compress/gzip"
 	"encoding/xml"
-	"github.com/lunny/html2md"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/lunny/html2md"
 )
 
 type disqusThread struct {
@@ -114,7 +115,7 @@ func domainImportDisqus(domain string, url string) (int, error) {
 			continue
 		}
 
-		c, err := commenterGetByEmail("commento", email)
+		c, err := commenterGetByEmail("samlet-chat", email)
 		if err != nil && err != errorNoSuchCommenter {
 			logger.Errorf("cannot get commenter by email: %v", err)
 			return 0, errorInternal
@@ -131,7 +132,7 @@ func domainImportDisqus(domain string, url string) (int, error) {
 			return 0, errorInternal
 		}
 
-		commenterHex[email], err = commenterNew(email, post.Author.Name, "undefined", "undefined", "commento", randomPassword)
+		commenterHex[email], err = commenterNew(email, post.Author.Name, "undefined", "undefined", "samlet-chat", randomPassword)
 		if err != nil {
 			return 0, err
 		}

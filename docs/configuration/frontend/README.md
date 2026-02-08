@@ -8,11 +8,11 @@ You can configure additional frontend settings by adding `data` attributes to th
 
 ```
 <script defer
-  src="http://commento.example.com/js/commento.js"
+  src="http://samlet-chat.example.com/js/samlet-chat.js"
   data-css-override="http://example.com/my-custom-styling.css"
   data-auto-init="true">
 </script>
-<div id="commento"></div>
+<div id="samlet-chat"></div>
 ```
 
 #### Configuration settings
@@ -29,7 +29,7 @@ An URL to a CSS file with overriding styles. Defaults to no override and uses Co
 <div class="setting-right">Optional</div>
 <div class="setting-title">data-auto-init</div>
 
-Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.commento.main()` when you want to load Commento. By default, this is true.
+Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.samlet-chat.main()` when you want to load Commento. By default, this is true.
 
 <div class="setting-possible">true, false</div>
 
@@ -38,7 +38,7 @@ Commento automatically initialises itself when the page is loaded. If you prefer
 <div class="setting-right">Optional</div>
 <div class="setting-title">data-id-root</div>
 
-By default, Commento looks for a `<div>` with `id="commento"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
+By default, Commento looks for a `<div>` with `id="samlet-chat"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
 
 <div class="setting-example">data-id-root="different-element"</div>
 

@@ -1,6 +1,6 @@
 ### Setting up your environment
 
-Setting up your development environment varies a lot between different operating systems and distributions. Given below are the setups for some of them. If you don't find your platform here, unfortunately, you're on your own to translate the commands for a different platform (which is generally pretty easy) to yours. If that happens to be the case, please consider [improving this document](https://gitlab.com/commento/docs) for future developers.
+Setting up your development environment varies a lot between different operating systems and distributions. Given below are the setups for some of them. If you don't find your platform here, unfortunately, you're on your own to translate the commands for a different platform (which is generally pretty easy) to yours. If that happens to be the case, please consider [improving this document](https://github.com/samletnorge/samlet-chat/tree/master/docs) for future developers.
 
 <!-- Keep this list sorted -->
 
@@ -46,7 +46,7 @@ sudo apt install golang
 
 ###### Postgresql
 
-This section covers the installation of the Postgresql database from Ubuntu packages. There are also other methods, such as [Docker](https://hub.docker.com/_/postgres). This step is not necessary if you already have a running Postgresql server with a `commento` database. 
+This section covers the installation of the Postgresql database from Ubuntu packages. There are also other methods, such as [Docker](https://hub.docker.com/_/postgres). This step is not necessary if you already have a running Postgresql server with a `samlet-chat` database. 
 
 Install the Postgresql server and CLI client from the Ubuntu archive:
 
@@ -54,4 +54,4 @@ Install the Postgresql server and CLI client from the Ubuntu archive:
 sudo apt install postgresql postgresql-client-common
 ```
 
-The final step will be to create a `commento` database on the server. Learn more about [how to install and use PostgreSQL server on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04).
+The final step will be to create a `samlet-chat` database on the server. Learn more about [how to install and use PostgreSQL server on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04).

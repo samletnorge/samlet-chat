@@ -5,8 +5,8 @@
 Commento's backend is configured by a set of environment variables. If you're executing the binary from the command line, you can set environment variables:
 
 ```bash
-$ export COMMENTO_ORIGIN=http://commento.example.com  # no whitespace around =
-$ ./commento
+$ export COMMENTO_ORIGIN=http://samlet-chat.example.com  # no whitespace around =
+$ ./samlet-chat
 ```
 
 If you're running Commento with Docker Compose, you can do this with the `environment:` keyword as shown [here](/installation/self-hosting/on-your-server/docker.md#with-docker-compose). If you prefer plain Docker, the `-e` flag sets environment variables, as shown [here](/installation/self-hosting/on-your-server/docker.md#with-vanilla-docker).
@@ -20,7 +20,7 @@ You can also configure Commento using a configuration file specified with `COMME
 
 This should be set to the subdomain or the IP address hosting Commento. All API requests will go to this server. This may include subdirectories if Commento is hosted behind a reverse proxy, for example. Include the protocol in the value to use HTTP/HTTPS.
 
-<div class="setting-example">COMMENTO_ORIGIN=http://commento.example.com</div>
+<div class="setting-example">COMMENTO_ORIGIN=http://samlet-chat.example.com</div>
 
 ---
 
@@ -29,7 +29,7 @@ This should be set to the subdomain or the IP address hosting Commento. All API 
 
 A PostgreSQL server URI, including the database name.
 
-<div class="setting-example">COMMENTO_POSTGRES=postgres://user:pass@ip:5432/commento?sslmode=disable</div>
+<div class="setting-example">COMMENTO_POSTGRES=postgres://user:pass@ip:5432/samlet-chat?sslmode=disable</div>
 
 ---
 
@@ -38,7 +38,7 @@ A PostgreSQL server URI, including the database name.
 
 A configuration file for Commento. See the [section on the configuration file](#configuration-file) for more details. Useful to store secrets and credentials. No config file will be loaded by default, if left unspecified.
 
-<div class="setting-example">COMMENTO_CONFIG_FILE=/etc/commento.env</div>
+<div class="setting-example">COMMENTO_CONFIG_FILE=/etc/samlet-chat.env</div>
 
 ---
 
@@ -89,7 +89,7 @@ Used to disable new dashboard registrations. Useful if you are the only person u
 
 If you want to store the binary in a different directory from the static assets, set this directory to point to the static assets (HTML, JS, CSS, email templates and database migrations). Defaults to the same directory as the binary.
 
-<div class="setting-example">COMMENTO_STATIC=/usr/local/share/commento</div>
+<div class="setting-example">COMMENTO_STATIC=/usr/local/share/samlet-chat</div>
 
 ---
 
@@ -182,7 +182,7 @@ COMMENTO_TWITTER_SECRET=9j60WfN3LG6GAMbU5LCch1HQ6tT4ytiOzO95rM3DVD5dXHFT
 
 #### Configuration file
 
-With the `COMMENTO_CONFIG_FILE` environment variable, you can specify a configuration file. You can use this file to store secrets and credentials without exposing them in the `./commento` invocation command. For example, a Docker secret can be created and mounted inside the container's filesystem, and Commento can read from this file.
+With the `COMMENTO_CONFIG_FILE` environment variable, you can specify a configuration file. You can use this file to store secrets and credentials without exposing them in the `./samlet-chat` invocation command. For example, a Docker secret can be created and mounted inside the container's filesystem, and Commento can read from this file.
 
 {% hint style='info' %}
 **Precedence**
@@ -202,27 +202,27 @@ Here is an example file:
 
 ```
 # Set binding values
-COMMENTO_ORIGIN=http://commento.example.com
+COMMENTO_ORIGIN=http://samlet-chat.example.com
 COMMENTO_PORT=80
 
 # Set PostgreSQL settings
-COMMENTO_POSTGRES=postgres://commento:commento@127.0.0.1:5432/commento?sslmode=disable
+COMMENTO_POSTGRES=postgres://samlet-chat:samlet-chat@127.0.0.1:5432/samlet-chat?sslmode=disable
 
 # Set the SMTP credentials
 COMMENTO_SMTP_HOST=smtp.gmail.com
 COMMENTO_SMTP_PORT=587
 COMMENTO_SMTP_USERNAME=example@gmail.com
 COMMENTO_SMTP_PASSWORD=hunter2
-COMMENTO_SMTP_FROM_ADDRESS=no-reply@commento.io
+COMMENTO_SMTP_FROM_ADDRESS=no-reply@samlet-chat.io
 
 # Set Google OAuth credentials
 COMMENTO_GOOGLE_KEY=204475040454-chmuz29vz2xldxnlcmnvbnrlbn.apps.googleusercontent.com
 COMMENTO_GOOGLE_SECRET=09HTEVfU0VDUkVUPTh4
 ```
 
-Say we store this file in `/etc/commento.env`. Then, we can include this file when running Commento:
+Say we store this file in `/etc/samlet-chat.env`. Then, we can include this file when running Commento:
 
 ```
-$ export COMMENTO_CONFIG_FILE=/etc/commento.env
-$ ./commento
+$ export COMMENTO_CONFIG_FILE=/etc/samlet-chat.env
+$ ./samlet-chat
 ```

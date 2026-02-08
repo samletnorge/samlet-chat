@@ -30,8 +30,8 @@ func TestCommenterNewEmpty(t *testing.T) {
 func TestCommenterNewCommento(t *testing.T) {
 	failTestOnError(t, setupTestEnv())
 
-	if _, err := commenterNew("test@example.com", "Test", "undefined", "", "commento", ""); err == nil {
-		t.Errorf("expected error not found creating new commento account with empty password")
+	if _, err := commenterNew("test@example.com", "Test", "undefined", "", "samlet-chat", ""); err == nil {
+		t.Errorf("expected error not found creating new samlet-chat account with empty password")
 		return
 	}
 }

@@ -15,8 +15,8 @@ get_contents() {
     seen_minor_version[$minor_version]=true
 
     rel_exists=false
-    rel="https://dl.commento.io/release/commento-$tag-linux-glibc-amd64.tar.gz"
-    rel_sig="https://dl.commento.io/release/commento-$tag-linux-glibc-amd64.tar.gz.asc"
+    rel="https://dl.samlet-chat.valiantlynx.com/release/samlet-chat-$tag-linux-glibc-amd64.tar.gz"
+    rel_sig="https://dl.samlet-chat.valiantlynx.com/release/samlet-chat-$tag-linux-glibc-amd64.tar.gz.asc"
     rel_sha=$(curl --fail -s "$rel" -o - | sha256sum - | cut -f 1 -d ' ')
     exit_code=$?
     if [[ "$exit_code" == "0" ]]; then
@@ -25,9 +25,9 @@ get_contents() {
       rel_exists=false
     fi
 
-    src="https://dl.commento.io/release/commento-$tag-src.tar.gz"
+    src="https://dl.samlet-chat.valiantlynx.com/release/samlet-chat-$tag-src.tar.gz"
     src_sha=$(curl --fail -s "$src" -o - | sha256sum - | cut -f 1 -d ' ')
-    src_sig="https://dl.commento.io/release/commento-$tag-src.tar.gz.asc"
+    src_sig="https://dl.samlet-chat.valiantlynx.com/release/samlet-chat-$tag-src.tar.gz.asc"
     curl --fail -s "$src_sig" -o /dev/null
     exit_code=$?
     if [[ "$exit_code" == "0" ]]; then
@@ -40,16 +40,16 @@ get_contents() {
       printf "#### Latest Release &ndash; %s\n\n" "$tag"
 
       if [[ "$rel_exists" == "true" ]]; then
-        printf " - [commento-%s-linux-glibc-amd64.tar.gz](%s) ([signature](%s))  \n" "$tag" "$rel" "$rel_sig"
+        printf " - [samlet-chat-%s-linux-glibc-amd64.tar.gz](%s) ([signature](%s))  \n" "$tag" "$rel" "$rel_sig"
         printf "   <p class=\"sha\">%s</p>\n\n" "$rel_sha"
       else
         printf " - No release binaries available for \`%s\`.\n\n" "$tag"
       fi
 
       if [[ "$src_sig_exists" == "true" ]]; then
-        printf " - [commento-%s-src.tar.gz](%s) ([signature](%s))  \n" "$tag" "$src" "$src_sig"
+        printf " - [samlet-chat-%s-src.tar.gz](%s) ([signature](%s))  \n" "$tag" "$src" "$src_sig"
       else
-        printf " - [commento-%s-src.tar.gz](%s)%s  \n" "$tag" "$src"
+        printf " - [samlet-chat-%s-src.tar.gz](%s)%s  \n" "$tag" "$src"
       fi
       printf "   <p class=\"sha\">%s</p>\n\n" "$src_sha"
 
@@ -62,16 +62,16 @@ get_contents() {
     printf "<summary><b>%s</b></summary>\n" "$tag"
     printf "<ul>\n"
     if [[ "$rel_exists" == "true" ]]; then
-        printf "<li><p><a href='%s'>commento-%s-linux-glibc-amd64.tar.gz</a> (<a href='%s'>signature</a>)</p>\n" "$rel" "$tag" "$rel_sig"
+        printf "<li><p><a href='%s'>samlet-chat-%s-linux-glibc-amd64.tar.gz</a> (<a href='%s'>signature</a>)</p>\n" "$rel" "$tag" "$rel_sig"
         printf "<p class=\"sha\">%s</p></li>\n\n" "$rel_sha"
     else
       printf "<li><p>No release binaries available for this release.</p></li>\n"
     fi
 
     if [[ "$src_sig_exists" == "true" ]]; then
-      printf "<li><p><a href='%s'>commento-%s-src.tar.gz</a> (<a href='%s'>signature</a>)</p>\n" "$src" "$tag" "$src_sig"
+      printf "<li><p><a href='%s'>samlet-chat-%s-src.tar.gz</a> (<a href='%s'>signature</a>)</p>\n" "$src" "$tag" "$src_sig"
     else
-      printf "<li><p><a href='%s'>commento-%s-src.tar.gz</a></p>\n" "$src" "$tag"
+      printf "<li><p><a href='%s'>samlet-chat-%s-src.tar.gz</a></p>\n" "$src" "$tag"
     fi
     printf "<p class=\"sha\">%s</p></li>\n\n" "$src_sha"
     printf "</ul></details>\n"

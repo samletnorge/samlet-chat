@@ -1,7 +1,7 @@
 ### Self-hosting Commento
 
 {% hint style='tip' %}
-If you're a [Commento.io](https://commento.io) user, these steps aren't needed. Follow [these instructions](/installation/cloud-service/embed-on-your-website/) instead.
+If you're a [Commento.io](https://samlet-chat.valiantlynx.com) user, these steps aren't needed. Follow [these instructions](/installation/cloud-service/embed-on-your-website/) instead.
 {% endhint %}
 
 Installing a **self-hosted instance** of Commento can be divided into three logical steps:
@@ -14,11 +14,11 @@ Installing a **self-hosted instance** of Commento can be divided into three logi
 
 #### An Example
 
-Here's an example to clear things up. Let's say your blog is `blog.example.com` and you want to add Commento to this website. Let's say `commento.example.com` is the address of the server where you'll be hosting the Commento server.
+Here's an example to clear things up. Let's say your blog is `blog.example.com` and you want to add Commento to this website. Let's say `samlet-chat.example.com` is the address of the server where you'll be hosting the Commento server.
  
-1. First, you'd [install Commento](on-your-server) on the `commento.example.com` server.
+1. First, you'd [install Commento](on-your-server) on the `samlet-chat.example.com` server.
  
-1. Then you'd open `commento.example.com` on your browser to create an account and log in.
+1. Then you'd open `samlet-chat.example.com` on your browser to create an account and log in.
  
 1. Once you're logged into the admin interface, you need to [register your website](register-your-website) `blog.example.com` so that Commento can serve requests.
  

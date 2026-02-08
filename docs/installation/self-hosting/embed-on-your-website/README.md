@@ -4,12 +4,12 @@ At this point, you should have the registered your website with Commento. Now al
 
 At the moment Commento only supports a [universal HTML tag](universal-tag.md). In the future there will be support for more publishing platforms such as Wordpress, Blogger, Wix, and Ghost. 
 
-If your Commento instance is available at `commento.example.com`, embed the following piece of HTML in your website wherever you want Commento to load. You may want to do this at the bottom of each post.
+If your Commento instance is available at `samlet-chat.example.com`, embed the following piece of HTML in your website wherever you want Commento to load. You may want to do this at the bottom of each post.
 
 ```html
-<div id="commento"></div>
+<div id="samlet-chat"></div>
 <script defer
-  src="http://commento.example.com/js/commento.js">
+  src="https://raw.githubusercontent.com/samletnorge/samlet-chat/refs/heads/master/frontend/js/samlet-chat.js">
 </script>
 ```
 

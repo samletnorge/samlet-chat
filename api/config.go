@@ -22,7 +22,7 @@ func configParse() error {
 		// PostgreSQL recommends max_connections in the order of hundreds. The default
 		// is 100, so let's use half that and leave the other half for other services.
 		// Ideally, you'd be setting this to a much higher number (for example, at the
-		// time of writing, commento.io uses 600). See https://wiki.postgresql.org/wiki/Number_Of_Database_Connections
+		// time of writing, https://samlet-chat.valiantlynx.com uses 600). See https://wiki.postgresql.org/wiki/Number_Of_Database_Connections
 		"MAX_IDLE_PG_CONNECTIONS": "50",
 
 		"BIND_ADDRESS": "127.0.0.1",
