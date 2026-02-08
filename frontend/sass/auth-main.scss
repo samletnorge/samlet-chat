@@ -16,11 +16,12 @@ body {
 
   .auth-form {
     width: 400px;
-    background: white;
-    border-radius: 3px;
-    padding: 24px;
+    background: $bg-primary;
+    border: 1px solid $neutral-200;
+    border-radius: 12px;
+    padding: 32px;
     margin: 20px;
-    padding-bottom: 0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 
     #form2 {
       text-align: right;
@@ -28,19 +29,21 @@ body {
     }
 
     #form2 button {
-      background: #ffffff;
+      background: $bg-primary;
       width: 30%;
-      border: 1px solid #ffffff;
-      color: #898989;
+      border: 1px solid $neutral-300;
+      color: $text-secondary;
       box-shadow: none;
+      border-radius: 6px;
     }
 
     .form-title {
       font-size: 28px;
-      font-weight: 300;
+      font-weight: 600;
       text-align: center;
       padding: 12px;
       padding-bottom: 36px;
+      color: $text-primary;
     }
 
     .form-subtitle {
@@ -48,11 +51,12 @@ body {
       text-align: center;
       padding: 12px;
       padding-bottom: 24px;
+      color: $text-secondary;
     }
 
     .small-subtitle {
       font-size: 12px;
-      color: $gray-6;
+      color: $text-secondary;
       padding: 0px 12px 20px 12px;
     }
 
@@ -60,7 +64,7 @@ body {
       padding-left: 8px;
       padding-right: 8px;
       margin-bottom: 20px;
-      border-bottom: 1px solid $gray-1;
+      border-bottom: 1px solid $neutral-200;
 
       input[type=text],
       input[type=password] {
@@ -68,26 +72,31 @@ body {
         display: inline-block;
         margin: 0;
         padding: 0;
-        color: #32325d;
-        border-bottom: 1px solid $gray-1;
+        color: $text-primary;
+        border-bottom: 1px solid $neutral-200;
         margin-right: 20px;
-        background: $gray-0;
         width: 100%;
-        color: #32325d;
         border: none;
         outline: none;
         line-height: 28px;
-        background: $white;
+        background: transparent;
+        transition: all 0.2s;
+      }
+
+      input[type=text]:focus,
+      input[type=password]:focus {
+        color: $primary;
+        border-bottom-color: $primary;
       }
 
       input[type=text]::placeholder,
       input[type=password]::placeholder {
-        color: $gray-3;
+        color: $text-muted;
       }
 
       .label {
         display: inline-block;
-        color: $gray-5;
+        color: $text-secondary;
         width: 100%;
         font-size: 12px;
         text-transform: uppercase;
@@ -100,25 +109,24 @@ body {
 
     .button {
       @extend .shadow;
-      border: 1px solid $blue-6;
-      border-radius: 3px;
+      border: none;
+      border-radius: 6px;
       line-height: 32px;
-      background: $blue-6;
-      color: white;
+      background: $primary;
+      color: $primary-text;
       font-weight: bold;
       width: 100%;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .button:hover {
-      background: $blue-5;
-      border: 1px solid $blue-5;
+      background: $primary-600;
     }
 
     .button:disabled {
-      background: $blue-4;
-      border: 1px solid $blue-4;
+      background: $neutral-300;
+      color: $text-muted;
       cursor: unset;
     }
 
@@ -133,20 +141,20 @@ body {
 
     .link {
       font-weight: normal;
-      color: $blue-6;
-      transition: all 0.3s;
+      color: $primary;
+      transition: color 0.2s ease;
     }
 
     .link:hover {
-      color: $blue-6;
+      color: $primary-600;
     }
 
     .err {
-      color: $red-6;
+      color: $destructive;
     }
 
     .msg {
-      color: $green-6;
+      color: $success;
     }
   }
 

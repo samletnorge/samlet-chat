@@ -7,10 +7,15 @@
     text-align: right;
     margin-right: 16px;
     height: 38px;
-    color: $gray-6;
-    font-weight: bold;
+    color: $primary;
+    font-weight: 600;
     cursor: pointer;
     display: block;
+    transition: color 0.2s ease;
+  }
+
+  .samlet-chat-login-text:hover {
+    color: $primary-600;
   }
 }
 
@@ -24,22 +29,32 @@
   .samlet-chat-profile-button {
     float: right;
     cursor: pointer;
-    color: $gray-6;
+    color: $text-secondary;
     margin: 5px 12px;
     font-size: 13px;
+    transition: color 0.2s ease;
+  }
+
+  .samlet-chat-profile-button:hover {
+    color: $primary;
   }
 
   .samlet-chat-logged-in-as {
     position: relative;
 
     .samlet-chat-name {
-      color: $gray-8;
+      color: $text-primary;
       border: none;
-      font-weight: bold;
+      font-weight: 600;
       position: absolute;
       top: 6px;
       left: 48px;
       cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .samlet-chat-name:hover {
+      color: $primary;
     }
   }
 }

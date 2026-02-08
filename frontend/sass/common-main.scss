@@ -7,12 +7,13 @@ html, input, button, textarea {
 
 html {
   font-size: 14px;
-  color: $gray-7;
-  background: #fdfd96;
+  color: $text-primary;
+  background: $bg-primary;
 }
 
 body {
   margin: 0px;
+  background: $bg-primary;
 }
 
 a {
@@ -35,18 +36,20 @@ a:hover {
 
   .copyright {
     align-items: none;
-    color: $gray-3;
-    background: $white;
+    color: $neutral-300;
+    background: $bg-primary;
     text-align: center;
     padding: 12px;
+    border-top: 1px solid $neutral-200;
   }
 
   .footer-inner {
     width: 100%;
-    background: $white;
+    background: $bg-primary;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid $neutral-200;
 
     .links {
       display: flex;
@@ -61,7 +64,7 @@ a:hover {
         text-transform: uppercase;
         font-weight: 700;
         font-size: 12px;
-        color: $gray-5;
+        color: $text-muted;
       }
     }
 
@@ -69,12 +72,12 @@ a:hover {
       margin-top: 12px;
       margin-bottom: 12px;
       display: block;
-      color: $gray-5;
-      transition: all 0.2s;
+      color: $text-secondary;
+      transition: all 0.2s ease;
     }
 
     .link:hover {
-      color: $gray-7;
+      color: $primary;
     }
 
     @media only screen and (max-width: 1000px) {

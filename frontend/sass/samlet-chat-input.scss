@@ -3,19 +3,28 @@
 
 textarea,
 input[type=text] {
-  background: #ffffff;
-  border: 1px solid rgba(50, 50, 93, .1);
-  border-radius: 3px;
-  color: #525f7f;
+  background: $bg-primary;
+  border: 1px solid $neutral-300;
+  border-radius: 6px;
+  color: $text-primary;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+textarea:focus,
+input[type=text]:focus {
+  border-color: $primary;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+  outline: none;
 }
 
 input[type=text]::placeholder {
-  color: #cacaca;
+  color: $text-muted;
 }
 
 textarea::placeholder {
-  color: $gray-6;
-  font-size: 20px;
+  color: $text-muted;
+  font-size: 16px;
   display: flex;
   line-height: 110px;
   justify-content: center;
@@ -26,7 +35,7 @@ textarea::placeholder {
 textarea {
   display: inline-block;
   white-space: pre-wrap;
-  padding: 8px;
+  padding: 12px;
   outline: none;
   overflow: auto;
   min-height: 130px;
@@ -35,7 +44,7 @@ textarea {
 }
 
 .samlet-chat-red-border {
-  border: 1px solid $red-7;
+  border: 2px solid $destructive !important;
 }
 
 .samlet-chat-textarea-container {
@@ -61,10 +70,27 @@ textarea {
 
 .samlet-chat-submit-button {
   float: right;
-  background: $blue-8;
+  background: $primary;
+  color: $primary-text;
   text-transform: uppercase;
   font-size: 12px;
   margin-top: 10px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.samlet-chat-submit-button:hover {
+  background: $primary-600;
+}
+
+.samlet-chat-submit-button:disabled {
+  background: $neutral-300;
+  color: $text-muted;
+  cursor: not-allowed;
 }
 
 .samlet-chat-button-margin {
@@ -79,8 +105,8 @@ textarea {
     padding-left: 24px;
     font-size: 12px;
     text-transform: uppercase;
-    font-weight: bold;
-    color: $gray-7;
+    font-weight: 600;
+    color: $text-primary;
   }
 
   input[type="checkbox"] + label:before {

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"UTF-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <title>Samlet Chat - Design System Color Palette</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      padding: 40px 20px;
+      color: #111827;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    .palette-section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #374151;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .color-swatch {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .color-swatch-color {
+      height: 80px;
+      width: 100%;
+    }
+
+    .color-swatch-info {
+      padding: 8px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .color-name {
+      color: #374151;
+      font-weight: 600;
+    }
+
+    .color-value {
+      color: #6b7280;
+      font-size: 11px;
+      font-family: monospace;
+    }
+
+    /* Primary Colors */
+    .primary { background: #ffd700; }
+    .primary-50 { background: #fffbeb; }
+    .primary-100 { background: #fef3c7; }
+    .primary-200 { background: #fde68a; }
+    .primary-300 { background: #fcd34d; }
+    .primary-400 { background: #fbbf24; }
+    .primary-500 { background: #f59e0b; }
+    .primary-600 { background: #d97706; }
+    .primary-700 { background: #b45309; }
+    .primary-800 { background: #92400e; }
+
+    /* Neutral Colors */
+    .neutral-50 { background: #f9fafb; }
+    .neutral-100 { background: #f3f4f6; }
+    .neutral-200 { background: #e5e7eb; }
+    .neutral-300 { background: #d1d5db; }
+    .neutral-400 { background: #9ca3af; }
+    .neutral-500 { background: #6b7280; }
+    .neutral-600 { background: #4b5563; color: white; }
+    .neutral-700 { background: #374151; color: white; }
+    .neutral-800 { background: #1f2937; color: white; }
+    .neutral-900 { background: #111827; color: white; }
+
+    /* Success Colors */
+    .success { background: #16a34a; color: white; }
+    .success-50 { background: #f0fdf4; }
+    .success-100 { background: #dcfce7; }
+    .success-200 { background: #bbf7d0; }
+    .success-300 { background: #86efac; }
+    .success-400 { background: #4ade80; }
+    .success-500 { background: #22c55e; }
+    .success-600 { background: #16a34a; color: white; }
+
+    /* Destructive Colors */
+    .destructive { background: #dc2626; color: white; }
+    .destructive-50 { background: #fef2f2; }
+    .destructive-100 { background: #fee2e2; }
+    .destructive-200 { background: #fecaca; }
+    .destructive-300 { background: #fca5a5; }
+    .destructive-400 { background: #f87171; }
+    .destructive-500 { background: #ef4444; color: white; }
+    .destructive-600 { background: #dc2626; color: white; }
+
+    /* Warning Colors */
+    .warning { background: #ea580c; color: white; }
+    .warning-50 { background: #fff7ed; }
+    .warning-100 { background: #feed7d; }
+    .warning-200 { background: #fcd34d; }
+    .warning-300 { background: #fbbf24; }
+    .warning-400 { background: #f59e0b; }
+    .warning-500 { background: #f97316; color: white; }
+    .warning-600 { background: #ea580c; color: white; }
+
+    /* Info Colors */
+    .info { background: #2563eb; color: white; }
+    .info-50 { background: #eff6ff; }
+    .info-100 { background: #dbeafe; }
+    .info-200 { background: #bfdbfe; }
+    .info-300 { background: #93c5fd; }
+    .info-400 { background: #60a5fa; }
+    .info-500 { background: #3b82f6; color: white; }
+    .info-600 { background: #2563eb; color: white; }
+
+    .feature-section {
+      margin-top: 60px;
+      padding: 40px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .feature-section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #1f2937;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #ffd700;
+      color: #1f2937;
+    }
+
+    .btn-primary:hover {
+      background: #d97706;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: #f3f4f6;
+    }
+
+    .btn-success {
+      background: #16a34a;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #15803d;
+    }
+
+    .btn-destructive {
+      background: #dc2626;
+      color: white;
+    }
+
+    .btn-destructive:hover {
+      background: #b91c1c;
+    }
+
+    .sample-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .sample-card h3 {
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .sample-card p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class=\"container\">
+    <h1>🎨 Samlet Chat Design System</h1>
+    <p class=\"subtitle\">Modern, professional color palette inspired by shadcn/ui and Vercel</p>
+
+    <!-- Primary Colors -->
+    <div class=\"palette-section\">
+      <div class=\"section-title\">Primary Color (Gold - FFD700)</div>
+      <div class=\"color-grid\">
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">Primary</div>
+            <div class=\"color-value\">#ffd700</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-50\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">50</div>
+            <div class=\"color-value\">#fffbeb</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-100\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">100</div>
+            <div class=\"color-value\">#fef3c7</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-200\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">200</div>
+            <div class=\"color-value\">#fde68a</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-300\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">300</div>
+            <div class=\"color-value\">#fcd34d</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-400\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">400</div>
+            <div class=\"color-value\">#fbbf24</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-600\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">600</div>
+            <div class=\"color-value\">#d97706</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color primary-700\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">700</div>
+            <div class=\"color-value\">#b45309</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neutral Colors -->
+    <div class=\"palette-section\">
+      <div class=\"section-title\">Neutral / Gray Scale</div>
+      <div class=\"color-grid\">
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-50\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">50</div>
+            <div class=\"color-value\">#f9fafb</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-100\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">100</div>
+            <div class=\"color-value\">#f3f4f6</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-200\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">200</div>
+            <div class=\"color-value\">#e5e7eb</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-300\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">300</div>
+            <div class=\"color-value\">#d1d5db</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-400\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">400</div>
+            <div class=\"color-value\">#9ca3af</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-500\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">500</div>
+            <div class=\"color-value\">#6b7280</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-600\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">600</div>
+            <div class=\"color-value\">#4b5563</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-700\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">700</div>
+            <div class=\"color-value\">#374151</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-800\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">800</div>
+            <div class=\"color-value\">#1f2937</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color neutral-900\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">900</div>
+            <div class=\"color-value\">#111827</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semantic Colors -->
+    <div class=\"palette-section\">
+      <div class=\"section-title\">Semantic Colors</div>
+      
+      <h3 style=\"margin-top: 20px; margin-bottom: 12px; color: #374151;\">Success (Green)</h3>
+      <div class=\"color-grid\">
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color success-50\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">50</div>
+            <div class=\"color-value\">#f0fdf4</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color success\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">Main</div>
+            <div class=\"color-value\">#16a34a</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style=\"margin-top: 20px; margin-bottom: 12px; color: #374151;\">Destructive (Red)</h3>
+      <div class=\"color-grid\">
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color destructive-50\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">50</div>
+            <div class=\"color-value\">#fef2f2</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color destructive\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">Main</div>
+            <div class=\"color-value\">#dc2626</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style=\"margin-top: 20px; margin-bottom: 12px; color: #374151;\">Warning (Orange)</h3>
+      <div class=\"color-grid\">
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color warning-50\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">50</div>
+            <div class=\"color-value\">#fff7ed</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color warning\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">Main</div>
+            <div class=\"color-value\">#ea580c</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style=\"margin-top: 20px; margin-bottom: 12px; color: #374151;\">Info (Blue)</h3>
+      <div class=\"color-grid\">
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color info-50\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">50</div>
+            <div class=\"color-value\">#eff6ff</div>
+          </div>
+        </div>
+        <div class=\"color-swatch\">
+          <div class=\"color-swatch-color info\"></div>
+          <div class=\"color-swatch-info\">
+            <div class=\"color-name\">Main</div>
+            <div class=\"color-value\">#2563eb</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Examples -->
+    <div class=\"feature-section\">
+      <h2>Interactive Elements</h2>
+      
+      <div class=\"button-group\">
+        <button class=\"btn btn-primary\">Primary Button</button>
+        <button class=\"btn btn-secondary\">Secondary Button</button>
+        <button class=\"btn btn-success\">Success Button</button>
+        <button class=\"btn btn-destructive\">Destructive Button</button>
+      </div>
+
+      <div class=\"sample-card\">
+        <h3>Sample Card</h3>
+        <p>This is how a modern card looks with the new design system. It features clean borders, subtle shadows, and proper spacing.</p>
+      </div>
+    </div>
+
+    <div class=\"feature-section\" style=\"margin-top: 20px;\">
+      <h2>Design Principles</h2>
+      <ul style=\"color: #6b7280; line-height: 2;\">
+        <li><strong style=\"color: #1f2937;\">Minimalism:</strong> Clean, uncluttered interfaces with clear hierarchy</li>
+        <li><strong style=\"color: #1f2937;\">Consistency:</strong> Reusable patterns across the platform</li>
+        <li><strong style=\"color: #1f2937;\">Accessibility:</strong> Sufficient color contrast and clear interactive states</li>
+        <li><strong style=\"color: #1f2937;\">Modern:</strong> Rounded corners (6-8px), subtle shadows, smooth transitions</li>
+        <li><strong style=\"color: #1f2937;\">Professional:</strong> Limited color palette, intentional use of color</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

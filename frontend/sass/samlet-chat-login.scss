@@ -12,25 +12,28 @@
     width: 90%;
     max-width: 500px;
     min-height: 100px;
-    background: $gray-1;
+    background: $bg-primary;
+    border: 1px solid $neutral-200;
+    border-radius: 8px;
     z-index: 100;
     position: absolute;
     top: 8px;
-    padding: 16px;
+    padding: 24px;
     opacity: 1;
     transition: opacity 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
     @import "samlet-chat-oauth.scss";
 
     hr {
       border: none;
-      background: $gray-2;
+      background: $neutral-200;
       height: 1px;
       margin: 24px 0px;
     }
 
     .samlet-chat-login-box-subtitle {
-      color: $gray-6;
+      color: $text-secondary;
       text-align: center;
       margin: 12px 0px;
       font-size: 15px;
@@ -50,12 +53,18 @@
       font-size: 14px;
       font-weight: bold;
       border-bottom: none;
+      color: $primary;
     }
 
     .samlet-chat-forgot-link {
       font-size: 13px;
-      color: $gray-6;
+      color: $text-secondary;
       font-weight: normal;
+    }
+
+    .samlet-chat-forgot-link:hover,
+    .samlet-chat-login-link:hover {
+      color: $primary-600;
     }
 
     .samlet-chat-login-box-close {
@@ -64,7 +73,8 @@
       top: 16px;
       width: 16px;
       height: 16px;
-      opacity: 0.3;
+      opacity: 0.4;
+      transition: opacity 0.2s;
     }
 
     .samlet-chat-login-box-close:hover {
@@ -78,7 +88,7 @@
       content: ' ';
       height: 17px;
       width: 2px;
-      background-color: $gray-7;
+      background-color: $text-primary;
     }
 
     .samlet-chat-login-box-close:before {

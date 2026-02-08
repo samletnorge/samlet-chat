@@ -17,14 +17,14 @@
     }
 
     .err {
-      color: $red-6;
+      color: $destructive;
       text-align: center;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     .msg {
-      color: $green-6;
-      font-weight: bold;
+      color: $success;
+      font-weight: 600;
       margin-bottom: 12px;
       height: 20px;
     }

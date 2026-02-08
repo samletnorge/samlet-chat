@@ -4,19 +4,27 @@ code {
   font-family: monospace;
   font-size: 13px;
   white-space: pre;
+  background: $neutral-100;
+  padding: 2px 4px;
+  border-radius: 3px;
 }
 
 a {
-  color: $blue-6;
+  color: $primary;
   outline: none;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: $primary-600;
 }
 
 blockquote {
   margin: 0 0 0 8px;
-  padding: 0 0 0 5px;
-  border-left: 2px solid $gray-5;
-  color: $gray-6;
+  padding: 0 0 0 12px;
+  border-left: 3px solid $primary;
+  color: $text-secondary;
 }
 
 .samlet-chat-button {
@@ -25,23 +33,39 @@ blockquote {
   align-items: center;
   text-align: center;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 24px;
   font-size: 14px;
-  padding: 6px;
-  padding-left: 8px;
-  padding-right: 8px;
-  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
-  border: 1px solid transparent;
-  border-radius: 3px;
-  color: #fff;
+  padding: 6px 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid $neutral-200;
+  border-radius: 6px;
+  color: $text-primary;
+  background: $bg-primary;
   margin-left: 5px;
   margin-right: 5px;
+  transition: all 0.2s ease;
+}
+
+.samlet-chat-button:hover {
+  background: $neutral-100;
+  border-color: $neutral-300;
+}
+
+.samlet-chat-button.primary {
+  background: $primary;
+  color: $primary-text;
+  border-color: $primary;
+}
+
+.samlet-chat-button.primary:hover {
+  background: $primary-600;
+  border-color: $primary-600;
 }
 
 @keyframes yellowfade {
   from {
-    background: $yellow-0;
+    background: $primary-100;
   }
   to {
     background: transparent;
@@ -81,10 +105,11 @@ blockquote {
 
 #samlet-chat-notice-container .samlet-chat-moderation-notice {
   margin-top: 0 !important;
-  padding: 18px 0 9px;
-  background: $red-1;
-  color: $red-7 !important;
-  opacity:0;
+  padding: 16px;
+  background: $destructive-50;
+  color: $destructive-text !important;
+  border: 1px solid $destructive-200;
+  opacity: 0;
   transform: translateY(-100%);
   animation: slide-down 5s;
 }
@@ -102,16 +127,18 @@ blockquote {
 }
 
 .samlet-chat-permalink {
-  color: #50596cbf;
-  font-weight: bold;
+  color: $text-secondary;
+  font-weight: 500;
   text-align: right;
   width: 100%;
   display: inline-block;
   font-size: 70%;
   margin-left: -16px;
   visibility: hidden;
+  transition: color 0.2s ease;
 }
 
 .samlet-chat-card:hover .samlet-chat-permalink {
   visibility: visible;
+  color: $primary;
 }

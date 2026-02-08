@@ -3,12 +3,20 @@
 .samlet-chat-card {
   @import "samlet-chat-options.scss"; // SVG buttons to the right of each comment
 
-  padding: 12px 0px 0px 12px;
-  margin-top: 16px;
-  border-top: 1px solid #f0f0f0;
+  padding: 12px 12px 12px 12px;
+  margin-top: 12px;
+  border: 1px solid $neutral-200;
+  border-radius: 8px;
+  background: $bg-primary;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $neutral-300;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
 
   .samlet-chat-header {
-    padding-bottom: 4px;
+    padding-bottom: 8px;
   }
 
   .samlet-chat-avatar::after {
@@ -19,7 +27,7 @@
   .samlet-chat-name {
     font-weight: 700;
     font-size: 14px;
-    color: #555;
+    color: $text-primary;
     border: none;
     display: table;
     z-index: 1;
@@ -29,72 +37,81 @@
     text-overflow: ellipsis;
     width: fit-content;
     cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .samlet-chat-name:hover {
+    color: $primary;
   }
 
   .samlet-chat-flagged::after {
     content: "Flagged";
     text-transform: uppercase;
     font-size: 10px;
-    background: $red-7;
+    background: $destructive;
     color: white;
     margin-left: 8px;
-    padding: 2px 6px 2px 6px;
-    border-radius: 100px;
-    line-height: 17px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    line-height: 14px;
+    font-weight: 600;
   }
 
   .samlet-chat-moderator::after {
     content: "Moderator";
     text-transform: uppercase;
     font-size: 10px;
-    background: $green-7;
+    background: $success;
     color: white;
     margin-left: 8px;
-    padding: 2px 6px 2px 6px;
-    border-radius: 100px;
-    line-height: 17px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    line-height: 14px;
+    font-weight: 600;
   }
 
   .samlet-chat-anonymous::after {
     content: "Guest";
     text-transform: uppercase;
     font-size: 10px;
-    background: $gray-7;
+    background: $neutral-500;
     color: white;
     margin-left: 8px;
-    padding: 2px 6px 2px 6px;
-    border-radius: 100px;
-    line-height: 17px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    line-height: 14px;
+    font-weight: 600;
   }
 
   .samlet-chat-pending::after {
     content: "Pending moderation";
     text-transform: uppercase;
     font-size: 10px;
-    background: $yellow-7;
+    background: $warning;
     color: white;
     margin-left: 8px;
-    padding: 2px 6px 2px 6px;
-    border-radius: 100px;
-    line-height: 17px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    line-height: 14px;
+    font-weight: 600;
   }
 
   .samlet-chat-subtitle {
     display: block;
-    color: #999;
+    color: $text-secondary;
     font-size: 12px;
     margin-left: 48px;
   }
 
   .samlet-chat-timeago {
     display: inline;
-    color: #888;
+    color: $text-muted;
     font-size: 12px;
   }
 
   .samlet-chat-score {
     display: inline;
-    color: #888;
+    color: $text-muted;
     font-size: 12px;
     font-weight: 700;
   }

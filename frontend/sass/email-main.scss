@@ -9,52 +9,57 @@
 
   .samlet-chat-email {
     @extend .shadow;
-    border-radius: 4px;
-    background: $white;
+    border-radius: 6px;
+    background: $bg-primary;
     width: 100%;
     max-width: 400px;
+    border: 1px solid $neutral-200;
+    overflow: hidden;
 
     .samlet-chat-input {
       display: inline;
-      height: 30px;
-      background: $white;
+      height: 40px;
+      background: transparent;
       border: none;
       outline: none;
-      padding: 5px;
-      padding-left: 10px;
+      padding: 8px;
+      padding-left: 12px;
       width: calc(100% - 150px);
+      color: $text-primary;
+      font-size: 14px;
     }
 
     .samlet-chat-input::placeholder {
-      color: $gray-5;
+      color: $text-muted;
     }
 
     .samlet-chat-email-button {
       height: 40px;
       min-width: 110px;
       float: right;
-      background: $white;
+      background: $primary;
+      color: $primary-text;
       border: none;
       outline: none;
-      padding: 0px 10px 0px 10px;
-      border-left: 1px solid $gray-1;
+      padding: 0px 16px;
       font-size: 12px;
       text-transform: uppercase;
       text-align: center;
       font-weight: bold;
-      color: $blue-7;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       width: unset;
+      border-left: 1px solid $neutral-200;
     }
 
     .samlet-chat-email-button:hover {
-      color: $blue-6;
+      background: $primary-600;
     }
 
     .samlet-chat-email-button:disabled {
       cursor: default;
-      color: $gray-6;
+      background: $neutral-300;
+      color: $text-muted;
     }
   }
 }

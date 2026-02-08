@@ -14,7 +14,7 @@
     font-family: inherit;
     font-size: 15px;
     line-height: 1.5;
-    color: #50596c;
+    color: $text-primary;
     text-rendering: optimizeLegibility;
   }
 
@@ -36,25 +36,31 @@
   }
 
   .samlet-chat-main-area {
-    transition: filter 0.2s;
+    transition: filter 0.2s ease;
   }
 
   .samlet-chat-error-box {
     width: 100%;
-    border-radius: 4px;
-    height: 32px;
+    border-radius: 6px;
+    padding: 12px;
+    height: auto;
     text-align: center;
-    color: $red-7;
-    font-weight: 700;
+    color: $destructive-text;
+    background: $destructive-50;
+    border: 1px solid $destructive-200;
+    font-weight: 600;
   }
 
   .samlet-chat-moderation-notice {
     width: 100%;
-    border-radius: 4px;
-    height: 32px;
+    border-radius: 6px;
+    padding: 12px;
+    height: auto;
     text-align: center;
-    color: $orange-7;
-    font-weight: 700;
+    color: $warning-text;
+    background: $warning-50;
+    border: 1px solid $warning-200;
+    font-weight: 600;
     margin-top: 16px;
   }
 
@@ -66,18 +72,20 @@
       float: right;
 
       .samlet-chat-sort-policy-button {
-        color: $gray-6;
+        color: $text-secondary;
         font-size: 13px;
         padding: 0px 7px;
+        transition: color 0.2s ease;
       }
 
       .samlet-chat-sort-policy-button:hover {
         cursor: pointer;
+        color: $primary;
       }
 
       .samlet-chat-sort-policy-button-selected {
-        color: $blue-8;
-        font-weight: bold;
+        color: $primary;
+        font-weight: 600;
       }
     }
   }

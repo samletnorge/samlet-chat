@@ -5,21 +5,26 @@
 
   button {
     text-transform: uppercase;
-    color: $gray-7;
+    color: $text-primary;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     margin-left: 12px;
     background: none;
     border: none;
     display: inline;
+    transition: color 0.2s ease;
+  }
+
+  button:hover {
+    color: $primary;
   }
 }
 
 .samlet-chat-mod-tools::before {
   content: "Moderator Tools";
   text-transform: uppercase;
-  color: $indigo-8;
+  color: $success;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
