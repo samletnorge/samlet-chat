@@ -339,7 +339,7 @@
                       </div>
 
                       <div class="row no-border samlet-chat-round-check">
-                        <input type="checkbox" v-model="domains[cd].commentoProvider" id="samlet-chat-provider">
+                        <input type="checkbox" v-model="domains[cd].chatProvider" id="samlet-chat-provider">
                         <label for="samlet-chat-provider">Email address login</label>
                       </div>
 
@@ -386,7 +386,7 @@
                         </div>
                       </div>
 
-                      <div class="warning" v-if="!domains[cd].allowAnonymous && !domains[cd].commentoProvider && (!configuredOauths.google || !domains[cd].googleProvider) && (!configuredOauths.twitter || !domains[cd].twitterProvider) && (!configuredOauths.github || !domains[cd].githubProvider) && (!configuredOauths.gitlab || !domains[cd].gitlabProvider) && !domains[cd].ssoProvider">
+                      <div class="warning" v-if="!domains[cd].allowAnonymous && !domains[cd].chatProvider && (!configuredOauths.google || !domains[cd].googleProvider) && (!configuredOauths.twitter || !domains[cd].twitterProvider) && (!configuredOauths.github || !domains[cd].githubProvider) && (!configuredOauths.gitlab || !domains[cd].gitlabProvider) && !domains[cd].ssoProvider">
                         You have disabled all authentication options. Your readers will not be able to login, create comments, or vote.
                       </div>
                     </div>

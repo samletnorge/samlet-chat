@@ -295,7 +295,7 @@
 
 
   function commenterTokenGet() {
-    var commenterToken = cookieGet("commentoCommenterToken");
+    var commenterToken = cookieGet("chatCommenterToken");
     if (commenterToken === undefined) {
       return "anonymous";
     }
@@ -305,7 +305,7 @@
 
 
   global.logout = function() {
-    cookieSet("commentoCommenterToken", "anonymous");
+    cookieSet("chatCommenterToken", "anonymous");
     isAuthenticated = false;
     isModerator = false;
     selfHex = undefined;
@@ -406,7 +406,7 @@
 
     post(origin + "/api/commenter/self", json, function(resp) {
       if (!resp.success) {
-        cookieSet("commentoCommenterToken", "anonymous");
+        cookieSet("chatCommenterToken", "anonymous");
         call(callback);
         return;
       }
@@ -1776,7 +1776,7 @@
 
 
   // OAuth logic
-  global.commentoAuth = function(data) {
+  global.chatAuth = function(data) {
     var provider = data.provider;
     var id = data.id;
     var popup = window.open("", "_blank");
@@ -1789,7 +1789,7 @@
         errorHide();
       }
 
-      cookieSet("commentoCommenterToken", resp.commenterToken);
+      cookieSet("chatCommenterToken", resp.commenterToken);
 
       popup.location = origin + "/api/oauth/" + provider + "/redirect?commenterToken=" + resp.commenterToken;
 
@@ -1929,7 +1929,7 @@
 
         button.innerText = provider;
 
-        onclick(button, global.commentoAuth, {"provider": provider, "id": id});
+        onclick(button, global.chatAuth, {"provider": provider, "id": id});
 
         append(oauthButtons, button);
         numOauthConfigured++;
@@ -1944,7 +1944,7 @@
 
       button.innerText = i18n("Single Sign-On");
 
-      onclick(button, global.commentoAuth, {"provider": "sso", "id": id});
+      onclick(button, global.chatAuth, {"provider": "sso", "id": id});
 
       append(ssoButton, button);
       append(ssoButtonContainer, ssoButton);
@@ -1956,7 +1956,7 @@
       }
       
       if (numOauthConfigured === 0 && configuredOauths["samlet-chat"] === false){
-        global.commentoAuth({"provider": "sso", "id": id});
+        global.chatAuth({"provider": "sso", "id": id});
         setTimeout(global.loginBoxClose, 250);
       }
     }
@@ -2046,7 +2046,7 @@
         errorHide();
       }
 
-      cookieSet("commentoCommenterToken", resp.commenterToken);
+      cookieSet("chatCommenterToken", resp.commenterToken);
 
       selfLoad(resp.commenter, resp.email);
       allShow();

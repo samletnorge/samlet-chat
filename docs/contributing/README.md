@@ -20,7 +20,7 @@ Thank you for choosing to contribute to Commento. There are, however, certain [g
 
 #### I've made a mess of it
 
-In the [words](https://www.kernel.org/doc/html/v4.10/process/coding-style.html#you-ve-made-a-mess-of-it) of Linus Torvalds, that's okay, we all do. Join [#samlet-chat on Freenode](http://webchat.freenode.net/?channels=%23commento) and we'll help you out. Make sure you've read the documentation beforehand.
+In the [words](https://www.kernel.org/doc/html/v4.10/process/coding-style.html#you-ve-made-a-mess-of-it) of Linus Torvalds, that's okay, we all do. Join [#samlet-chat on Freenode](http://webchat.freenode.net/?channels=%23samlet-chat) and we'll help you out. Make sure you've read the documentation beforehand.
 
 #### Free Commento.io access
 

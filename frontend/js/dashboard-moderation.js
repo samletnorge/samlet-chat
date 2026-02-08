@@ -9,7 +9,7 @@
     $("#moderation-view").show();
     var data = global.dashboard.$data;
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": data.domains[data.cd].domain
     }
     global.post(global.origin + "/api/comment/owner/list", json, function(resp) {
@@ -50,7 +50,7 @@
   // Approves a comment
   global.moderatorApproveCommentHandler = function(hex) {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "commentHex": hex
     }
     global.post(global.origin + "/api/comment/owner/approve", json, function(resp) {
@@ -66,7 +66,7 @@
   // Deletes a comment
   global.moderatorDeleteCommentHandler = function(hex) {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "commentHex": hex
     }
     global.post(global.origin + "/api/comment/owner/delete", json, function(resp) {
@@ -84,7 +84,7 @@
     var email = $("#new-mod").val();
     
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": data.domains[data.cd].domain,
       "email": email,
     }
@@ -123,7 +123,7 @@
     var data = global.dashboard.$data;
     
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": data.domains[data.cd].domain,
       "email": email,
     }

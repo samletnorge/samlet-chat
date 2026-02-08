@@ -7,7 +7,7 @@
     var data = global.dashboard.$data;
 
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": data.domains[data.cd].domain,
     }
 

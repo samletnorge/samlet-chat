@@ -1,7 +1,5 @@
 package main
 
-import ()
-
 var domainsRowColumns = `
 	domains.domain,
 	domains.ownerHex,
@@ -14,7 +12,7 @@ var domainsRowColumns = `
 	domains.requireIdentification,
 	domains.moderateAllAnonymous,
 	domains.emailNotificationPolicy,
-	domains.commentoProvider,
+	domains.chatProvider,
 	domains.googleProvider,
 	domains.twitterProvider,
 	domains.githubProvider,

@@ -19,7 +19,7 @@ func domainUpdate(d domain) error {
 			requireIdentification=$6,
 			moderateAllAnonymous=$7,
 			emailNotificationPolicy=$8,
-			commentoProvider=$9,
+			chatProvider=$9,
 			googleProvider=$10,
 			twitterProvider=$11,
 			githubProvider=$12,

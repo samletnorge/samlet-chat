@@ -24,7 +24,7 @@
 
     if (data.domains[data.cd].ssoSecret === "") {
       var json = {
-        "ownerToken": global.cookieGet("commentoOwnerToken"),
+        "ownerToken": global.cookieGet("chatOwnerToken"),
         "domain": data.domains[data.cd].domain,
       };
 

@@ -48,5 +48,5 @@ window.commentCustomText = function(count) {
   }
 }
 </script>
-<script src="https://raw.githubusercontent.com/samletnorge/samlet-chat/refs/heads/master/frontend/js/count.js" data-custom-text="window.commentoCustomText"></script>
+<script src="https://raw.githubusercontent.com/samletnorge/samlet-chat/refs/heads/master/frontend/js/count.js" data-custom-text="window.chatCustomText"></script>
 ```

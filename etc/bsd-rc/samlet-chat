@@ -10,17 +10,17 @@ PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
 
 desc="Commento daemon"
 name=samlet-chat
-rcvar=commento_enable
+rcvar=chat_enable
 
 load_rc_config $name
 
-: ${commento_enable:=NO}
+: ${chat_enable:=NO}
 
-commento_env="COMMENTO_ORIGIN=https://samlet-chat.example.com \
+chat_env="COMMENTO_ORIGIN=https://samlet-chat.example.com \
 COMMENTO_PORT=8080 \
 COMMENTO_POSTGRES=postgres://samlet-chat:samlet-chat@db:5432/samlet-chat?sslmode=disable \
 COMMENTO_STATIC=/usr/local/share/samlet-chat"
-commento_user=www
+chat_user=www
 
 command="/usr/local/bin/samlet-chat"
 command_args=" >> /var/log/samlet-chat/${name}.log 2>&1 &"

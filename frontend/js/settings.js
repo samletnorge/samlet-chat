@@ -32,7 +32,7 @@
     }
 
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
     }
 
     $("#delete-owner-button").prop("disabled", true);
@@ -46,7 +46,7 @@
         return;
       }
 
-      global.cookieDelete("commentoOwnerToken");
+      global.cookieDelete("chatOwnerToken");
       document.location = global.origin + "/login?deleted=true";
     });
   };

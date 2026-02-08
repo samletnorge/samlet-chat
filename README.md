@@ -118,10 +118,10 @@ $ export USE_STARTTLS=true
 
 #### Docker setup
 Alternatively you can use the pre-build images from:
-- https://gitlab.com/caroga/commentoplusplus-docker
-- https://hub.docker.com/r/caroga/commentoplusplus
+- https://ghcr.io/samletnorge/samlet-chat
+- https://hub.docker.com/r/samletnorge/samlet-chat
 
-Instructions for configuring the docker image can be found [here](https://docs.samlet-chat.valiantlynx.com/installation/self-hosting/on-your-server/docker.html). Are you missing a version? Please contact @caroga [here](https://gitlab.com/caroga/commentoplusplus-docker).
+Instructions for configuring the docker image can be found [here](https://docs.samlet-chat.valiantlynx.com/installation/self-hosting/on-your-server/docker.html). 
 
 
 ### Finally
@@ -165,7 +165,7 @@ You can add the following to samlet-chat's script tag:
 
 - `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses Commento's default theme.
 - `data-auto-init="false"` - Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load Commento. By default, this is true.
-- `data-id-root="notcommento"` - By default, Commento looks for a `<div>` with `id="samlet-chat"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
+- `data-id-root="notsamlet-chat"` - By default, Commento looks for a `<div>` with `id="samlet-chat"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
 - `data-no-fonts="true"` - By default, Commento uses the Source Sans Pro font to present a good design out-of-the-box. If you'd like to disable this so that Commento never loads the font files, you can set this to true. By default, this is true.
 - `data-hide-deleted` - By default, deleted comments with undeleted replies are shown with a "[deleted]" tag. If you'd like to disable this, setting this to true will hide deleted comments even if there are legitimate replies underneath. Deleted comments without any undeleted comments underneath are hidden irrespective of the value of this function. By default, this is false.
 - `data-no-websockets="true"` - Disables websocket functionality in favour of HTTP polling to have the same live reload functionality in a situation where websockets aren't allowed (e.g. a reverse proxy)

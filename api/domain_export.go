@@ -15,7 +15,7 @@ func domainExportBeginError(email string, toName string, domain string, err erro
 }
 
 func domainExportBegin(email string, toName string, domain string) {
-	e := commentoExportV1{Version: 1, Comments: []comment{}, Commenters: []commenter{}}
+	e := chatExportV1{Version: 1, Comments: []comment{}, Commenters: []commenter{}}
 
 	statement := `
 		SELECT commentHex, domain, path, commenterHex, markdown, parentHex, score, state, creationDate

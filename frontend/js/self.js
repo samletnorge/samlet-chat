@@ -4,7 +4,7 @@
   // Get self details.
   global.selfGet = function(callback) {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
     };
 
     if (json.ownerToken === undefined) {
@@ -14,7 +14,7 @@
 
     global.post(global.origin + "/api/owner/self", json, function(resp) {
       if (!resp.success || !resp.loggedIn) {
-        global.cookieDelete("commentoOwnerToken");
+        global.cookieDelete("chatOwnerToken");
         document.location = global.origin + "/login";
         return;
       }

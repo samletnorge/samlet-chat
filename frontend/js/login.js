@@ -79,7 +79,7 @@
         return;
       }
 
-      global.cookieSet("commentoOwnerToken", resp.ownerToken);
+      global.cookieSet("chatOwnerToken", resp.ownerToken);
       document.location = global.origin + "/dashboard";
     });
   };

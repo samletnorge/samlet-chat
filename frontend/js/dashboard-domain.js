@@ -38,7 +38,7 @@
   // Creates a new domain.
   global.domainNewHandler = function() {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "name": $("#new-domain-name").val(),
       "domain": $("#new-domain-domain").val(),
     }
@@ -68,7 +68,7 @@
   // Refreshes the list of domains.
   global.domainRefresh = function(callback) {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
     };
 
     global.post(global.origin + "/api/domain/list", json, function(resp) {
@@ -115,7 +115,7 @@
   global.domainUpdate = function(domain, callback) {
     domain.requireIdentification = !domain.allowAnonymous;
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": domain,
     };
 
@@ -135,7 +135,7 @@
   // Deletes a domain.
   global.domainDelete = function(domain, callback) {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": domain,
     };
 
@@ -155,7 +155,7 @@
   // Clears the comments in a domain.
   global.domainClear = function(domain, callback) {
     var json = {
-      "ownerToken": global.cookieGet("commentoOwnerToken"),
+      "ownerToken": global.cookieGet("chatOwnerToken"),
       "domain": domain,
     };
 

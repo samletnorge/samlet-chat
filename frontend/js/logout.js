@@ -2,7 +2,7 @@
   "use strict";
 
   global.logout = function() {
-    global.cookieDelete("commentoOwnerToken");
+    global.cookieDelete("chatOwnerToken");
     document.location = global.origin + "/login";
   }
 
