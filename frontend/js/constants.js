@@ -3,11 +3,11 @@
 
   (document);
 
-  if (window.samlet-chat === undefined) {
-    window.samlet-chat = {};
+  if (window.chat === undefined) {
+    window.chat = {};
   }
 
-  window.samlet-chat.origin = "[[[.Origin]]]";
-  window.samlet-chat.cdn = "[[[.CdnPrefix]]]";
+  window.chat.origin = "[[[.Origin]]]";
+  window.chat.cdn = "[[[.CdnPrefix]]]";
 
 } (window, document));

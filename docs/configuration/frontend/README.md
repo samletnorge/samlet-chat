@@ -29,7 +29,7 @@ An URL to a CSS file with overriding styles. Defaults to no override and uses Co
 <div class="setting-right">Optional</div>
 <div class="setting-title">data-auto-init</div>
 
-Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.samlet-chat.main()` when you want to load Commento. By default, this is true.
+Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load Commento. By default, this is true.
 
 <div class="setting-possible">true, false</div>
 

@@ -22,9 +22,9 @@
 
   <script>
   window.onload = function() {
-    window.samlet-chat.selfGet(function() {
-      window.samlet-chat.vueConstruct(function() {
-        window.samlet-chat.settingShow("delete-owner");
+    window.chat.selfGet(function() {
+      window.chat.vueConstruct(function() {
+        window.chat.settingShow("delete-owner");
       });
     });
   };
@@ -35,7 +35,7 @@
 
   <div id="settings" class="dashboard-container">
     <div class="pane-left">
-      <div class="pane-setting" id="delete-owner" onclick="window.samlet-chat.settingShow('delete-owner')">
+      <div class="pane-setting" id="delete-owner" onclick="window.chat.settingShow('delete-owner')">
         <div class="pane-setting-inside">
           <div class="setting-title">Delete Account</div>
         </div>
@@ -81,7 +81,7 @@
         Are you absolutely sure you want to delete your account? This is a permanent change; there is no way to recover your account or any data associated with it.
       </div>
       <div class="modal-contents center">
-        <button id="delete-owner-button" class="button big-red-button" onclick="window.samlet-chat.deleteOwnerHandler()">Delete Account</button>
+        <button id="delete-owner-button" class="button big-red-button" onclick="window.chat.deleteOwnerHandler()">Delete Account</button>
       </div>
     </div>
   </div>

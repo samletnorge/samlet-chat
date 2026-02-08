@@ -164,7 +164,7 @@ If `COMMENTO_SSL=true` then `COMMENTO_SSL_CERT` and `COMMENTO_SSL_KEY` must be s
 You can add the following to samlet-chat's script tag:
 
 - `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses Commento's default theme.
-- `data-auto-init="false"` - Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.samlet-chat.main()` when you want to load Commento. By default, this is true.
+- `data-auto-init="false"` - Commento automatically initialises itself when the page is loaded. If you prefer to load Commento dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load Commento. By default, this is true.
 - `data-id-root="notcommento"` - By default, Commento looks for a `<div>` with `id="samlet-chat"`. If you want to load Commento in a different element, you can set this attribute to the ID of that element.
 - `data-no-fonts="true"` - By default, Commento uses the Source Sans Pro font to present a good design out-of-the-box. If you'd like to disable this so that Commento never loads the font files, you can set this to true. By default, this is true.
 - `data-hide-deleted` - By default, deleted comments with undeleted replies are shown with a "[deleted]" tag. If you'd like to disable this, setting this to true will hide deleted comments even if there are legitimate replies underneath. Deleted comments without any undeleted comments underneath are hidden irrespective of the value of this function. By default, this is false.
@@ -192,9 +192,9 @@ import React, { useEffect } from 'react'
 
 const Commento = ({ pageId }) => {
   useEffect(() => {
-    if (typeof window !== 'undefined' && !window.samlet-chat) {
+    if (typeof window !== 'undefined' && !window.chat) {
       // init empty object so samlet-chat.js script extends this with global functions
-      window.samlet-chat = {}
+      window.chat = {}
       const script = document.createElement('script')
       // Replace this with the url to your samlet-chat instance's samlet-chat.js script
       script.src = `http://localhost:8080/js/samlet-chat.js`
@@ -205,12 +205,12 @@ const Commento = ({ pageId }) => {
       script.setAttribute('data-id-root', 'samlet-chat-box')
       script.onload = () => {
         // Tell samlet-chat.js to load the widget
-        window.samlet-chat.main()
+        window.chat.main()
       }
       document.getElementsByTagName('head')[0].appendChild(script)
-    } else if (typeof window !== 'undefined' && window.samlet-chat) {
+    } else if (typeof window !== 'undefined' && window.chat) {
       // In-case the samlet-chat.js script has already been loaded reInit the widget with a new pageId
-      window.samlet-chat.reInit({
+      window.chat.reInit({
         pageId: pageId,
       })
     }
@@ -222,9 +222,9 @@ const Commento = ({ pageId }) => {
 export default Commento
 ```
 
-Commento initializes itself and extends the `window.samlet-chat` object. When you have an HTML element with the id `samlet-chat` this will live on the `window.samlet-chat` namespace. Replacing the HTML element (as SPAs do) the `window.samlet-chat` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `samlet-chat` for this to work, see `samlet-chat-box` in the example above. 
+Commento initializes itself and extends the `window.chat` object. When you have an HTML element with the id `samlet-chat` this will live on the `window.chat` namespace. Replacing the HTML element (as SPAs do) the `window.chat` is reset to the new element, losing all extended functionality provided by the samlet-chat script. Make sure to provide a `data-id-root` other than `samlet-chat` for this to work, see `samlet-chat-box` in the example above. 
 
-The `window.samlet-chat.reInit` function can be called with the following updated options (all optional):
+The `window.chat.reInit` function can be called with the following updated options (all optional):
 
 ```js
 {

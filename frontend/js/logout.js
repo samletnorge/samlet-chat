@@ -6,4 +6,4 @@
     document.location = global.origin + "/login";
   }
 
-} (window.samlet-chat, document));
+} (window.chat, document));
