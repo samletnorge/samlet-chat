@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func TestImportCommento(t *testing.T) {
+func TestImportChat(t *testing.T) {
 	failTestOnError(t, setupTestEnv())
 
 	// Create JSON data
@@ -102,7 +102,7 @@ func TestImportCommento(t *testing.T) {
 
 	domainNew("temp-owner-hex", "Example", "example.com")
 
-	n, err := domainImportCommento("example.com", url)
+	n, err := domainImportChat("example.com", url)
 	if err != nil {
 		t.Errorf("unexpected error importing comments: %v", err)
 		return

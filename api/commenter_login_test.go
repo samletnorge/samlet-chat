@@ -46,13 +46,13 @@ func TestCommenterLoginEmpty(t *testing.T) {
 	}
 }
 
-func TestCommenterLoginNonCommento(t *testing.T) {
+func TestCommenterLoginNonChat(t *testing.T) {
 	failTestOnError(t, setupTestEnv())
 
 	commenterNew("test@example.com", "Test", "undefined", "undefined", "google", "")
 
 	if _, err := commenterLogin("test@example.com", "hunter2"); err == nil {
-		t.Errorf("expected error not found logging into a non-Commento account")
+		t.Errorf("expected error not found logging into a non-samlet-chat account")
 		return
 	}
 }

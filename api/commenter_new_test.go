@@ -27,7 +27,7 @@ func TestCommenterNewEmpty(t *testing.T) {
 	}
 }
 
-func TestCommenterNewCommento(t *testing.T) {
+func TestCommenterNewChat(t *testing.T) {
 	failTestOnError(t, setupTestEnv())
 
 	if _, err := commenterNew("test@example.com", "Test", "undefined", "", "samlet-chat", ""); err == nil {

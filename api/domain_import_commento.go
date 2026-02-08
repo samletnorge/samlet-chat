@@ -14,7 +14,7 @@ type chatExportV1 struct {
 	Commenters []commenter `json:"commenters"`
 }
 
-func domainImportCommento(domain string, url string) (int, error) {
+func domainImportChat(domain string, url string) (int, error) {
 	if domain == "" || url == "" {
 		return 0, errorMissingField
 	}
@@ -22,14 +22,14 @@ func domainImportCommento(domain string, url string) (int, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		logger.Errorf("cannot get url: %v", err)
-		return 0, errorCannotDownloadCommento
+		return 0, errorCannotDownloadChat
 	}
 
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		logger.Errorf("cannot read body: %v", err)
-		return 0, errorCannotDownloadCommento
+		return 0, errorCannotDownloadChat
 	}
 
 	zr, err := gzip.NewReader(bytes.NewBuffer(body))
@@ -52,7 +52,7 @@ func domainImportCommento(domain string, url string) (int, error) {
 
 	if data.Version != 1 {
 		logger.Errorf("invalid data version (got %d, want 1): %v", data.Version, err)
-		return 0, errorUnsupportedCommentoImportVersion
+		return 0, errorUnsupportedChatImportVersion
 	}
 
 	// Check if imported commentedHex or email exists, creating a map of
@@ -127,7 +127,7 @@ func domainImportCommento(domain string, url string) (int, error) {
 	return numImported, nil
 }
 
-func domainImportCommentoHandler(w http.ResponseWriter, r *http.Request) {
+func domainImportChatHandler(w http.ResponseWriter, r *http.Request) {
 	type request struct {
 		OwnerToken *string `json:"ownerToken"`
 		Domain     *string `json:"domain"`
@@ -158,7 +158,7 @@ func domainImportCommentoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	numImported, err := domainImportCommento(domain, *x.URL)
+	numImported, err := domainImportChat(domain, *x.URL)
 	if err != nil {
 		bodyMarshal(w, response{"success": false, "message": err.Error()})
 		return
