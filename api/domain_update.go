@@ -39,7 +39,7 @@ func domainUpdate(d domain) error {
 		d.RequireIdentification,
 		d.ModerateAllAnonymous,
 		d.EmailNotificationPolicy,
-		d.CommentoProvider,
+		d.ChatProvider,
 		d.GoogleProvider,
 		d.TwitterProvider,
 		d.GithubProvider,

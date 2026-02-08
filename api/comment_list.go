@@ -194,7 +194,7 @@ func commentListHandler(w http.ResponseWriter, r *http.Request) {
 		"defaultSortPolicy":     d.DefaultSortPolicy,
 		"attributes":            p,
 		"configuredOauths": map[string]bool{
-			"samlet-chat": d.CommentoProvider,
+			"samlet-chat": d.ChatProvider,
 			"google":      googleConfigured && d.GoogleProvider,
 			"twitter":     twitterConfigured && d.TwitterProvider,
 			"github":      githubConfigured && d.GithubProvider,
