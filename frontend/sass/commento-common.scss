@@ -19,7 +19,7 @@ blockquote {
   color: $gray-6;
 }
 
-.commento-button {
+.samlet-chat-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -48,21 +48,21 @@ blockquote {
   }
 }
 
-.commento-highlight {
+.samlet-chat-highlight {
   animation: yellowfade 2s;
 }
 
 @media (max-width: 550px) {
-  .commento-guest-details-container {
+  .samlet-chat-guest-details-container {
     width: 49% !important;
   }
-  .commento-markdown-button {
+  .samlet-chat-markdown-button {
     margin-top: -49px !important;
     float: left;
   }
 }
 
-#commento-notice-container {
+#samlet-chat-notice-container {
   position: fixed;
   top: 0;
   padding: 0;
@@ -79,7 +79,7 @@ blockquote {
     100% { opacity: 0; transform: translateY(-100%); }   
 }
 
-#commento-notice-container .commento-moderation-notice {
+#samlet-chat-notice-container .samlet-chat-moderation-notice {
   margin-top: 0 !important;
   padding: 18px 0 9px;
   background: $red-1;
@@ -89,19 +89,19 @@ blockquote {
   animation: slide-down 5s;
 }
 
-.commento-clear {
+.samlet-chat-clear {
   clear: both;
 }
 
-.commento-avatar-img {
+.samlet-chat-avatar-img {
   margin-right: 0 !important;
 }
 
-.commento-options {
+.samlet-chat-options {
   width: auto !important;
 }
 
-.commento-permalink {
+.samlet-chat-permalink {
   color: #50596cbf;
   font-weight: bold;
   text-align: right;
@@ -112,6 +112,6 @@ blockquote {
   visibility: hidden;
 }
 
-.commento-card:hover .commento-permalink {
+.samlet-chat-card:hover .samlet-chat-permalink {
   visibility: visible;
 }

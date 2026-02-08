@@ -1,10 +1,10 @@
 @import "source-sans.scss";
 
-.commento-root-min-height {
+.samlet-chat-root-min-height {
   min-height: 430px;
 }
 
-.commento-root {
+.samlet-chat-root {
   overflow-x: hidden;
   padding: 0px;
   width: 100%;
@@ -19,27 +19,27 @@
   }
 
   @import "colors-main.scss";
-  @import "commento-common.scss";
-  @import "commento-logged.scss";     // Logged in as <name>
-  @import "commento-mod-tools.scss";  // Moderator tools and buttons
-  @import "commento-input.scss";      // Textarea, anonymous checkbox, submit button
-  @import "commento-card.scss";       // Each comment card
-  @import "commento-login.scss";      // Popup box when logging in
-  @import "commento-footer.scss";     // Powered by Commento
+  @import "samlet-chat-common.scss";
+  @import "samlet-chat-logged.scss";     // Logged in as <name>
+  @import "samlet-chat-mod-tools.scss";  // Moderator tools and buttons
+  @import "samlet-chat-input.scss";      // Textarea, anonymous checkbox, submit button
+  @import "samlet-chat-card.scss";       // Each comment card
+  @import "samlet-chat-login.scss";      // Popup box when logging in
+  @import "samlet-chat-footer.scss";     // Powered by Commento
 
-  .commento-hidden {
+  .samlet-chat-hidden {
     display: none;
   }
 
-  .commento-blurred {
+  .samlet-chat-blurred {
     opacity: 0.4;
   }
 
-  .commento-main-area {
+  .samlet-chat-main-area {
     transition: filter 0.2s;
   }
 
-  .commento-error-box {
+  .samlet-chat-error-box {
     width: 100%;
     border-radius: 4px;
     height: 32px;
@@ -48,7 +48,7 @@
     font-weight: 700;
   }
 
-  .commento-moderation-notice {
+  .samlet-chat-moderation-notice {
     width: 100%;
     border-radius: 4px;
     height: 32px;
@@ -58,24 +58,24 @@
     margin-top: 16px;
   }
 
-  .commento-sort-policy-buttons-container {
+  .samlet-chat-sort-policy-buttons-container {
     padding: 12px 0px;
     font-weight: 400;
 
-    .commento-sort-policy-buttons {
+    .samlet-chat-sort-policy-buttons {
       float: right;
 
-      .commento-sort-policy-button {
+      .samlet-chat-sort-policy-button {
         color: $gray-6;
         font-size: 13px;
         padding: 0px 7px;
       }
 
-      .commento-sort-policy-button:hover {
+      .samlet-chat-sort-policy-button:hover {
         cursor: pointer;
       }
 
-      .commento-sort-policy-button-selected {
+      .samlet-chat-sort-policy-button-selected {
         color: $blue-8;
         font-weight: bold;
       }
@@ -83,7 +83,7 @@
   }
 }
 
-.commento-root-font {
+.samlet-chat-root-font {
   * {
     font-family: 'Source Sans Pro', sans-serif;
   }

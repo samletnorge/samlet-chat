@@ -84,7 +84,7 @@
       $("#email").val(resp.commenter.email);
       $("#unsubscribe").attr("href", global.origin + "/unsubscribe?unsubscribeSecretHex=" + resp.email.unsubscribeSecretHex);
 
-      if (resp.commenter.provider === "commento") {
+      if (resp.commenter.provider === "samlet-chat") {
         $("#link-row").attr("style", "")
         if (resp.commenter.link !== "undefined") {
           $("#link").val(resp.commenter.link);
@@ -99,4 +99,4 @@
     });
   };
 
-} (window.commento, document));
+} (window.samlet-chat, document));

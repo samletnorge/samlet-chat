@@ -29,4 +29,4 @@
     global.showGlobalMessage("#global-ok", text);
   }
 
-} (window.commento, document));
+} (window.samlet-chat, document));

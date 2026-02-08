@@ -1,22 +1,22 @@
 @import "colors-main.scss";
 
-.commento-card {
-  @import "commento-options.scss"; // SVG buttons to the right of each comment
+.samlet-chat-card {
+  @import "samlet-chat-options.scss"; // SVG buttons to the right of each comment
 
   padding: 12px 0px 0px 12px;
   margin-top: 16px;
   border-top: 1px solid #f0f0f0;
 
-  .commento-header {
+  .samlet-chat-header {
     padding-bottom: 4px;
   }
 
-  .commento-avatar::after {
+  .samlet-chat-avatar::after {
     content:"";
     display:block;
   }
 
-  .commento-name {
+  .samlet-chat-name {
     font-weight: 700;
     font-size: 14px;
     color: #555;
@@ -31,7 +31,7 @@
     cursor: pointer;
   }
 
-  .commento-flagged::after {
+  .samlet-chat-flagged::after {
     content: "Flagged";
     text-transform: uppercase;
     font-size: 10px;
@@ -43,7 +43,7 @@
     line-height: 17px;
   }
 
-  .commento-moderator::after {
+  .samlet-chat-moderator::after {
     content: "Moderator";
     text-transform: uppercase;
     font-size: 10px;
@@ -55,7 +55,7 @@
     line-height: 17px;
   }
 
-  .commento-anonymous::after {
+  .samlet-chat-anonymous::after {
     content: "Guest";
     text-transform: uppercase;
     font-size: 10px;
@@ -67,7 +67,7 @@
     line-height: 17px;
   }
 
-  .commento-pending::after {
+  .samlet-chat-pending::after {
     content: "Pending moderation";
     text-transform: uppercase;
     font-size: 10px;
@@ -79,70 +79,70 @@
     line-height: 17px;
   }
 
-  .commento-subtitle {
+  .samlet-chat-subtitle {
     display: block;
     color: #999;
     font-size: 12px;
     margin-left: 48px;
   }
 
-  .commento-timeago {
+  .samlet-chat-timeago {
     display: inline;
     color: #888;
     font-size: 12px;
   }
 
-  .commento-score {
+  .samlet-chat-score {
     display: inline;
     color: #888;
     font-size: 12px;
     font-weight: 700;
   }
 
-  .commento-timeago::before {
+  .samlet-chat-timeago::before {
     content: "\00a0 \00a0 \00b7 \00a0 \00a0";
   }
 
-  .commento-body {
+  .samlet-chat-body {
     p {
       margin-top: 6px;
       margin-bottom: 6px;
     }
   }
 
-  .commento-options {
+  .samlet-chat-options {
     float: right;
     position: relative;
     height: 38px;
     z-index: 2;
   }
 
-  .commento-options-mobile {
+  .samlet-chat-options-mobile {
     margin-right: 12px;
   }
 
-  .commento-options-clearfix {
+  .samlet-chat-options-clearfix {
     height: 38px;
     width: 1px;
     display: block;
   }
 
-  .commento-moderation {
+  .samlet-chat-moderation {
     height: 48px;
   }
 }
 
-.commento-dark-card {
+.samlet-chat-dark-card {
   background: $red-0;
 }
 
-.commento-highlighted-card {
+.samlet-chat-highlighted-card {
   background: $yellow-0;
 }
 
-// do not place this inside .commento-card as this is used by logged-container
+// do not place this inside .samlet-chat-card as this is used by logged-container
 // as well
-.commento-avatar {
+.samlet-chat-avatar {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -156,7 +156,7 @@
   border: 0px transparent;
 }
 
-.commento-avatar-img {
+.samlet-chat-avatar-img {
   width: 38px;
   height: 38px;
   border-radius: 50%;

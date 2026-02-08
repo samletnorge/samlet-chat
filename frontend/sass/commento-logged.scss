@@ -1,9 +1,9 @@
 @import "colors-main.scss";
 
-.commento-login {
+.samlet-chat-login {
   width: 100%;
 
-  .commento-login-text {
+  .samlet-chat-login-text {
     text-align: right;
     margin-right: 16px;
     height: 38px;
@@ -14,14 +14,14 @@
   }
 }
 
-.commento-logged-container {
+.samlet-chat-logged-container {
   width: 100%;
   text-align: left;
   margin-bottom: 16px;
   position: relative;
   height: 38px;
 
-  .commento-profile-button {
+  .samlet-chat-profile-button {
     float: right;
     cursor: pointer;
     color: $gray-6;
@@ -29,10 +29,10 @@
     font-size: 13px;
   }
 
-  .commento-logged-in-as {
+  .samlet-chat-logged-in-as {
     position: relative;
 
-    .commento-name {
+    .samlet-chat-name {
       color: $gray-8;
       border: none;
       font-weight: bold;

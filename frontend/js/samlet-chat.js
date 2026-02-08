@@ -2,7 +2,7 @@
   "use strict";
 
   // Do not use other files like utils.js and http.js in the gulpfile to build
-  // commento.js for the following reasons:
+  // samlet-chat.js for the following reasons:
   //   - We don't use jQuery in the actual JavaScript payload because we need
   //     to be lightweight.
   //   - They pollute the global/window namespace (with global.post, etc.).
@@ -10,60 +10,60 @@
   //     the user may have their own window.post defined. We don't want to
   //     override that.
 
-  var ID_ROOT = "commento";
-  var ID_MAIN_AREA = "commento-main-area";
-  var ID_LOGIN = "commento-login";
-  var ID_LOGIN_BOX_CONTAINER = "commento-login-box-container";
-  var ID_LOGIN_BOX = "commento-login-box";
-  var ID_LOGIN_BOX_EMAIL_SUBTITLE = "commento-login-box-email-subtitle";
-  var ID_LOGIN_BOX_EMAIL_INPUT = "commento-login-box-email-input";
-  var ID_LOGIN_BOX_PASSWORD_INPUT = "commento-login-box-password-input";
-  var ID_LOGIN_BOX_NAME_INPUT = "commento-login-box-name-input";
-  var ID_LOGIN_BOX_WEBSITE_INPUT = "commento-login-box-website-input";
-  var ID_LOGIN_BOX_EMAIL_BUTTON = "commento-login-box-email-button";
-  var ID_LOGIN_BOX_FORGOT_LINK_CONTAINER = "commento-login-box-forgot-link-container";
-  var ID_LOGIN_BOX_LOGIN_LINK_CONTAINER = "commento-login-box-login-link-container";
-  var ID_LOGIN_BOX_SSO_PRETEXT = "commento-login-box-sso-pretext";
-  var ID_LOGIN_BOX_SSO_BUTTON_CONTAINER = "commento-login-box-sso-buttton-container";
-  var ID_LOGIN_BOX_HR1 = "commento-login-box-hr1";
-  var ID_LOGIN_BOX_OAUTH_PRETEXT = "commento-login-box-oauth-pretext";
-  var ID_LOGIN_BOX_OAUTH_BUTTONS_CONTAINER = "commento-login-box-oauth-buttons-container";
-  var ID_LOGIN_BOX_HR2 = "commento-login-box-hr2";
-  var ID_MOD_TOOLS = "commento-mod-tools";
-  var ID_MOD_TOOLS_LOCK_BUTTON = "commento-mod-tools-lock-button";
-  var ID_ERROR = "commento-error";
-  var ID_LOGGED_CONTAINER = "commento-logged-container";
-  var ID_COMMENTS_AREA = "commento-comments-area";
-  var ID_SUPER_CONTAINER = "commento-textarea-super-container-";
-  var ID_NOTICE_CONTAINER = "commento-notice-container";
-  var ID_TEXTAREA_CONTAINER = "commento-textarea-container-";
-  var ID_TEXTAREA = "commento-textarea-";
-  var ID_ANONYMOUS_CHECKBOX = "commento-anonymous-checkbox-";
-  var ID_GUEST_DETAILS = "commento-guest-details-";
-  var ID_GUEST_DETAILS_INPUT = "commento-guest-details-input-";
-  var ID_SORT_POLICY = "commento-sort-policy-";
-  var ID_CARD = "commento-comment-card-";
-  var ID_BODY = "commento-comment-body-";
-  var ID_TEXT = "commento-comment-text-";
-  var ID_SUBTITLE = "commento-comment-subtitle-";
-  var ID_TIMEAGO = "commento-comment-timeago-";
-  var ID_SCORE = "commento-comment-score-";
-  var ID_OPTIONS = "commento-comment-options-";
-  var ID_EDIT = "commento-comment-edit-";
-  var ID_REPLY = "commento-comment-reply-";
-  var ID_COLLAPSE = "commento-comment-collapse-";
-  var ID_UPVOTE = "commento-comment-upvote-";
-  var ID_DOWNVOTE = "commento-comment-downvote-";
-  var ID_APPROVE = "commento-comment-approve-";
-  var ID_REMOVE = "commento-comment-remove-";
-  var ID_STICKY = "commento-comment-sticky-";
-  var ID_CHILDREN = "commento-comment-children-";
-  var ID_CONTENTS = "commento-comment-contents-";
-  var ID_NAME = "commento-comment-name-";
-  var ID_SUBMIT_BUTTON = "commento-submit-button-";
-  var ID_MARKDOWN_BUTTON = "commento-markdown-button-";
-  var ID_MARKDOWN_HELP = "commento-markdown-help-";
-  var ID_FOOTER = "commento-footer";
+  var ID_ROOT = "samlet-chat";
+  var ID_MAIN_AREA = "samlet-chat-main-area";
+  var ID_LOGIN = "samlet-chat-login";
+  var ID_LOGIN_BOX_CONTAINER = "samlet-chat-login-box-container";
+  var ID_LOGIN_BOX = "samlet-chat-login-box";
+  var ID_LOGIN_BOX_EMAIL_SUBTITLE = "samlet-chat-login-box-email-subtitle";
+  var ID_LOGIN_BOX_EMAIL_INPUT = "samlet-chat-login-box-email-input";
+  var ID_LOGIN_BOX_PASSWORD_INPUT = "samlet-chat-login-box-password-input";
+  var ID_LOGIN_BOX_NAME_INPUT = "samlet-chat-login-box-name-input";
+  var ID_LOGIN_BOX_WEBSITE_INPUT = "samlet-chat-login-box-website-input";
+  var ID_LOGIN_BOX_EMAIL_BUTTON = "samlet-chat-login-box-email-button";
+  var ID_LOGIN_BOX_FORGOT_LINK_CONTAINER = "samlet-chat-login-box-forgot-link-container";
+  var ID_LOGIN_BOX_LOGIN_LINK_CONTAINER = "samlet-chat-login-box-login-link-container";
+  var ID_LOGIN_BOX_SSO_PRETEXT = "samlet-chat-login-box-sso-pretext";
+  var ID_LOGIN_BOX_SSO_BUTTON_CONTAINER = "samlet-chat-login-box-sso-buttton-container";
+  var ID_LOGIN_BOX_HR1 = "samlet-chat-login-box-hr1";
+  var ID_LOGIN_BOX_OAUTH_PRETEXT = "samlet-chat-login-box-oauth-pretext";
+  var ID_LOGIN_BOX_OAUTH_BUTTONS_CONTAINER = "samlet-chat-login-box-oauth-buttons-container";
+  var ID_LOGIN_BOX_HR2 = "samlet-chat-login-box-hr2";
+  var ID_MOD_TOOLS = "samlet-chat-mod-tools";
+  var ID_MOD_TOOLS_LOCK_BUTTON = "samlet-chat-mod-tools-lock-button";
+  var ID_ERROR = "samlet-chat-error";
+  var ID_LOGGED_CONTAINER = "samlet-chat-logged-container";
+  var ID_COMMENTS_AREA = "samlet-chat-comments-area";
+  var ID_SUPER_CONTAINER = "samlet-chat-textarea-super-container-";
+  var ID_NOTICE_CONTAINER = "samlet-chat-notice-container";
+  var ID_TEXTAREA_CONTAINER = "samlet-chat-textarea-container-";
+  var ID_TEXTAREA = "samlet-chat-textarea-";
+  var ID_ANONYMOUS_CHECKBOX = "samlet-chat-anonymous-checkbox-";
+  var ID_GUEST_DETAILS = "samlet-chat-guest-details-";
+  var ID_GUEST_DETAILS_INPUT = "samlet-chat-guest-details-input-";
+  var ID_SORT_POLICY = "samlet-chat-sort-policy-";
+  var ID_CARD = "samlet-chat-comment-card-";
+  var ID_BODY = "samlet-chat-comment-body-";
+  var ID_TEXT = "samlet-chat-comment-text-";
+  var ID_SUBTITLE = "samlet-chat-comment-subtitle-";
+  var ID_TIMEAGO = "samlet-chat-comment-timeago-";
+  var ID_SCORE = "samlet-chat-comment-score-";
+  var ID_OPTIONS = "samlet-chat-comment-options-";
+  var ID_EDIT = "samlet-chat-comment-edit-";
+  var ID_REPLY = "samlet-chat-comment-reply-";
+  var ID_COLLAPSE = "samlet-chat-comment-collapse-";
+  var ID_UPVOTE = "samlet-chat-comment-upvote-";
+  var ID_DOWNVOTE = "samlet-chat-comment-downvote-";
+  var ID_APPROVE = "samlet-chat-comment-approve-";
+  var ID_REMOVE = "samlet-chat-comment-remove-";
+  var ID_STICKY = "samlet-chat-comment-sticky-";
+  var ID_CHILDREN = "samlet-chat-comment-children-";
+  var ID_CONTENTS = "samlet-chat-comment-contents-";
+  var ID_NAME = "samlet-chat-comment-name-";
+  var ID_SUBMIT_BUTTON = "samlet-chat-submit-button-";
+  var ID_MARKDOWN_BUTTON = "samlet-chat-markdown-button-";
+  var ID_MARKDOWN_HELP = "samlet-chat-markdown-help-";
+  var ID_FOOTER = "samlet-chat-footer";
 
   var initted = false;
   var initialTitle = window.document.title;
@@ -135,13 +135,13 @@
 
 
   function classAdd(el, cls) {
-    el.classList.add("commento-" + cls);
+    el.classList.add("samlet-chat-" + cls);
   }
 
 
   function classRemove(el, cls) {
     if (el !== null) {
-      el.classList.remove("commento-" + cls);
+      el.classList.remove("samlet-chat-" + cls);
     }
   }
 
@@ -382,7 +382,7 @@
     append(loggedInAs, name);
     append(loggedContainer, loggedInAs);
     append(loggedContainer, logoutButton);
-    if (commenter.provider === "commento") {
+    if (commenter.provider === "samlet-chat") {
       append(loggedContainer, profileEditButton);
     }
     append(loggedContainer, notificationSettingsButton);
@@ -518,7 +518,7 @@
       configuredOauths = resp.configuredOauths;
 
       // remove any just added highlights
-      var cards = $(".commento-card");
+      var cards = $(".samlet-chat-card");
       if(cards) {
         for(var i in cards) {
           removeClass(cards[i], "highlight")
@@ -662,7 +662,7 @@
   }
 
   function removeGuestNameEntry() {
-    var names = document.getElementsByClassName("commento-guest-details-container");
+    var names = document.getElementsByClassName("samlet-chat-guest-details-container");
     for(var i = 0; i < names.length; i++) {
       classAdd(names[i], "make-invisible");
     }
@@ -1134,10 +1134,10 @@
       }
       contents.id = ID_CONTENTS + comment.commentHex;
       name.id = ID_NAME + comment.commentHex;
-      permalink.href = "#commento-" + comment.commentHex;
+      permalink.href = "#samlet-chat-" + comment.commentHex;
       permalink.innerText = i18n("permalink");
       permalink.onclick = function() {
-        window.location.hash = "#commento-" + comment.commentHex; loadHash(); commentsRender(); 
+        window.location.hash = "#samlet-chat-" + comment.commentHex; loadHash(); commentsRender(); 
       }
 
       collapse.title = i18n("Collapse children");
@@ -1394,7 +1394,7 @@
 
 
   function nameWidthFix() {
-    var els = document.getElementsByClassName("commento-name");
+    var els = document.getElementsByClassName("samlet-chat-name");
 
     for (var i = 0; i < els.length; i++) {
       attrSet(els[i], "style", "max-width: " + (els[i].getBoundingClientRect()["width"] + 20) + "px;")
@@ -1833,7 +1833,7 @@
 
   global.nextInput = function(myself, callback) {
     return function(id) {
-      var allInputs = Array.prototype.slice.call(document.querySelectorAll(".commento-input"));
+      var allInputs = Array.prototype.slice.call(document.querySelectorAll(".samlet-chat-input"));
       var index = allInputs.indexOf(myself);
       if(index >= allInputs.length - 1) {
         callback(id);
@@ -1951,11 +1951,11 @@
       append(loginBox, ssoSubtitle);
       append(loginBox, ssoButtonContainer);
 
-      if (numOauthConfigured > 0 || configuredOauths["commento"]) {
+      if (numOauthConfigured > 0 || configuredOauths["samlet-chat"]) {
         append(loginBox, hr1);
       }
       
-      if (numOauthConfigured === 0 && configuredOauths["commento"] === false){
+      if (numOauthConfigured === 0 && configuredOauths["samlet-chat"] === false){
         global.commentoAuth({"provider": "sso", "id": id});
         setTimeout(global.loginBoxClose, 250);
       }
@@ -1978,11 +1978,11 @@
 
     append(loginLinkContainer, loginLink);
 
-    if (numOauthConfigured > 0 && configuredOauths["commento"]) {
+    if (numOauthConfigured > 0 && configuredOauths["samlet-chat"]) {
       append(loginBox, hr2);
     }
 
-    if (configuredOauths["commento"]) {
+    if (configuredOauths["samlet-chat"]) {
       append(loginBox, emailSubtitle);
       append(loginBox, emailContainer);
       append(loginBox, forgotLinkContainer);
@@ -2180,7 +2180,7 @@
       append(loginBox, fieldContainer);
     }
 
-    var allInputs = Array.prototype.slice.call(document.querySelectorAll(".commento-input"));
+    var allInputs = Array.prototype.slice.call(document.querySelectorAll(".samlet-chat-input"));
     for(var i = 0; i < allInputs.length; i++) {
       if(allInputs[i].value.trim() === "") {
         allInputs[i].focus();
@@ -2349,7 +2349,7 @@
   function dataTagsLoad() {
     var scripts = tags("script")
     for (var i = 0; i < scripts.length; i++) {
-      if (scripts[i].src.match(/\/js\/commento\.js$/)) {
+      if (scripts[i].src.match(/\/js\/samlet-chat\.js$/)) {
         var pid = attrGet(scripts[i], "data-page-id");
         if (pid !== undefined) {
           pageId = pid;
@@ -2363,7 +2363,7 @@
 
         ID_ROOT = attrGet(scripts[i], "data-id-root");
         if (ID_ROOT === undefined) {
-          ID_ROOT = "commento";
+          ID_ROOT = "samlet-chat";
         }
 
         noFonts = attrGet(scripts[i], "data-no-fonts");
@@ -2381,9 +2381,9 @@
 
   function loadHash() {
     if (window.location.hash) {
-      if (window.location.hash.startsWith("#commento-")) {
+      if (window.location.hash.startsWith("#samlet-chat-")) {
         var cardId = "";
-        if (window.location.hash.startsWith("#commento-comment-card")) {
+        if (window.location.hash.startsWith("#samlet-chat-comment-card")) {
           cardId = window.location.hash.split("-")[3];
         } else {
           cardId = window.location.hash.split("-")[1];
@@ -2399,7 +2399,7 @@
 
         classAdd(el, "highlight");
         el.scrollIntoView({ behavior: "smooth" });
-      } else if (window.location.hash.startsWith("#commento")) {
+      } else if (window.location.hash.startsWith("#samlet-chat")) {
         root.scrollIntoView({ behavior: "smooth" });
       }
     }
@@ -2415,7 +2415,7 @@
 
     root = $(ID_ROOT);
     if (root === null) {
-      console.log("[commento] error: no root element with ID '" + ID_ROOT + "' found");
+      console.log("[samlet-chat] error: no root element with ID '" + ID_ROOT + "' found");
       return;
     }
 
@@ -2436,7 +2436,7 @@
     modToolsCreate();
 
     var footer = footerLoad();
-    cssLoad(cdn + "/css/commento.css", loadCssOverride);
+    cssLoad(cdn + "/css/samlet-chat.css", loadCssOverride);
 
     selfGet(function() {
       commentsGet(function() {
@@ -2548,7 +2548,7 @@
       if (autoInit === "true" || autoInit === undefined) {
         global.main(undefined);
       } else if (autoInit !== "false") {
-        console.log("[commento] error: invalid value for data-auto-init; allowed values: true, false");
+        console.log("[samlet-chat] error: invalid value for data-auto-init; allowed values: true, false");
       }
     });
   }
@@ -2578,4 +2578,4 @@
   readyLoad();
 
 
-}(window.commento, document));
+}(window.samlet-chat, document));

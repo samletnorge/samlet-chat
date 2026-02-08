@@ -1,6 +1,6 @@
 @import "colors-main.scss";
 
-.commento-mod-tools {
+.samlet-chat-mod-tools {
   margin-bottom: 16px;
 
   button {
@@ -16,7 +16,7 @@
   }
 }
 
-.commento-mod-tools::before {
+.samlet-chat-mod-tools::before {
   content: "Moderator Tools";
   text-transform: uppercase;
   color: $indigo-8;

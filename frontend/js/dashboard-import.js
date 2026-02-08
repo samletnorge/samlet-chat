@@ -35,7 +35,7 @@
   }
 
   global.importCommento = function() {
-    var url = $("#commento-url").val();
+    var url = $("#samlet-chat-url").val();
     var data = global.dashboard.$data;
 
     var json = {
@@ -44,19 +44,19 @@
       "url": url,
     }
 
-    global.buttonDisable("#commento-import-button");
-    global.post(global.origin + "/api/domain/import/commento", json, function(resp) {
-      global.buttonEnable("#commento-import-button");
+    global.buttonDisable("#samlet-chat-import-button");
+    global.post(global.origin + "/api/domain/import/samlet-chat", json, function(resp) {
+      global.buttonEnable("#samlet-chat-import-button");
 
       if (!resp.success) {
         global.globalErrorShow(resp.message);
         return;
       }
 
-      $("#commento-import-button").hide();
+      $("#samlet-chat-import-button").hide();
 
       global.globalOKShow("Imported " + resp.numImported + " comments!");
     });
   }
 
-} (window.commento, document));
+} (window.samlet-chat, document));

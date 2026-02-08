@@ -1,20 +1,20 @@
 @import "colors-main.scss";
 @import "common-main.scss";
 
-.commento-email-container {
+.samlet-chat-email-container {
   display: flex;
   justify-content: center;
   width: 100%;
   margin: 8px 0px;
 
-  .commento-email {
+  .samlet-chat-email {
     @extend .shadow;
     border-radius: 4px;
     background: $white;
     width: 100%;
     max-width: 400px;
 
-    .commento-input {
+    .samlet-chat-input {
       display: inline;
       height: 30px;
       background: $white;
@@ -25,11 +25,11 @@
       width: calc(100% - 150px);
     }
 
-    .commento-input::placeholder {
+    .samlet-chat-input::placeholder {
       color: $gray-5;
     }
 
-    .commento-email-button {
+    .samlet-chat-email-button {
       height: 40px;
       min-width: 110px;
       float: right;
@@ -48,11 +48,11 @@
       width: unset;
     }
 
-    .commento-email-button:hover {
+    .samlet-chat-email-button:hover {
       color: $blue-6;
     }
 
-    .commento-email-button:disabled {
+    .samlet-chat-email-button:disabled {
       cursor: default;
       color: $gray-6;
     }

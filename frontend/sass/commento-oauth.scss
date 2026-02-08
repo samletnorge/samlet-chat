@@ -1,44 +1,44 @@
 @import "colors-main.scss";
 
-.commento-oauth-buttons-container {
+.samlet-chat-oauth-buttons-container {
   display: flex;
   justify-content: center;
 
-  .commento-oauth-buttons {
+  .samlet-chat-oauth-buttons {
     align-items: center;
     position: absolute;
     z-index: 1;
     display: contents;
 
-    .commento-google-button {
+    .samlet-chat-google-button {
       background: #dd4b39;
       text-transform: uppercase;
       font-size: 13px;
       width: 70px;
     }
 
-    .commento-github-button {
+    .samlet-chat-github-button {
       background: #000000;
       text-transform: uppercase;
       font-size: 13px;
       width: 70px;
     }
 
-    .commento-twitter-button {
+    .samlet-chat-twitter-button {
       background: #00aced;
       text-transform: uppercase;
       font-size: 13px;
       width: 70px;
     }
 
-    .commento-gitlab-button {
+    .samlet-chat-gitlab-button {
       background: #fc6d26;
       text-transform: uppercase;
       font-size: 13px;
       width: 70px;
     }
 
-    .commento-sso-button {
+    .samlet-chat-sso-button {
       background: #000000;
       text-transform: uppercase;
       font-size: 13px;

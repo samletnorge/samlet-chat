@@ -6,8 +6,8 @@
   // Opens the installation view.
   global.installationOpen = function() {
     var html = "" +
-               "<script defer src=\"" + global.cdn + "/js/commento.js\"><\/script>\n" +
-               "<div id=\"commento\"></div>\n" +
+               "<script defer src=\"" + global.cdn + "/js/samlet-chat.js\"><\/script>\n" +
+               "<div id=\"samlet-chat\"></div>\n" +
                "";
 
     $("#code-div").text(html);
@@ -20,4 +20,4 @@
     $("#installation-view").show();
   };
 
-} (window.commento, document));
+} (window.samlet-chat, document));

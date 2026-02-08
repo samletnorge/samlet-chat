@@ -93,4 +93,4 @@
     }
   };
 
-} (window.commento, document));
+} (window.samlet-chat, document));
