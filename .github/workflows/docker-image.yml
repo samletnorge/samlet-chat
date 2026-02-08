@@ -44,8 +44,8 @@ jobs:
       with:
         context: .
         tags: |
-          caroga/commentoplusplus:latest
-          caroga/commentoplusplus:${{ steps.previoustag.outputs.tag }}
+          samletnorge/samlet-chat:latest
+          samletnorge/samlet-chat:${{ steps.previoustag.outputs.tag }}
           ghcr.io/samletnorge/samlet-chat:latest
           ghcr.io/samletnorge/samlet-chat:${{ steps.previoustag.outputs.tag }}
         # build on feature branches, push only on main branch
