@@ -4,9 +4,9 @@ services:
     expose:
       - 8080
     environment:
-      COMMENTO_ORIGIN: https://samlet-chat.valiantlynx.com
-      COMMENTO_PORT: 8080
-      COMMENTO_POSTGRES: postgres://postgres:postgres@db:5432/samlet-chat?sslmode=disable
+      SAMLETCHAT_ORIGIN: https://samlet-chat.valiantlynx.com
+      SAMLETCHAT_PORT: 8080
+      SAMLETCHAT_POSTGRES: postgres://postgres:postgres@db:5432/samlet-chat?sslmode=disable
     depends_on:
       - db
     networks:

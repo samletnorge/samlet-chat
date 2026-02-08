@@ -16,10 +16,10 @@ load_rc_config $name
 
 : ${chat_enable:=NO}
 
-chat_env="COMMENTO_ORIGIN=https://samlet-chat.example.com \
-COMMENTO_PORT=8080 \
-COMMENTO_POSTGRES=postgres://samlet-chat:samlet-chat@db:5432/samlet-chat?sslmode=disable \
-COMMENTO_STATIC=/usr/local/share/samlet-chat"
+chat_env="SAMLETCHAT_ORIGIN=https://samlet-chat.example.com \
+SAMLETCHAT_PORT=8080 \
+SAMLETCHAT_POSTGRES=postgres://samlet-chat:samlet-chat@db:5432/samlet-chat?sslmode=disable \
+SAMLETCHAT_STATIC=/usr/local/share/samlet-chat"
 chat_user=www
 
 command="/usr/local/bin/samlet-chat"

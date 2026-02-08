@@ -2,11 +2,12 @@ package main
 
 import (
 	"database/sql"
-	_ "github.com/lib/pq"
 	"net/url"
 	"os"
 	"strconv"
 	"time"
+
+	_ "github.com/lib/pq"
 )
 
 func dbConnect(retriesLeft int) error {
@@ -50,7 +51,7 @@ func dbConnect(retriesLeft int) error {
 
 	maxIdleConnections, err := strconv.Atoi(os.Getenv("MAX_IDLE_PG_CONNECTIONS"))
 	if err != nil {
-		logger.Warningf("cannot parse COMMENTO_MAX_IDLE_PG_CONNECTIONS: %v", err)
+		logger.Warningf("cannot parse SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS: %v", err)
 		maxIdleConnections = 50
 	}
 

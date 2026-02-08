@@ -1,9 +1,10 @@
 package main
 
 import (
+	"os"
+
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/github"
-	"os"
 )
 
 var githubConfig *oauth2.Config
@@ -15,12 +16,12 @@ func githubOauthConfigure() error {
 	}
 
 	if os.Getenv("GITHUB_KEY") == "" {
-		logger.Errorf("COMMENTO_GITHUB_KEY not configured, but COMMENTO_GITHUB_SECRET is set")
+		logger.Errorf("SAMLETCHAT_GITHUB_KEY not configured, but SAMLETCHAT_GITHUB_SECRET is set")
 		return errorOauthMisconfigured
 	}
 
 	if os.Getenv("GITHUB_SECRET") == "" {
-		logger.Errorf("COMMENTO_GITHUB_SECRET not configured, but COMMENTO_GITHUB_KEY is set")
+		logger.Errorf("SAMLETCHAT_GITHUB_SECRET not configured, but SAMLETCHAT_GITHUB_KEY is set")
 		return errorOauthMisconfigured
 	}
 

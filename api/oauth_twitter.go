@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/gomodule/oauth1/oauth"
 	"os"
 	"sync"
+
+	"github.com/gomodule/oauth1/oauth"
 )
 
 type twitterOauthState struct {
@@ -22,12 +23,12 @@ func twitterOauthConfigure() error {
 	}
 
 	if os.Getenv("TWITTER_KEY") == "" {
-		logger.Errorf("COMMENTO_TWITTER_KEY not configured, but COMMENTO_TWITTER_SECRET is set")
+		logger.Errorf("SAMLETCHAT_TWITTER_KEY not configured, but SAMLETCHAT_TWITTER_SECRET is set")
 		return errorOauthMisconfigured
 	}
 
 	if os.Getenv("TWITTER_SECRET") == "" {
-		logger.Errorf("COMMENTO_TWITTER_SECRET not configured, but COMMENTO_TWITTER_KEY is set")
+		logger.Errorf("SAMLETCHAT_TWITTER_SECRET not configured, but SAMLETCHAT_TWITTER_KEY is set")
 		return errorOauthMisconfigured
 	}
 

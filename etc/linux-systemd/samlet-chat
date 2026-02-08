@@ -5,10 +5,10 @@ After=network.target postgresql.service
 [Service]
 Type=simple
 ExecStart=/usr/bin/samlet-chat
-Environment=COMMENTO_ORIGIN=https://samlet-chat.example.com
-Environment=COMMENTO_PORT=8080
-Environment=COMMENTO_POSTGRES=postgres://samlet-chat:samlet-chat@db:5432/samlet-chat?sslmode=disable
-Environment=COMMENTO_STATIC=/usr/share/samlet-chat
+Environment=SAMLETCHAT_ORIGIN=https://samlet-chat.example.com
+Environment=SAMLETCHAT_PORT=8080
+Environment=SAMLETCHAT_POSTGRES=postgres://samlet-chat:samlet-chat@db:5432/samlet-chat?sslmode=disable
+Environment=SAMLETCHAT_STATIC=/usr/share/samlet-chat
 
 [Install]
 WantedBy=multi-user.target

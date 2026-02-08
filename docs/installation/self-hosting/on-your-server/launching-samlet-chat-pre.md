@@ -5,14 +5,14 @@ Before you launch samlet-chat, you will also need a usable PostgreSQL server. Le
 Set up the environment variables to start the samlet-chat server on `samlet-chat.example.com` on port `8080`:
 
 ```bash
-$ export COMMENTO_ORIGIN=http://samlet-chat.example.com:8080
-$ export COMMENTO_PORT=8080
-$ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/samlet-chat?sslmode=disable
-$ export COMMENTO_CDN_PREFIX=$COMMENTO_ORIGIN
+$ export SAMLETCHAT_ORIGIN=http://samlet-chat.example.com:8080
+$ export SAMLETCHAT_PORT=8080
+$ export SAMLETCHAT_POSTGRES=postgres://username:password@postgres.example.com:5432/samlet-chat?sslmode=disable
+$ export SAMLETCHAT_CDN_PREFIX=$SAMLETCHAT_ORIGIN
 ```
 
 {% hint style='tip' %}
-Set `COMMENTO_CDN_PREFIX` to the appropriate URL if you are serving static content from a CDN. Otherwise, set it to the same value as `COMMENTO_ORIGIN`.
+Set `SAMLETCHAT_CDN_PREFIX` to the appropriate URL if you are serving static content from a CDN. Otherwise, set it to the same value as `SAMLETCHAT_ORIGIN`.
 {% endhint %}
 
 You can read the documentation on [configuring samlet-chat](/configuration/backend/README.md) to learn more about the different options availble. For now, this minimal configuration is sufficient.

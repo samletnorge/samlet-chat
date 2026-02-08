@@ -16,44 +16,44 @@
   ],
   "success_url": "/login",
   "env": {
-    "COMMENTO_ORIGIN": {
+    "SAMLETCHAT_ORIGIN": {
       "description": "This should be set to the subdomain or the IP address hosting samlet-chat. All API requests will go to this server. This may include subdirectories if samlet-chat is hosted behind a reverse proxy, for example. Include the protocol in the value to use HTTP/HTTPS."
     },
-    "COMMENTO_FORBID_NEW_OWNERS": {
+    "SAMLETCHAT_FORBID_NEW_OWNERS": {
       "description": "Used to disable new dashboard registrations. Useful if you are the only person using samlet-chat on your server. Does not impact the creation of accounts for your readers. Defaults to false.",
       "value": "false"
     },
-    "COMMENTO_SMTP_FROM_ADDRESS": {
+    "SAMLETCHAT_SMTP_FROM_ADDRESS": {
       "description": "SMTP credentials and configuration the server should use to send emails. By default, all settings are empty and email features such as email notification and reset password are turned off.",
       "required": false
     },
-    "COMMENTO_SMTP_HOST": {
+    "SAMLETCHAT_SMTP_HOST": {
       "description": "SMTP credentials and configuration the server should use to send emails. By default, all settings are empty and email features such as email notification and reset password are turned off.",
       "required": false
     },
-    "COMMENTO_SMTP_PASSWORD": {
+    "SAMLETCHAT_SMTP_PASSWORD": {
       "description": "SMTP credentials and configuration the server should use to send emails. By default, all settings are empty and email features such as email notification and reset password are turned off.",
       "required": false
     },
-    "COMMENTO_SMTP_PORT": {
+    "SAMLETCHAT_SMTP_PORT": {
       "description": "SMTP credentials and configuration the server should use to send emails. By default, all settings are empty and email features such as email notification and reset password are turned off.",
       "required": false
     },
-    "COMMENTO_SMTP_USERNAME": {
+    "SAMLETCHAT_SMTP_USERNAME": {
       "description": "SMTP credentials and configuration the server should use to send emails. By default, all settings are empty and email features such as email notification and reset password are turned off.",
       "required": false
     },
-    "COMMENTO_ENABLE_LOGGING": {
+    "SAMLETCHAT_ENABLE_LOGGING": {
       "description": "Should we log every page view? This will allow you to see stats but will fill up your free postgres database quite quickly, so defaults to false. Set to true to enable",
       "required": false,
       "value": "false"
     },
-    "COMMENTO_ENABLE_WILDCARDS": {
+    "SAMLETCHAT_ENABLE_WILDCARDS": {
       "description": "Allows use of wildcards in domain names in the admin dashboard, defaults to true. Set to false to disable (e.g. if you share your samlet-chat instance with more than one admin/allow new registrations)",
       "required": false,
       "value": "true"
     },
-    "COMMENTO_SMTP_SKIP_HOST_VERIFY": {
+    "SAMLETCHAT_SMTP_SKIP_HOST_VERIFY": {
       "description": "Allows skipping of host verification for SMTP email sending, defaults to false. Set to true to enable (e.g. for the Cloudron app package)",
       "required": false,
       "value": "false"

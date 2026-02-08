@@ -36,10 +36,10 @@ jobs:
       - name: Test
         run: make --directory=api test
         env:
-          COMMENTO_POSTGRES: postgres://postgres:postgres@127.0.0.1:5432/postgres?sslmode=disable
-          COMMENTO_ORIGIN: http://samlet-chat.example.com:8080
-          COMMENTO_PORT: 8080
-          COMMENTO_CDN_PREFIX: http://samlet-chat.example.com:8080
+          SAMLETCHAT_POSTGRES: postgres://postgres:postgres@127.0.0.1:5432/postgres?sslmode=disable
+          SAMLETCHAT_ORIGIN: http://samlet-chat.example.com:8080
+          SAMLETCHAT_PORT: 8080
+          SAMLETCHAT_CDN_PREFIX: http://samlet-chat.example.com:8080
 
       - name: Lint
         run: cd api && test -z "$(go fmt)"

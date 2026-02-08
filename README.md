@@ -42,10 +42,10 @@ If you want to self-host, you will need a PostgreSQL server handy and then:
 
 To launch, you should configure the following environment variables below:
 ```
-$ export COMMENTO_ORIGIN=http://samlet-chat.example.com:8080
-$ export COMMENTO_PORT=8080
-$ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/samlet-chat?sslmode=disable
-$ export COMMENTO_CDN_PREFIX=$COMMENTO_ORIGIN
+$ export SAMLETCHAT_ORIGIN=http://samlet-chat.example.com:8080
+$ export SAMLETCHAT_PORT=8080
+$ export SAMLETCHAT_POSTGRES=postgres://username:password@postgres.example.com:5432/samlet-chat?sslmode=disable
+$ export SAMLETCHAT_CDN_PREFIX=$SAMLETCHAT_ORIGIN
 
 ```
 
@@ -53,12 +53,12 @@ And then you can run the `samlet-chat` binary.
 
 #### Logging and graphing page views
 
-The logging defaults to off to preseve disk space, but you can specify the `COMMENTO_ENABLE_LOGGING` environment variable to true to enable each page view being logged and a nice graph generated on your dashboard. This will however use up a lot of space quickly if you have a high traffic website; you may want to consider a more fully-featured analytics solution for your website.
+The logging defaults to off to preseve disk space, but you can specify the `SAMLETCHAT_ENABLE_LOGGING` environment variable to true to enable each page view being logged and a nice graph generated on your dashboard. This will however use up a lot of space quickly if you have a high traffic website; you may want to consider a more fully-featured analytics solution for your website.
 
 e.g.
 
 ```
-$ export COMMENTO_ENABLE_LOGGING=true
+$ export SAMLETCHAT_ENABLE_LOGGING=true
 ```
 
 to turn this feature on.
@@ -73,25 +73,25 @@ As most of samlet-chat instances are serving one user only, I have assumed you w
 If you want the old behaviour, you can disable this with an environment variable:
 
 ```
-$ export COMMENTO_ENABLE_WILDCARDS=false
+$ export SAMLETCHAT_ENABLE_WILDCARDS=false
 ```
 
 #### Perspective spam detection 
 To enable Perspective (https://www.perspectiveapi.com/) spam detection add following environment variables:
 
 ```
-$ export COMMENTO_PERSPECTIVE_KEY=YOUR_API_KEY_FROM_PERSPECTIVE
-$ export COMMENTO_PERSPECTIVE_LIMIT=0.5
-$ export COMMENTO_PERSPECTIVE_LANGUAGE=en
+$ export SAMLETCHAT_PERSPECTIVE_KEY=YOUR_API_KEY_FROM_PERSPECTIVE
+$ export SAMLETCHAT_PERSPECTIVE_LIMIT=0.5
+$ export SAMLETCHAT_PERSPECTIVE_LANGUAGE=en
 ```
 
-COMMENTO_PERSPECTIVE_KEY:
+SAMLETCHAT_PERSPECTIVE_KEY:
 To create a new Perspective API key follow the instructions at https://developers.perspectiveapi.com/s/docs-get-started
 
-COMMENTO_PERSPECTIVE_LIMIT:
+SAMLETCHAT_PERSPECTIVE_LIMIT:
 The limit defines the minimum value for the Perspective probability summary score. Everything above the value will be flagged in samlet-chat. (Default 0.5)
 
-COMMENTO_PERSPECTIVE_LANGUAGE:
+SAMLETCHAT_PERSPECTIVE_LANGUAGE:
 Configure the language to your requirements. (Default: en)
 
 Make sure that you have enabled the automatic spam detection in the dashboard.
@@ -151,13 +151,13 @@ Or if you'd rather not do that, disable websockets in favour of HTTP polling by 
 ### SSL Support
 samlet-chat supports native SSL without use of an nginx proxy. Three properties are required for Native SSL:
 
-- COMMENTO_SSL
-- COMMENTO_SSL_CERT
-- COMMENTO_SSL_KEY
+- SAMLETCHAT_SSL
+- SAMLETCHAT_SSL_CERT
+- SAMLETCHAT_SSL_KEY
 
-`COMMENTO_SSL=true` enables native SSL. Default is false.
+`SAMLETCHAT_SSL=true` enables native SSL. Default is false.
 
-If `COMMENTO_SSL=true` then `COMMENTO_SSL_CERT` and `COMMENTO_SSL_KEY` must be set to the path to a valid SSL Certificate and Key pair.
+If `SAMLETCHAT_SSL=true` then `SAMLETCHAT_SSL_CERT` and `SAMLETCHAT_SSL_KEY` must be set to the path to a valid SSL Certificate and Key pair.
 
 ### More options to configure samlet-chat's frontend
 

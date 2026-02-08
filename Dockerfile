@@ -55,6 +55,6 @@ COPY --from=templates-db-build /samlet-chat/db/build/${RELEASE}/db /samlet-chat/
 
 EXPOSE 8080
 WORKDIR /samlet-chat/
-ENV COMMENTO_BIND_ADDRESS="0.0.0.0"
+ENV SAMLETCHAT_BIND_ADDRESS="0.0.0.0"
 USER nobody
 ENTRYPOINT ["/samlet-chat/samlet-chat"]

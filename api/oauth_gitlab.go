@@ -1,9 +1,10 @@
 package main
 
 import (
+	"os"
+
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/gitlab"
-	"os"
 )
 
 var gitlabConfig *oauth2.Config
@@ -15,12 +16,12 @@ func gitlabOauthConfigure() error {
 	}
 
 	if os.Getenv("GITLAB_KEY") == "" {
-		logger.Errorf("COMMENTO_GITLAB_KEY not configured, but COMMENTO_GITLAB_SECRET is set")
+		logger.Errorf("SAMLETCHAT_GITLAB_KEY not configured, but SAMLETCHAT_GITLAB_SECRET is set")
 		return errorOauthMisconfigured
 	}
 
 	if os.Getenv("GITLAB_SECRET") == "" {
-		logger.Errorf("COMMENTO_GITLAB_SECRET not configured, but COMMENTO_GITLAB_KEY is set")
+		logger.Errorf("SAMLETCHAT_GITLAB_SECRET not configured, but SAMLETCHAT_GITLAB_KEY is set")
 		return errorOauthMisconfigured
 	}
 

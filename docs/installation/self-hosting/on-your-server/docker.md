@@ -19,12 +19,12 @@ Then start a container with the appropriate ports. Note that this method require
 ```bash
 $ docker run -it                                                           \
     -p 80:8080                                                             \
-    -e COMMENTO_ORIGIN=http://samlet-chat.example.com                         \
-    -e COMMENTO_POSTGRES=postgres://username:password@ipaddr:port/samlet-chat \
+    -e SAMLETCHAT_ORIGIN=http://samlet-chat.example.com                         \
+    -e SAMLETCHAT_POSTGRES=postgres://username:password@ipaddr:port/samlet-chat \
     registry.gitlab.com/samlet-chat/samlet-chat
 ```
 
-Again, remember to change `COMMENTO_ORIGIN` and `COMMENTO_POSTGRES` to appropriate values. Open `http://samlet-chat.example.com` on web browser and you should be greeted with the login page. Go to the [next step](/installation/self-hosting/register-your-website/README.md) to create an account and register your website.
+Again, remember to change `SAMLETCHAT_ORIGIN` and `SAMLETCHAT_POSTGRES` to appropriate values. Open `http://samlet-chat.example.com` on web browser and you should be greeted with the login page. Go to the [next step](/installation/self-hosting/register-your-website/README.md) to create an account and register your website.
 
 #### With Docker Compose
 
@@ -39,9 +39,9 @@ services:
     ports:
       - 8080:8080
     environment:
-      COMMENTO_ORIGIN: http://samlet-chat.example.com:8080
-      COMMENTO_PORT: 8080
-      COMMENTO_POSTGRES: postgres://postgres:postgres@db:5432/samlet-chat?sslmode=disable
+      SAMLETCHAT_ORIGIN: http://samlet-chat.example.com:8080
+      SAMLETCHAT_PORT: 8080
+      SAMLETCHAT_POSTGRES: postgres://postgres:postgres@db:5432/samlet-chat?sslmode=disable
     depends_on:
       - db
   db:
@@ -57,7 +57,7 @@ volumes:
   postgres_data_volume:
 ```
 
-Remember to change `COMMENTO_ORIGIN` to the domain where you want to host samlet-chat (if you're locally testing out, `localhost` is fine). If you want samlet-chat exposed on a port other than `80`, change `80:8080`.
+Remember to change `SAMLETCHAT_ORIGIN` to the domain where you want to host samlet-chat (if you're locally testing out, `localhost` is fine). If you want samlet-chat exposed on a port other than `80`, change `80:8080`.
 
 The above configuration pulls and sets up samlet-chat and PostgreSQL in two separate containers with a persistent database volume. Save the `docker-compose.yml` file somewhere and run the following command to start the services.
 

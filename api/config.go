@@ -71,24 +71,24 @@ func configParse() error {
 		"ENABLE_WILDCARDS": "true",
 	}
 
-	if os.Getenv("COMMENTO_CONFIG_FILE") != "" {
-		if err := configFileLoad(os.Getenv("COMMENTO_CONFIG_FILE")); err != nil {
+	if os.Getenv("SAMLETCHAT_CONFIG_FILE") != "" {
+		if err := configFileLoad(os.Getenv("SAMLETCHAT_CONFIG_FILE")); err != nil {
 			return err
 		}
 	}
 
 	for key, value := range defaults {
-		if os.Getenv("COMMENTO_"+key) == "" {
+		if os.Getenv("SAMLETCHAT_"+key) == "" {
 			os.Setenv(key, value)
 		} else {
-			os.Setenv(key, os.Getenv("COMMENTO_"+key))
+			os.Setenv(key, os.Getenv("SAMLETCHAT_"+key))
 		}
 	}
 
 	// Mandatory config parameters
 	for _, env := range []string{"POSTGRES", "PORT", "ORIGIN", "FORBID_NEW_OWNERS", "MAX_IDLE_PG_CONNECTIONS"} {
 		if os.Getenv(env) == "" {
-			logger.Errorf("missing COMMENTO_%s environment variable", env)
+			logger.Errorf("missing SAMLETCHAT_%s environment variable", env)
 			return errorMissingConfig
 		}
 	}
@@ -104,7 +104,7 @@ func configParse() error {
 	os.Setenv("CDN_PREFIX", addHttpIfAbsent(os.Getenv("CDN_PREFIX")))
 
 	if os.Getenv("FORBID_NEW_OWNERS") != "true" && os.Getenv("FORBID_NEW_OWNERS") != "false" {
-		logger.Errorf("COMMENTO_FORBID_NEW_OWNERS neither 'true' nor 'false'")
+		logger.Errorf("SAMLETCHAT_FORBID_NEW_OWNERS neither 'true' nor 'false'")
 		return errorInvalidConfigValue
 	}
 
@@ -120,17 +120,17 @@ func configParse() error {
 	}
 
 	if !file.IsDir() {
-		logger.Errorf("COMMENTO_STATIC=%s is not a directory", static)
+		logger.Errorf("SAMLETCHAT_STATIC=%s is not a directory", static)
 		return errorNotADirectory
 	}
 
 	os.Setenv("STATIC", static)
 
 	if num, err := strconv.Atoi(os.Getenv("MAX_IDLE_PG_CONNECTIONS")); err != nil {
-		logger.Errorf("invalid COMMENTO_MAX_IDLE_PG_CONNECTIONS: %v", err)
+		logger.Errorf("invalid SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS: %v", err)
 		return errorInvalidConfigValue
 	} else if num <= 0 {
-		logger.Errorf("COMMENTO_MAX_IDLE_PG_CONNECTIONS should be a positive integer")
+		logger.Errorf("SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS should be a positive integer")
 		return errorInvalidConfigValue
 	}
 

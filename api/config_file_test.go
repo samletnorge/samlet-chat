@@ -29,27 +29,27 @@ func TestConfigFileLoadBasics(t *testing.T) {
 
 	contents := `
 		# samlet-chat port
-		COMMENTO_PORT=8000
-		COMMENTO_GZIP_STATIC=true
+		SAMLETCHAT_PORT=8000
+		SAMLETCHAT_GZIP_STATIC=true
 	`
 	if _, err := f.Write([]byte(contents)); err != nil {
 		t.Errorf("error writing to temporary file: %v", err)
 		return
 	}
 
-	os.Setenv("COMMENTO_PORT", "9000")
+	os.Setenv("SAMLETCHAT_PORT", "9000")
 	if err := configFileLoad(f.Name()); err != nil {
 		t.Errorf("unexpected error loading config file: %v", err)
 		return
 	}
 
-	if os.Getenv("COMMENTO_PORT") != "9000" {
-		t.Errorf("expected COMMENTO_PORT=9000 got COMMENTO_PORT=%s", os.Getenv("COMMENTO_PORT"))
+	if os.Getenv("SAMLETCHAT_PORT") != "9000" {
+		t.Errorf("expected SAMLETCHAT_PORT=9000 got SAMLETCHAT_PORT=%s", os.Getenv("SAMLETCHAT_PORT"))
 		return
 	}
 
-	if os.Getenv("COMMENTO_GZIP_STATIC") != "true" {
-		t.Errorf("expected COMMENTO_GZIP_STATIC=true got COMMENTO_GZIP_STATIC=%s", os.Getenv("COMMENTO_GZIP_STATIC"))
+	if os.Getenv("SAMLETCHAT_GZIP_STATIC") != "true" {
+		t.Errorf("expected SAMLETCHAT_GZIP_STATIC=true got SAMLETCHAT_GZIP_STATIC=%s", os.Getenv("SAMLETCHAT_GZIP_STATIC"))
 		return
 	}
 }
@@ -76,7 +76,7 @@ func TestConfigFileLoadInvalid(t *testing.T) {
 	}()
 
 	contents := `
-		COMMENTO_PORT=8000
+		SAMLETCHAT_PORT=8000
 		INVALID_LINE
 	`
 	if _, err := f.Write([]byte(contents)); err != nil {

@@ -7,7 +7,7 @@ import (
 )
 
 func TestConfigParseBasics(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
+	os.Setenv("SAMLETCHAT_ORIGIN", "https://samlet-chat.valiantlynx.com")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -15,20 +15,20 @@ func TestConfigParseBasics(t *testing.T) {
 	}
 
 	if os.Getenv("BIND_ADDRESS") != "127.0.0.1" {
-		t.Errorf("expected COMMENTO_BIND_ADDRESS=127.0.0.1, but COMMENTO_BIND_ADDRESS=%s instead", os.Getenv("BIND_ADDRESS"))
+		t.Errorf("expected SAMLETCHAT_BIND_ADDRESS=127.0.0.1, but SAMLETCHAT_BIND_ADDRESS=%s instead", os.Getenv("BIND_ADDRESS"))
 		return
 	}
 
-	os.Setenv("COMMENTO_BIND_ADDRESS", "192.168.1.100")
+	os.Setenv("SAMLETCHAT_BIND_ADDRESS", "192.168.1.100")
 
-	os.Setenv("COMMENTO_PORT", "")
+	os.Setenv("SAMLETCHAT_PORT", "")
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
 		return
 	}
 
 	if os.Getenv("BIND_ADDRESS") != "192.168.1.100" {
-		t.Errorf("expected COMMENTO_BIND_ADDRESS=192.168.1.100, but COMMENTO_BIND_ADDRESS=%s instead", os.Getenv("BIND_ADDRESS"))
+		t.Errorf("expected SAMLETCHAT_BIND_ADDRESS=192.168.1.100, but SAMLETCHAT_BIND_ADDRESS=%s instead", os.Getenv("BIND_ADDRESS"))
 		return
 	}
 
@@ -53,7 +53,7 @@ func TestConfigParseBasics(t *testing.T) {
 		return
 	}
 
-	os.Setenv("COMMENTO_PORT", "1886")
+	os.Setenv("SAMLETCHAT_PORT", "1886")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -67,7 +67,7 @@ func TestConfigParseBasics(t *testing.T) {
 }
 
 func TestConfigParseNoOrigin(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "")
+	os.Setenv("SAMLETCHAT_ORIGIN", "")
 
 	if err := configParse(); err == nil {
 		t.Errorf("expected error not found parsing config without ORIGIN")
@@ -76,7 +76,7 @@ func TestConfigParseNoOrigin(t *testing.T) {
 }
 
 func TestConfigParseStatic(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
+	os.Setenv("SAMLETCHAT_ORIGIN", "https://samlet-chat.valiantlynx.com")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -90,11 +90,11 @@ func TestConfigParseStatic(t *testing.T) {
 	}
 
 	if os.Getenv("STATIC") != binPath {
-		t.Errorf("COMMENTO_STATIC != %s when unset", binPath)
+		t.Errorf("SAMLETCHAT_STATIC != %s when unset", binPath)
 		return
 	}
 
-	os.Setenv("COMMENTO_STATIC", "/usr/")
+	os.Setenv("SAMLETCHAT_STATIC", "/usr/")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -102,14 +102,14 @@ func TestConfigParseStatic(t *testing.T) {
 	}
 
 	if os.Getenv("STATIC") != "/usr" {
-		t.Errorf("COMMENTO_STATIC != /usr when unset")
+		t.Errorf("SAMLETCHAT_STATIC != /usr when unset")
 		return
 	}
 }
 
 func TestConfigParseStaticDNE(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
-	os.Setenv("COMMENTO_STATIC", "/does/not/exist/surely/")
+	os.Setenv("SAMLETCHAT_ORIGIN", "https://samlet-chat.valiantlynx.com")
+	os.Setenv("SAMLETCHAT_STATIC", "/does/not/exist/surely/")
 
 	if err := configParse(); err == nil {
 		t.Errorf("expected error not found when a non-existant directory is used")
@@ -118,8 +118,8 @@ func TestConfigParseStaticDNE(t *testing.T) {
 }
 
 func TestConfigParseStaticNotADirectory(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
-	os.Setenv("COMMENTO_STATIC", os.Args[0])
+	os.Setenv("SAMLETCHAT_ORIGIN", "https://samlet-chat.valiantlynx.com")
+	os.Setenv("SAMLETCHAT_STATIC", os.Args[0])
 
 	if err := configParse(); err != errorNotADirectory {
 		t.Errorf("expected error not found when a file is used")
@@ -128,8 +128,8 @@ func TestConfigParseStaticNotADirectory(t *testing.T) {
 }
 
 func TestConfigOriginTrailingSlash(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com/")
-	os.Setenv("COMMENTO_STATIC", "")
+	os.Setenv("SAMLETCHAT_ORIGIN", "https://samlet-chat.valiantlynx.com/")
+	os.Setenv("SAMLETCHAT_STATIC", "")
 
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when parsing config: %v", err)
@@ -143,28 +143,28 @@ func TestConfigOriginTrailingSlash(t *testing.T) {
 }
 
 func TestConfigMaxConnections(t *testing.T) {
-	os.Setenv("COMMENTO_ORIGIN", "https://samlet-chat.valiantlynx.com")
-	os.Setenv("COMMENTO_STATIC", "")
+	os.Setenv("SAMLETCHAT_ORIGIN", "https://samlet-chat.valiantlynx.com")
+	os.Setenv("SAMLETCHAT_STATIC", "")
 
-	os.Setenv("COMMENTO_MAX_IDLE_PG_CONNECTIONS", "100")
+	os.Setenv("SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS", "100")
 	if err := configParse(); err != nil {
 		t.Errorf("unexpected error when MAX_IDLE_PG_CONNECTIONS=100: %v", err)
 		return
 	}
 
-	os.Setenv("COMMENTO_MAX_IDLE_PG_CONNECTIONS", "text")
+	os.Setenv("SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS", "text")
 	if err := configParse(); err == nil {
 		t.Errorf("expected error with MAX_IDLE_PG_CONNECTIONS=text not found")
 		return
 	}
 
-	os.Setenv("COMMENTO_MAX_IDLE_PG_CONNECTIONS", "0")
+	os.Setenv("SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS", "0")
 	if err := configParse(); err == nil {
 		t.Errorf("expected error with MAX_IDLE_PG_CONNECTIONS=0 not found")
 		return
 	}
 
-	os.Setenv("COMMENTO_MAX_IDLE_PG_CONNECTIONS", "-1")
+	os.Setenv("SAMLETCHAT_MAX_IDLE_PG_CONNECTIONS", "-1")
 	if err := configParse(); err == nil {
 		t.Errorf("expected error with MAX_IDLE_PG_CONNECTIONS=-1 not found")
 		return
