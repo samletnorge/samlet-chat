@@ -4,11 +4,11 @@ After=network.target postgresql.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/commento
-Environment=COMMENTO_ORIGIN=https://commento.example.com
+ExecStart=/usr/bin/samlet-chat
+Environment=COMMENTO_ORIGIN=https://samlet-chat.example.com
 Environment=COMMENTO_PORT=8080
-Environment=COMMENTO_POSTGRES=postgres://commento:commento@db:5432/commento?sslmode=disable
-Environment=COMMENTO_STATIC=/usr/share/commento
+Environment=COMMENTO_POSTGRES=postgres://samlet-chat:samlet-chat@db:5432/samlet-chat?sslmode=disable
+Environment=COMMENTO_STATIC=/usr/share/samlet-chat
 
 [Install]
 WantedBy=multi-user.target

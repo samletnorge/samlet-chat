@@ -1,13 +1,13 @@
-You need to set up some non-optional configuration before starting Commento. In this example, let's assume our Commento instance will be running on the server and will be available at `commento.example.com`.
+You need to set up some non-optional configuration before starting Commento. In this example, let's assume our Commento instance will be running on the server and will be available at `samlet-chat.example.com`.
 
-Before you launch Commento, you will also need a usable PostgreSQL server. Let's say the server is available at `postgres.example.com` on port `5432` with the credentials `username:password`. Create a database named `commento`.
+Before you launch Commento, you will also need a usable PostgreSQL server. Let's say the server is available at `postgres.example.com` on port `5432` with the credentials `username:password`. Create a database named `samlet-chat`.
 
-Set up the environment variables to start the Commento server on `commento.example.com` on port `8080`:
+Set up the environment variables to start the Commento server on `samlet-chat.example.com` on port `8080`:
 
 ```bash
-$ export COMMENTO_ORIGIN=http://commento.example.com:8080
+$ export COMMENTO_ORIGIN=http://samlet-chat.example.com:8080
 $ export COMMENTO_PORT=8080
-$ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/commento?sslmode=disable
+$ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/samlet-chat?sslmode=disable
 $ export COMMENTO_CDN_PREFIX=$COMMENTO_ORIGIN
 ```
 

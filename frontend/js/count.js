@@ -60,10 +60,10 @@
 
       href = href.replace(/^.*\/\/[^\/]+/, "");
 
-      if (href.endsWith("#commento")) {
+      if (href.endsWith("#samlet-chat")) {
         var pageId = attrGet(as[i], "data-page-id");
         if (pageId === undefined) {
-          pageId = href.substr(0, href.indexOf("#commento"));
+          pageId = href.substr(0, href.indexOf("#samlet-chat"));
           if (pageId.startsWith(parent.location.host)) {
             pageId = pageId.substr(parent.location.host.length);
           }
@@ -81,7 +81,7 @@
 
     post(origin + "/api/comment/count", json, function(resp) {
       if (!resp.success) {
-        console.log("[commento] error: " + resp.message);
+        console.log("[samlet-chat] error: " + resp.message);
         return;
       }
 

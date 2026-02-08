@@ -3,11 +3,11 @@
 
   (document);
 
-  if (window.commento === undefined) {
-    window.commento = {};
+  if (window.samlet-chat === undefined) {
+    window.samlet-chat = {};
   }
 
-  window.commento.origin = "[[[.Origin]]]";
-  window.commento.cdn = "[[[.CdnPrefix]]]";
+  window.samlet-chat.origin = "[[[.Origin]]]";
+  window.samlet-chat.cdn = "[[[.CdnPrefix]]]";
 
 } (window, document));

@@ -88,7 +88,7 @@ const jsCompileMap = {
     "js/utils.js",
     "js/logout.js"
   ],
-  "js/commento.js": ["js/commento.js", "js/morphdom.js"],
+  "js/samlet-chat.js": ["js/samlet-chat.js", "js/morphdom.js"],
   "js/count.js": ["js/count.js"],
   "js/unsubscribe.js": [
     "js/constants.js",
@@ -114,7 +114,7 @@ function initLocales() {
 }
 function prependLocales() {
   return through2.obj(function (file, _, cb) {
-    if (path.basename(file.path) === 'commento.js') {
+    if (path.basename(file.path) === 'samlet-chat.js') {
       file.contents = Buffer.concat([
         Buffer.from("var LOCALES = " + JSON.stringify(locales) + ";\n\n"),
         file.contents,
