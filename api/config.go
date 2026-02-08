@@ -17,7 +17,7 @@ func configParse() error {
 	defaults := map[string]string{
 		"CONFIG_FILE": "",
 
-		"POSTGRES": "postgres://postgres:postgres@localhost/commento?sslmode=disable",
+		"POSTGRES": "postgres://postgres:postgres@localhost/samlet-chat?sslmode=disable",
 
 		// PostgreSQL recommends max_connections in the order of hundreds. The default
 		// is 100, so let's use half that and leave the other half for other services.

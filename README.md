@@ -44,7 +44,7 @@ To launch, you should configure the following environment variables below:
 ```
 $ export COMMENTO_ORIGIN=http://samlet-chat.example.com:8080
 $ export COMMENTO_PORT=8080
-$ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/commento?sslmode=disable
+$ export COMMENTO_POSTGRES=postgres://username:password@postgres.example.com:5432/samlet-chat?sslmode=disable
 $ export COMMENTO_CDN_PREFIX=$COMMENTO_ORIGIN
 
 ```
