@@ -11,7 +11,7 @@ Commit messages are code themselves. They document the changes being and should 
     Configuration parsing should be in its own file as main.go was
     getting quite large.
 
-    Closes https://gitlab.com/commento/commento/issues/42
+   
 
 This shortlog straight away tells us several things: we're making this change in `main.go`, this change is moving code out of `main.go` into `config.go`, and the code being moved out is the configuration parsing part.
 
