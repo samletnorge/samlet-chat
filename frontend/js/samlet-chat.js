@@ -101,8 +101,7 @@
   var selfHex = undefined;
   var mobileView = null;
   var locale = navigator && navigator.language;
-  var strings = global.strings || {};
-
+  var strings = (global && global.strings) || {};
   var sortPolicyNames = {
     "score-desc": "",
     "creationdate-desc": "",
@@ -2577,5 +2576,4 @@
 
   readyLoad();
 
-
-}(window.chat, document));
+}(window.chat = window.chat || {}, document));
