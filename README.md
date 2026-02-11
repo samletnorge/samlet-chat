@@ -1,3 +1,6 @@
+[![Open in Coder](https://coder.valiantlynx.com/open-in-coder.svg)](https://coder.valiantlynx.com/templates/docker/workspace?param.git_repo=git@github.com:samletnorge/samlet-chat.git)
+
+
 # samlet-chat
 
 ### 💬 Try it out and deploy your own
