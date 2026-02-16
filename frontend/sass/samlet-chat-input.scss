@@ -1,29 +1,30 @@
 @import "colors-main.scss";
+@import "theme-mixins.scss";
 @import "checkbox.scss";
 
 textarea,
 input[type=text] {
-  background: $bg-primary;
-  border: 1px solid $neutral-300;
+  background: themed-bg-primary();
+  border: 1px solid themed-border-secondary();
   border-radius: 6px;
-  color: $text-primary;
+  color: themed-text-primary();
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
 textarea:focus,
 input[type=text]:focus {
-  border-color: $primary;
+  border-color: themed-primary();
   box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
   outline: none;
 }
 
 input[type=text]::placeholder {
-  color: $text-muted;
+  color: themed-text-muted();
 }
 
 textarea::placeholder {
-  color: $text-muted;
+  color: themed-text-muted();
   font-size: 16px;
   display: flex;
   line-height: 110px;
@@ -44,7 +45,7 @@ textarea {
 }
 
 .samlet-chat-red-border {
-  border: 2px solid $destructive !important;
+  border: 2px solid themed-destructive() !important;
 }
 
 .samlet-chat-textarea-container {
@@ -70,8 +71,8 @@ textarea {
 
 .samlet-chat-submit-button {
   float: right;
-  background: $primary;
-  color: $primary-text;
+  background: themed-primary();
+  color: theme-var(primary-text, $primary-text);
   text-transform: uppercase;
   font-size: 12px;
   margin-top: 10px;
@@ -84,12 +85,12 @@ textarea {
 }
 
 .samlet-chat-submit-button:hover {
-  background: $primary-600;
+  background: themed-primary-600();
 }
 
 .samlet-chat-submit-button:disabled {
-  background: $neutral-300;
-  color: $text-muted;
+  background: themed-neutral(300);
+  color: themed-text-muted();
   cursor: not-allowed;
 }
 
@@ -106,7 +107,7 @@ textarea {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 600;
-    color: $text-primary;
+    color: themed-text-primary();
   }
 
   input[type="checkbox"] + label:before {
@@ -135,7 +136,7 @@ textarea {
 }
 
 .samlet-chat-markdown-button {
-  color: $gray-6;
+  color: themed-text-secondary();
   margin: 0px 16px;
   font-size: 12px;
   text-transform: uppercase;
@@ -152,7 +153,7 @@ textarea {
 }
 
 .samlet-chat-markdown-help {
-  border: 1px solid $gray-3;
+  border: 1px solid themed-border-secondary();
   padding: 8px;
 
   tr {

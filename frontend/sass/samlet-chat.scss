@@ -1,5 +1,7 @@
 @import "source-sans.scss";
 @import "colors-main.scss";
+@import "theme-variables.scss";
+@import "theme-mixins.scss";
 
 .samlet-chat-root-min-height {
   min-height: 430px;
@@ -15,7 +17,7 @@
     font-family: inherit;
     font-size: 15px;
     line-height: 1.5;
-    color: $text-primary;
+    color: themed-text-primary();
     text-rendering: optimizeLegibility;
   }
 
@@ -45,9 +47,9 @@
     padding: 12px;
     height: auto;
     text-align: center;
-    color: $destructive-text;
-    background: $destructive-50;
-    border: 1px solid $destructive-200;
+    color: themed-destructive-text();
+    background: theme-var(destructive-50, $destructive-50);
+    border: 1px solid theme-var(destructive-200, $destructive-200);
     font-weight: 600;
   }
 
@@ -57,9 +59,9 @@
     padding: 12px;
     height: auto;
     text-align: center;
-    color: $warning-text;
-    background: $warning-50;
-    border: 1px solid $warning-200;
+    color: themed-warning-text();
+    background: theme-var(warning-50, $warning-50);
+    border: 1px solid theme-var(warning-200, $warning-200);
     font-weight: 600;
     margin-top: 16px;
   }
@@ -72,7 +74,7 @@
       float: right;
 
       .samlet-chat-sort-policy-button {
-        color: $text-secondary;
+        color: themed-text-secondary();
         font-size: 13px;
         padding: 0px 7px;
         transition: color 0.2s ease;
@@ -80,11 +82,11 @@
 
       .samlet-chat-sort-policy-button:hover {
         cursor: pointer;
-        color: $primary;
+        color: themed-primary();
       }
 
       .samlet-chat-sort-policy-button-selected {
-        color: $primary;
+        color: themed-primary();
         font-weight: 600;
       }
     }

@@ -1,17 +1,18 @@
 @import "colors-main.scss";
+@import "theme-mixins.scss";
 
 .samlet-chat-card {
   @import "samlet-chat-options.scss"; // SVG buttons to the right of each comment
 
   padding: 12px 12px 12px 12px;
   margin-top: 12px;
-  border: 1px solid $neutral-200;
+  border: 1px solid themed-border-primary();
   border-radius: 8px;
-  background: $bg-primary;
+  background: themed-bg-primary();
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: $neutral-300;
+    border-color: themed-border-secondary();
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
@@ -27,7 +28,7 @@
   .samlet-chat-name {
     font-weight: 700;
     font-size: 14px;
-    color: $text-primary;
+    color: themed-text-primary();
     border: none;
     display: table;
     z-index: 1;
@@ -41,14 +42,14 @@
   }
 
   .samlet-chat-name:hover {
-    color: $primary;
+    color: themed-primary();
   }
 
   .samlet-chat-flagged::after {
     content: "Flagged";
     text-transform: uppercase;
     font-size: 10px;
-    background: $destructive;
+    background: themed-destructive();
     color: white;
     margin-left: 8px;
     padding: 3px 8px;
@@ -61,7 +62,7 @@
     content: "Moderator";
     text-transform: uppercase;
     font-size: 10px;
-    background: $success;
+    background: themed-success();
     color: white;
     margin-left: 8px;
     padding: 3px 8px;
@@ -74,7 +75,7 @@
     content: "Guest";
     text-transform: uppercase;
     font-size: 10px;
-    background: $neutral-500;
+    background: themed-neutral(500);
     color: white;
     margin-left: 8px;
     padding: 3px 8px;
@@ -87,7 +88,7 @@
     content: "Pending moderation";
     text-transform: uppercase;
     font-size: 10px;
-    background: $warning;
+    background: themed-warning();
     color: white;
     margin-left: 8px;
     padding: 3px 8px;
@@ -98,20 +99,20 @@
 
   .samlet-chat-subtitle {
     display: block;
-    color: $text-secondary;
+    color: themed-text-secondary();
     font-size: 12px;
     margin-left: 48px;
   }
 
   .samlet-chat-timeago {
     display: inline;
-    color: $text-muted;
+    color: themed-text-muted();
     font-size: 12px;
   }
 
   .samlet-chat-score {
     display: inline;
-    color: $text-muted;
+    color: themed-text-muted();
     font-size: 12px;
     font-weight: 700;
   }
@@ -150,11 +151,11 @@
 }
 
 .samlet-chat-dark-card {
-  background: $red-0;
+  background: theme-var(destructive-50, $red-0);
 }
 
 .samlet-chat-highlighted-card {
-  background: $yellow-0;
+  background: theme-var(primary-50, $yellow-0);
 }
 
 // do not place this inside .samlet-chat-card as this is used by logged-container

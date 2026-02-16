@@ -2,6 +2,7 @@
 // Modern Design System Colors
 // Inspired by shadcn/ui and Vercel
 // ====================================
+// Updated to support theming via CSS custom properties
 
 // Semantic Colors - Primary Core
 $white:               #ffffff;
@@ -148,6 +149,12 @@ $text-muted:          $neutral-400;
 $bg-primary:          $white;
 $bg-secondary:        $neutral-50;
 $bg-tertiary:         $neutral-100;
+
+// ====================================
+// UTILITY - Border Colors
+// ====================================
+$border-primary:      $neutral-200;
+$border-secondary:    $neutral-300;
 
 // Backward compatibility mappings for old color names if needed
 $yellow-0: $primary-50;
