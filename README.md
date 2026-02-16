@@ -172,10 +172,39 @@ samlet-chat supports native SSL without use of an nginx proxy. Three properties 
 
 If `SAMLETCHAT_SSL=true` then `SAMLETCHAT_SSL_CERT` and `SAMLETCHAT_SSL_KEY` must be set to the path to a valid SSL Certificate and Key pair.
 
+### 🎨 Theming and Styling
+
+Samlet-chat now supports flexible theming to match your application's design! You can:
+
+- **Choose a color mode**: Light, dark, or auto (follows system preference)
+- **Use theme presets**: Blue, green, purple, red, orange, cyan, or the default gold theme
+- **Inherit from host**: Automatically adopt your application's color scheme
+- **Custom CSS**: Full control with custom CSS overrides
+
+Quick examples:
+
+```html
+<!-- Dark mode -->
+<script defer src="https://your-server.com/js/samlet-chat.js" data-mode="dark"></script>
+
+<!-- Blue theme preset -->
+<script defer src="https://your-server.com/js/samlet-chat.js" data-theme="blue"></script>
+
+<!-- Auto dark mode (follows system preference) -->
+<script defer src="https://your-server.com/js/samlet-chat.js" data-mode="auto"></script>
+
+<!-- Inherit colors from your application -->
+<script defer src="https://your-server.com/js/samlet-chat.js" data-theme="inherit"></script>
+```
+
+📖 **[Full Theming Guide](./THEMING.md)** - Complete documentation on theming options, CSS custom properties, and advanced customization.
+
 ### More options to configure samlet-chat's frontend
 
 You can add the following to samlet-chat's script tag:
 
+- `data-theme="preset"` - Choose a theme preset: `blue`, `green`, `purple`, `red`, `orange`, `cyan`, `dark`, or `inherit` to match your app's colors. See [Theming Guide](./THEMING.md) for details.
+- `data-mode="light|dark|auto"` - Set the color scheme mode. `auto` follows the user's system preference.
 - `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses samlet-chat's default theme.
 - `data-auto-init="false"` - samlet-chat automatically initialises itself when the page is loaded. If you prefer to load samlet-chat dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load samlet-chat. By default, this is true.
 - `data-id-root="notsamlet-chat"` - By default, samlet-chat looks for a `<div>` with `id="samlet-chat"`. If you want to load samlet-chat in a different element, you can set this attribute to the ID of that element.
@@ -241,10 +270,12 @@ The `window.chat.reInit` function can be called with the following updated optio
 
 ```js
 {
-    pageId: "string", // eg: "path/to/page"
-    idRoot: "string", // eg: "new-element-id"
-    noFonts: "string", // Boolean string, "true" or "false"
-    hideDeleted: "string", // Boolean string, "true" or "false"
-    cssOverride: "string" // or null to reset to undefined
+    pageId: "string",        // eg: "path/to/page"
+    idRoot: "string",        // eg: "new-element-id"
+    noFonts: "string",       // Boolean string, "true" or "false"
+    hideDeleted: "string",   // Boolean string, "true" or "false"
+    cssOverride: "string",   // or null to reset to undefined
+    theme: "string",         // Theme preset: "blue", "green", "purple", "red", "orange", "cyan", "dark", "inherit"
+    mode: "string"           // Color mode: "light", "dark", or "auto"
 }
 ```

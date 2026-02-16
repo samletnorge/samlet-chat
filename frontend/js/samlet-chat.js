@@ -76,6 +76,8 @@
   var noFonts;
   var hideDeleted;
   var autoInit;
+  var theme;  // Theme preset (e.g., 'blue', 'green', 'purple', 'dark', 'inherit')
+  var mode;   // Mode: 'light' or 'dark'
   var noWs = false, noLive = false;
   var isAuthenticated = false;
   var firstFetch = true;
@@ -2355,6 +2357,10 @@
         }
 
         cssOverride = attrGet(scripts[i], "data-css-override");
+        
+        // Theme configuration
+        theme = attrGet(scripts[i], "data-theme");
+        mode = attrGet(scripts[i], "data-mode");
 
         autoInit = attrGet(scripts[i], "data-auto-init");
         noWs = attrGet(scripts[i], "data-no-websockets");
@@ -2405,6 +2411,54 @@
   }
 
 
+  function applyThemeAndMode() {
+    // Apply theme if specified
+    if (theme !== undefined && theme !== null && theme !== "") {
+      attrSet(root, "data-theme", theme);
+    }
+    
+    // Apply mode if specified (light/dark)
+    // Mode can override theme for dark mode
+    if (mode !== undefined && mode !== null && mode !== "") {
+      if (mode === "dark") {
+        classAdd(root, "dark-mode");
+      } else if (mode === "light") {
+        classRemove(root, "dark-mode");
+        // Remove dark theme if it was set
+        var currentTheme = attrGet(root, "data-theme");
+        if (currentTheme === "dark") {
+          attrSet(root, "data-theme", "");
+        }
+      }
+    }
+    
+    // Auto-detect host's preferred color scheme if theme is 'inherit' or 'auto'
+    if (theme === "auto" || (theme === undefined && mode === "auto")) {
+      try {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          classAdd(root, "dark-mode");
+        }
+        
+        // Listen for changes in color scheme preference
+        if (window.matchMedia) {
+          var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          if (darkModeQuery.addEventListener) {
+            darkModeQuery.addEventListener('change', function(e) {
+              if (e.matches) {
+                classAdd(root, "dark-mode");
+              } else {
+                classRemove(root, "dark-mode");
+              }
+            });
+          }
+        }
+      } catch (e) {
+        // Ignore errors if matchMedia is not supported
+      }
+    }
+  }
+
+
   global.main = function(callback) {
     sortPolicyNames = {
       "score-desc": i18n("Upvotes"),
@@ -2426,6 +2480,9 @@
     if (noFonts !== "true") {
       classAdd(root, "root-font");
     }
+    
+    // Apply theme and mode
+    applyThemeAndMode();
 
     loginBoxCreate();
 
@@ -2459,6 +2516,8 @@
   // noFonts: boolean string, eg: "true" or "false"
   // hideDeleted: boolean string, eg: "true" or "false"
   // cssOverride: string or null (to reset to undefined)
+  // theme: string - theme preset (e.g., 'blue', 'green', 'dark', 'inherit')
+  // mode: string - 'light' or 'dark'
   global.reInit = function(options) {
     pageId = options.pageId || pageId;
     ID_ROOT = options.idRoot || ID_ROOT;
@@ -2466,6 +2525,10 @@
     noFonts = options.noFonts || noFonts;
     hideDeleted = options.hideDeleted || hideDeleted;
     cssOverride = options.cssOverride || cssOverride;
+    
+    // Theme and mode options
+    theme = options.theme || theme;
+    mode = options.mode || mode;
 
     // Allow resetting to undefined of original data-css-override value by providing null
     if (options.cssOverride === null) {
