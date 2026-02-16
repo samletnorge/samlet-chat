@@ -2536,7 +2536,9 @@
         pageId = parent.location.pathname;
       } catch (e) {
         // Cross-origin access may throw an error, fallback to current location
-        pageId = window.location.pathname;
+        if (typeof window !== "undefined" && window.location) {
+          pageId = window.location.pathname;
+        }
       }
     }
     
