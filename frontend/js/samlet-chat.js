@@ -66,12 +66,12 @@
   var ID_FOOTER = "samlet-chat-footer";
 
   var initted = false;
-  var initialTitle = window.document.title;
+  var initialTitle = null;
 
   var origin = "[[[.Origin]]]";
   var cdn = "[[[.CdnPrefix]]]";
   var root = null;
-  var pageId = parent.location.pathname;
+  var pageId = null;
   var cssOverride;
   var noFonts;
   var hideDeleted;
@@ -2521,6 +2521,23 @@
   function init() {
     if (initted) {
       return;
+    }
+    
+    // Initialize window-dependent variables safely
+    if (typeof window !== "undefined" && window.document) {
+      if (initialTitle === null) {
+        initialTitle = window.document.title;
+      }
+    }
+    
+    // Initialize pageId from parent location if not already set
+    if (pageId === null && typeof parent !== "undefined" && parent.location) {
+      try {
+        pageId = parent.location.pathname;
+      } catch (e) {
+        // Cross-origin access may throw an error, fallback to current location
+        pageId = window.location.pathname;
+      }
     }
     
     dataTagsLoad();
