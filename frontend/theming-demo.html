@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samlet-Chat Theming Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .demo-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+        
+        .demo-section h2 {
+            color: #374151;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .demo-section p {
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        button:hover {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+        }
+        
+        button.active {
+            background: #ffd700;
+            border-color: #ffd700;
+            color: #1f2937;
+        }
+        
+        .code-block {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        
+        .chat-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        /* Example host application CSS variables for inherit mode */
+        .host-inherit-example {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --background: #ffffff;
+            --background-secondary: #f9fafb;
+            --border: #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Samlet-Chat Theming Demo</h1>
+        <p class="subtitle">Interactive demonstration of theming capabilities</p>
+        
+        <div class="demo-section">
+            <h2>Theme Presets</h2>
+            <p>Click a button to change the chat theme:</p>
+            <div class="controls">
+                <button onclick="changeTheme('default')">Default (Gold)</button>
+                <button onclick="changeTheme('blue')">Blue</button>
+                <button onclick="changeTheme('green')">Green</button>
+                <button onclick="changeTheme('purple')">Purple</button>
+                <button onclick="changeTheme('red')">Red</button>
+                <button onclick="changeTheme('orange')">Orange</button>
+                <button onclick="changeTheme('cyan')">Cyan</button>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Color Mode</h2>
+            <p>Switch between light and dark modes:</p>
+            <div class="controls">
+                <button onclick="changeMode('light')">Light Mode</button>
+                <button onclick="changeMode('dark')">Dark Mode</button>
+                <button onclick="changeMode('auto')">Auto (System Preference)</button>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Host Inheritance</h2>
+            <p>The chat can inherit colors from your application's CSS variables:</p>
+            <div class="controls">
+                <button onclick="changeTheme('inherit')">Enable Inheritance</button>
+            </div>
+            <div class="code-block">
+/* Example: Host application defines these CSS variables */
+:root {
+  --primary: #3b82f6;
+  --text-primary: #1f2937;
+  --background: #ffffff;
+  --border: #e5e7eb;
+}
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Current Configuration</h2>
+            <div id="current-config" class="code-block"></div>
+        </div>
+        
+        <div class="chat-container" id="chat-demo">
+            <h3 style="margin-bottom: 15px; color: #374151;">Live Chat Preview</h3>
+            <div id="samlet-chat"></div>
+        </div>
+    </div>
+    
+    <script>
+        let currentTheme = 'default';
+        let currentMode = 'light';
+        
+        function updateConfig() {
+            const config = {
+                theme: currentTheme === 'default' ? 'none (default gold)' : currentTheme,
+                mode: currentMode
+            };
+            
+            document.getElementById('current-config').textContent = 
+                `data-theme="${currentTheme === 'default' ? '' : currentTheme}"\ndata-mode="${currentMode}"`;
+            
+            // Update active button states
+            document.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+        }
+        
+        function changeTheme(theme) {
+            currentTheme = theme;
+            
+            // Since we can't easily reload the script, we'll simulate by updating data attributes
+            // In a real implementation, you would use window.chat.reInit()
+            const chatContainer = document.getElementById('chat-demo');
+            
+            if (theme === 'default') {
+                chatContainer.removeAttribute('data-theme');
+            } else if (theme === 'inherit') {
+                chatContainer.classList.add('host-inherit-example');
+                chatContainer.setAttribute('data-theme', 'inherit');
+            } else {
+                chatContainer.classList.remove('host-inherit-example');
+                chatContainer.setAttribute('data-theme', theme);
+            }
+            
+            updateConfig();
+            event.target.classList.add('active');
+            
+            // Show notification
+            showNotification(`Theme changed to: ${theme}`);
+        }
+        
+        function changeMode(mode) {
+            currentMode = mode;
+            
+            const chatContainer = document.getElementById('chat-demo');
+            chatContainer.setAttribute('data-mode', mode);
+            
+            // Apply mode to the chat container for demo purposes
+            if (mode === 'dark') {
+                chatContainer.style.background = '#1f2937';
+                chatContainer.style.color = '#f9fafb';
+            } else if (mode === 'light') {
+                chatContainer.style.background = '#ffffff';
+                chatContainer.style.color = '#1f2937';
+            }
+            
+            updateConfig();
+            event.target.classList.add('active');
+            
+            // Show notification
+            showNotification(`Mode changed to: ${mode}`);
+        }
+        
+        function showNotification(message) {
+            // Simple notification (you could enhance this)
+            console.log(message);
+        }
+        
+        // Initialize
+        updateConfig();
+        
+        // Note: In a real implementation, you would initialize the chat widget here
+        // For this demo, we're just showing the theming controls
+        document.getElementById('samlet-chat').innerHTML = `
+            <div style="padding: 20px; text-align: center; color: #6b7280;">
+                <p style="margin-bottom: 10px;">📝 Chat widget would appear here</p>
+                <p style="font-size: 14px;">To see the actual widget, integrate with a running samlet-chat server</p>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-radius: 6px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                    <strong>Integration Code:</strong>
+                    <pre style="margin-top: 10px; text-align: left; font-size: 12px; overflow-x: auto;">
+&lt;script defer 
+  src="https://your-server.com/js/samlet-chat.js"
+  data-theme="${currentTheme === 'default' ? '' : currentTheme}"
+  data-mode="${currentMode}"&gt;
+&lt;/script&gt;
+&lt;div id="samlet-chat"&gt;&lt;/div&gt;</pre>
+                </div>
+            </div>
+        `;
+    </script>
+</body>
+</html>

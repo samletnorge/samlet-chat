@@ -2435,15 +2435,15 @@
     // Auto-detect host's preferred color scheme if theme is 'inherit' or 'auto'
     if (theme === "auto" || (theme === undefined && mode === "auto")) {
       try {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
           classAdd(root, "dark-mode");
         }
         
         // Listen for changes in color scheme preference
         if (window.matchMedia) {
-          var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          var darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
           if (darkModeQuery.addEventListener) {
-            darkModeQuery.addEventListener('change', function(e) {
+            darkModeQuery.addEventListener("change", function(e) {
               if (e.matches) {
                 classAdd(root, "dark-mode");
               } else {
