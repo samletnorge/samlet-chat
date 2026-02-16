@@ -2414,26 +2414,24 @@
   function applyThemeAndMode() {
     // Apply theme if specified
     if (theme !== undefined && theme !== null && theme !== "") {
+      // Note: data-theme="dark" is handled via CSS selector
+      // while data-mode="dark" is handled via .dark-mode class
+      // Both achieve dark mode styling but via different mechanisms
       attrSet(root, "data-theme", theme);
     }
     
     // Apply mode if specified (light/dark)
-    // Mode can override theme for dark mode
+    // Mode takes precedence over theme for dark mode
     if (mode !== undefined && mode !== null && mode !== "") {
       if (mode === "dark") {
         classAdd(root, "dark-mode");
       } else if (mode === "light") {
         classRemove(root, "dark-mode");
-        // Remove dark theme if it was set
-        var currentTheme = attrGet(root, "data-theme");
-        if (currentTheme === "dark") {
-          attrSet(root, "data-theme", "");
-        }
       }
     }
     
-    // Auto-detect host's preferred color scheme if theme is 'inherit' or 'auto'
-    if (theme === "auto" || (theme === undefined && mode === "auto")) {
+    // Auto-detect host's preferred color scheme if mode is 'auto'
+    if (mode === "auto") {
       try {
         if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
           classAdd(root, "dark-mode");

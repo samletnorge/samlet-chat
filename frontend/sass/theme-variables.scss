@@ -127,7 +127,7 @@
 // ====================================
 // DARK MODE
 // ====================================
-.samlet-chat-root[data-theme="dark"],
+// Applied via .dark-mode class (from data-mode="dark" or auto-detection)
 .samlet-chat-root.dark-mode {
   // NEUTRAL COLORS (inverted for dark mode)
   --samlet-neutral-50: #111827;

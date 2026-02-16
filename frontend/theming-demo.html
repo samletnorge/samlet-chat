@@ -128,13 +128,13 @@
             <h2>Theme Presets</h2>
             <p>Click a button to change the chat theme:</p>
             <div class="controls">
-                <button onclick="changeTheme('default')">Default (Gold)</button>
-                <button onclick="changeTheme('blue')">Blue</button>
-                <button onclick="changeTheme('green')">Green</button>
-                <button onclick="changeTheme('purple')">Purple</button>
-                <button onclick="changeTheme('red')">Red</button>
-                <button onclick="changeTheme('orange')">Orange</button>
-                <button onclick="changeTheme('cyan')">Cyan</button>
+                <button onclick="changeTheme('default', event)">Default (Gold)</button>
+                <button onclick="changeTheme('blue', event)">Blue</button>
+                <button onclick="changeTheme('green', event)">Green</button>
+                <button onclick="changeTheme('purple', event)">Purple</button>
+                <button onclick="changeTheme('red', event)">Red</button>
+                <button onclick="changeTheme('orange', event)">Orange</button>
+                <button onclick="changeTheme('cyan', event)">Cyan</button>
             </div>
         </div>
         
@@ -142,9 +142,9 @@
             <h2>Color Mode</h2>
             <p>Switch between light and dark modes:</p>
             <div class="controls">
-                <button onclick="changeMode('light')">Light Mode</button>
-                <button onclick="changeMode('dark')">Dark Mode</button>
-                <button onclick="changeMode('auto')">Auto (System Preference)</button>
+                <button onclick="changeMode('light', event)">Light Mode</button>
+                <button onclick="changeMode('dark', event)">Dark Mode</button>
+                <button onclick="changeMode('auto', event)">Auto (System Preference)</button>
             </div>
         </div>
         
@@ -152,7 +152,7 @@
             <h2>Host Inheritance</h2>
             <p>The chat can inherit colors from your application's CSS variables:</p>
             <div class="controls">
-                <button onclick="changeTheme('inherit')">Enable Inheritance</button>
+                <button onclick="changeTheme('inherit', event)">Enable Inheritance</button>
             </div>
             <div class="code-block">
 /* Example: Host application defines these CSS variables */
@@ -195,7 +195,7 @@
             });
         }
         
-        function changeTheme(theme) {
+        function changeTheme(theme, event) {
             currentTheme = theme;
             
             // Since we can't easily reload the script, we'll simulate by updating data attributes
@@ -213,13 +213,15 @@
             }
             
             updateConfig();
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             // Show notification
             showNotification(`Theme changed to: ${theme}`);
         }
         
-        function changeMode(mode) {
+        function changeMode(mode, event) {
             currentMode = mode;
             
             const chatContainer = document.getElementById('chat-demo');
@@ -235,7 +237,9 @@
             }
             
             updateConfig();
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             // Show notification
             showNotification(`Mode changed to: ${mode}`);

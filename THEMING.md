@@ -63,7 +63,8 @@ Available presets:
 - `red` - Red primary color
 - `orange` - Orange primary color
 - `cyan` - Cyan primary color
-- `dark` - Dark theme (equivalent to `data-mode="dark"`)
+
+**Note:** For dark mode, use `data-mode="dark"` instead of `data-theme="dark"`. The `data-theme` attribute is for color scheme presets, while `data-mode` controls the light/dark appearance.
 
 ### Inherit from Host Application
 
@@ -100,7 +101,7 @@ Example host application CSS:
 
 ## Combining Options
 
-You can combine mode and theme:
+You can combine mode and theme for different effects:
 
 ```html
 <!-- Blue theme with dark mode -->
@@ -111,6 +112,11 @@ You can combine mode and theme:
 </script>
 <div id="samlet-chat"></div>
 ```
+
+**Understanding the difference:**
+- `data-theme` - Sets the color palette (primary color, accents)
+- `data-mode` - Sets light or dark appearance (affects backgrounds, text colors)
+- You can use them together: e.g., blue theme in dark mode, green theme in light mode, etc.
 
 ## Advanced Customization
 
@@ -200,8 +206,8 @@ window.chat.reInit({
 
 All available data attributes for the script tag:
 
-- `data-theme` - Theme preset: `blue`, `green`, `purple`, `red`, `orange`, `cyan`, `dark`, `inherit`, or `auto`
-- `data-mode` - Color scheme mode: `light`, `dark`, or `auto`
+- `data-theme` - Color palette preset: `blue`, `green`, `purple`, `red`, `orange`, `cyan`, or `inherit`
+- `data-mode` - Light/dark appearance: `light`, `dark`, or `auto`
 - `data-css-override` - URL to custom CSS file
 - `data-page-id` - Unique identifier for the page/thread
 - `data-id-root` - Root element ID (default: `samlet-chat`)

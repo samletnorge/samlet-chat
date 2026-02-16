@@ -203,8 +203,8 @@ Quick examples:
 
 You can add the following to samlet-chat's script tag:
 
-- `data-theme="preset"` - Choose a theme preset: `blue`, `green`, `purple`, `red`, `orange`, `cyan`, `dark`, or `inherit` to match your app's colors. See [Theming Guide](./THEMING.md) for details.
-- `data-mode="light|dark|auto"` - Set the color scheme mode. `auto` follows the user's system preference.
+- `data-theme="preset"` - Choose a color palette preset: `blue`, `green`, `purple`, `red`, `orange`, `cyan`, or `inherit` to match your app's colors. See [Theming Guide](./THEMING.md) for details.
+- `data-mode="light|dark|auto"` - Set the appearance mode. Use `dark` for dark mode, `light` for light mode, or `auto` to follow the user's system preference.
 - `data-css-override="http://server/styles.css"` - A URL to a CSS file with overriding styles. Defaults to no override and uses samlet-chat's default theme.
 - `data-auto-init="false"` - samlet-chat automatically initialises itself when the page is loaded. If you prefer to load samlet-chat dynamically (for example, after the user clicks a button), you can disable this. You will be required to call `window.chat.main()` when you want to load samlet-chat. By default, this is true.
 - `data-id-root="notsamlet-chat"` - By default, samlet-chat looks for a `<div>` with `id="samlet-chat"`. If you want to load samlet-chat in a different element, you can set this attribute to the ID of that element.
@@ -275,7 +275,7 @@ The `window.chat.reInit` function can be called with the following updated optio
     noFonts: "string",       // Boolean string, "true" or "false"
     hideDeleted: "string",   // Boolean string, "true" or "false"
     cssOverride: "string",   // or null to reset to undefined
-    theme: "string",         // Theme preset: "blue", "green", "purple", "red", "orange", "cyan", "dark", "inherit"
-    mode: "string"           // Color mode: "light", "dark", or "auto"
+    theme: "string",         // Color palette preset: "blue", "green", "purple", "red", "orange", "cyan", "inherit"
+    mode: "string"           // Appearance mode: "light", "dark", or "auto"
 }
 ```
