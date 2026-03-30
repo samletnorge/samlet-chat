@@ -8,6 +8,11 @@ run_devel.sh
 
 vendor
 
+# Node.js dependencies and lock files
+frontend/node_modules/
+frontend/package-lock.json
+frontend/yarn.lock
+
 
 # Created by https://www.gitignore.io/api/vim,osx
 # Edit at https://www.gitignore.io/?templates=vim,osx
