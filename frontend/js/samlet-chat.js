@@ -698,6 +698,7 @@
     classAdd(submitButton, "submit-button");
     classAdd(markdownButton, "markdown-button");
     classAdd(textareaSuperContainer, "button-margin");
+    classAdd(textareaSuperContainer, "textarea-root");
     classAdd(guestName, "guest-details");
     classAdd(guestNameContainer, "guest-details-container");
     classAdd(clearBr, "clear");
