@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
     networks:
-      - db_network
+      - samlet_chat_db_network
       - dokploy-network
   db:
     image: postgres:12
@@ -19,13 +19,13 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     networks:
-      - db_network
+      - samlet_chat_db_network
       - dokploy-network
     volumes:
       - postgres_data_volume:/var/lib/postgresql/data
 
 networks:
-  db_network:
+  samlet_chat_db_network:
   dokploy-network:
     external: true
 
